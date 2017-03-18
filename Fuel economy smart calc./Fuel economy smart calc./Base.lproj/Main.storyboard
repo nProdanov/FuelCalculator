@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="DQC-zy-ig0">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Fuel Calculator-->
+        <scene sceneID="bVv-4g-Ydc">
+            <objects>
+                <viewController id="QTX-4W-bTu" customClass="BaseFCViewController" customModule="Fuel_economy_smart_calc_" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bYc-Os-Ap7"/>
+                        <viewControllerLayoutGuide type="bottom" id="2IO-Dj-RmV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="AKL-m3-cF3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="qCO-3l-LDX">
+                                <rect key="frame" x="16" y="278" width="343" height="31.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="4ur-ei-mpg">
+                                        <rect key="frame" x="0.0" y="0.0" width="107.5" height="31.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                        <color key="textColor" red="0.80076734549999995" green="0.79473448459999996" blue="0.80403983160000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" clearButtonMode="unlessEditing" translatesAutoresizingMaskIntoConstraints="NO" id="lrd-va-3JE">
+                                        <rect key="frame" x="117.5" y="0.0" width="108" height="31.5"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad" keyboardAppearance="alert"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="per" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mg6-07-KBV">
+                                        <rect key="frame" x="235.5" y="0.0" width="107.5" height="31.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.80076734549999995" green="0.79473448459999996" blue="0.80403983160000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Rc6-Vx-Wjd">
+                                <rect key="frame" x="231.5" y="242" width="127.5" height="29"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <segments>
+                                    <segment title="LV"/>
+                                    <segment title="EUR"/>
+                                    <segment title="USD"/>
+                                </segments>
+                                <color key="tintColor" red="0.80169282210000004" green="0.86029914659999995" blue="0.9642163212" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </segmentedControl>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Ek8-Hr-qf6">
+                                <rect key="frame" x="16" y="415.5" width="343" height="36"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fuel:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e6U-K5-mQp">
+                                        <rect key="frame" x="0.0" y="0.0" width="107.5" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <color key="textColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="-" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1nB-Qi-w8m">
+                                        <rect key="frame" x="117.5" y="0.0" width="108" height="36"/>
+                                        <color key="textColor" red="0.89663617230000003" green="0.24281929529999999" blue="0.2476620849" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="3Fw-an-ljL">
+                                        <rect key="frame" x="235.5" y="0.0" width="107.5" height="37"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <segments>
+                                            <segment title="l/100km"/>
+                                            <segment title="MPG"/>
+                                        </segments>
+                                        <color key="tintColor" red="0.80169282210000004" green="0.86029914659999995" blue="0.9642163212" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </segmentedControl>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="wnt-kD-nvb">
+                                <rect key="frame" x="16" y="527.5" width="343" height="36"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cost:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KeQ-rf-jr0">
+                                        <rect key="frame" x="0.0" y="0.0" width="107.5" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <color key="textColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="-" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2N0-JY-lPF">
+                                        <rect key="frame" x="117.5" y="0.0" width="108" height="36"/>
+                                        <color key="textColor" red="0.89663617230000003" green="0.24281929529999999" blue="0.2476620849" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad" keyboardAppearance="alert"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="per" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sUr-Yq-qZo">
+                                        <rect key="frame" x="235.5" y="0.0" width="107.5" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.80076734549999995" green="0.79473448459999996" blue="0.80403983160000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="cc6-gP-o3r">
+                                <rect key="frame" x="238.5" y="317.5" width="120.5" height="29"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <segments>
+                                    <segment title="LTR"/>
+                                    <segment title="GAL"/>
+                                </segments>
+                                <color key="tintColor" red="0.80169282210000004" green="0.86029914659999995" blue="0.9642163212" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </segmentedControl>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="WN8-JE-7q0">
+                                <rect key="frame" x="16" y="97" width="343" height="31.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fuel:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="bpO-QM-5He">
+                                        <rect key="frame" x="0.0" y="0.0" width="107.5" height="31.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                        <color key="textColor" red="0.80076734549999995" green="0.79473448459999996" blue="0.80403983160000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" clearButtonMode="unlessEditing" translatesAutoresizingMaskIntoConstraints="NO" id="s3G-AT-dIk">
+                                        <rect key="frame" x="117.5" y="0.0" width="108" height="31.5"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad" keyboardAppearance="alert"/>
+                                    </textField>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="O1S-Sw-1w8">
+                                        <rect key="frame" x="235.5" y="0.0" width="107.5" height="32.5"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <segments>
+                                            <segment title="LTR"/>
+                                            <segment title="GAL"/>
+                                        </segments>
+                                        <color key="tintColor" red="0.80169282210791482" green="0.86029914657399398" blue="0.9642163212435233" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="toggleFuelInputUnitControl:" destination="QTX-4W-bTu" eventType="valueChanged" id="ddj-C4-psI"/>
+                                        </connections>
+                                    </segmentedControl>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="742-By-DsX">
+                                <rect key="frame" x="16" y="167.5" width="343" height="31.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distance:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="n3D-hY-0FF">
+                                        <rect key="frame" x="0.0" y="0.0" width="107.5" height="31.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                        <color key="textColor" red="0.80076734549999995" green="0.79473448459999996" blue="0.80403983160000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" clearButtonMode="unlessEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ZQ2-pi-vZe">
+                                        <rect key="frame" x="117.5" y="0.0" width="108" height="31.5"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad" keyboardAppearance="alert"/>
+                                    </textField>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="cAO-UL-hes">
+                                        <rect key="frame" x="235.5" y="0.0" width="107.5" height="32.5"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <segments>
+                                            <segment title="KM"/>
+                                            <segment title="MIL"/>
+                                        </segments>
+                                        <color key="tintColor" red="0.80169282210000004" green="0.86029914659999995" blue="0.9642163212" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </segmentedControl>
+                                </subviews>
+                            </stackView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="fdk-KD-4BQ">
+                                <rect key="frame" x="231.5" y="491.5" width="127.5" height="29"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <segments>
+                                    <segment title="LV"/>
+                                    <segment title="EUR"/>
+                                    <segment title="USD"/>
+                                </segments>
+                                <color key="tintColor" red="0.80169282210000004" green="0.86029914659999995" blue="0.9642163212" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </segmentedControl>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="pZs-lm-F4C">
+                                <rect key="frame" x="151.5" y="571.5" width="207.5" height="28"/>
+                                <subviews>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="QA5-bs-dup">
+                                        <rect key="frame" x="0.0" y="0.0" width="98.5" height="29"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <segments>
+                                            <segment title="100"/>
+                                            <segment title="10"/>
+                                            <segment title="1"/>
+                                        </segments>
+                                        <color key="tintColor" red="0.80169282210000004" green="0.86029914659999995" blue="0.9642163212" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </segmentedControl>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Xbb-Rj-Zyz">
+                                        <rect key="frame" x="108.5" y="0.0" width="99" height="29"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <segments>
+                                            <segment title="KM"/>
+                                            <segment title="MIL"/>
+                                        </segments>
+                                        <color key="tintColor" red="0.80169282210000004" green="0.86029914659999995" blue="0.9642163212" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </segmentedControl>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="POq-Nu-Sbi">
+                                <rect key="frame" x="16" y="363" width="343" height="45"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AkL-Xt-dbI">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="45"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="27"/>
+                                        <state key="normal" title="Calculate">
+                                            <color key="titleColor" red="0.95134314470000003" green="1" blue="0.67786778339999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="makeCalculation:" destination="QTX-4W-bTu" eventType="touchUpInside" id="qHB-Tp-DtJ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.16108002235772201" green="0.27393704172414368" blue="0.40748461787564771" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="Rc6-Vx-Wjd" secondAttribute="trailing" id="0d6-oO-T4Y"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="742-By-DsX" secondAttribute="trailing" id="0g1-AE-jPx"/>
+                            <constraint firstItem="WN8-JE-7q0" firstAttribute="top" secondItem="bYc-Os-Ap7" secondAttribute="bottom" constant="33" id="16v-im-gbi"/>
+                            <constraint firstItem="fdk-KD-4BQ" firstAttribute="top" secondItem="3Fw-an-ljL" secondAttribute="bottom" constant="40" id="3bo-Hh-2eP"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="qCO-3l-LDX" secondAttribute="trailing" id="52o-Sf-cwf"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="742-By-DsX" secondAttribute="leading" id="6RI-Zk-JXE"/>
+                            <constraint firstItem="cc6-gP-o3r" firstAttribute="top" secondItem="qCO-3l-LDX" secondAttribute="bottom" constant="8" id="8CB-6c-tGl"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Ek8-Hr-qf6" secondAttribute="trailing" id="Bpq-lY-7Tb"/>
+                            <constraint firstItem="qCO-3l-LDX" firstAttribute="top" secondItem="Rc6-Vx-Wjd" secondAttribute="bottom" constant="8" id="I4f-o9-TGz"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="pZs-lm-F4C" secondAttribute="trailing" id="IXW-H5-Cll"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="WN8-JE-7q0" secondAttribute="trailing" id="K0B-8K-rRH"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="qCO-3l-LDX" secondAttribute="leading" id="LWZ-SK-chR"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="cc6-gP-o3r" secondAttribute="trailing" id="MAR-59-cAQ"/>
+                            <constraint firstItem="ZQ2-pi-vZe" firstAttribute="top" secondItem="WN8-JE-7q0" secondAttribute="bottom" constant="39" id="Mw6-26-8GQ"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="wnt-kD-nvb" secondAttribute="leading" id="PPf-1y-y7E"/>
+                            <constraint firstItem="fdk-KD-4BQ" firstAttribute="leading" secondItem="2N0-JY-lPF" secondAttribute="trailing" constant="-10.5" id="QkO-1w-2PY"/>
+                            <constraint firstItem="Rc6-Vx-Wjd" firstAttribute="leading" secondItem="lrd-va-3JE" secondAttribute="trailing" constant="-10.5" id="Roi-nW-Ebu"/>
+                            <constraint firstItem="AkL-Xt-dbI" firstAttribute="top" secondItem="qCO-3l-LDX" secondAttribute="bottom" constant="53.5" id="apG-FP-faE"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="Ek8-Hr-qf6" secondAttribute="leading" id="dnZ-dC-5aC"/>
+                            <constraint firstItem="pZs-lm-F4C" firstAttribute="leading" secondItem="2N0-JY-lPF" secondAttribute="trailing" constant="-90" id="eOb-Ka-MIe"/>
+                            <constraint firstItem="Rc6-Vx-Wjd" firstAttribute="top" secondItem="742-By-DsX" secondAttribute="bottom" constant="43" id="fSa-SY-KlD"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="fdk-KD-4BQ" secondAttribute="trailing" id="j4O-dQ-IwW"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="wnt-kD-nvb" secondAttribute="trailing" id="l1f-eB-Rb1"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="POq-Nu-Sbi" secondAttribute="leading" id="l2Q-l2-bYg"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="POq-Nu-Sbi" secondAttribute="trailing" id="nvH-P5-LdO"/>
+                            <constraint firstItem="pZs-lm-F4C" firstAttribute="top" secondItem="wnt-kD-nvb" secondAttribute="bottom" constant="8" id="nws-cO-LSD"/>
+                            <constraint firstItem="cc6-gP-o3r" firstAttribute="leading" secondItem="lrd-va-3JE" secondAttribute="trailing" constant="-3.5" id="pzN-BE-fVk"/>
+                            <constraint firstItem="wnt-kD-nvb" firstAttribute="top" secondItem="fdk-KD-4BQ" secondAttribute="bottom" constant="8" id="tL9-Vi-2eY"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="WN8-JE-7q0" secondAttribute="leading" id="vVy-8J-oKK"/>
+                            <constraint firstItem="Ek8-Hr-qf6" firstAttribute="top" secondItem="cc6-gP-o3r" secondAttribute="bottom" constant="70" id="zAS-9b-Hwr"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Fuel Calculator" id="Kbh-vo-Kg3"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="667"/>
+                    <connections>
+                        <outlet property="costOutputCurrencyControl" destination="fdk-KD-4BQ" id="m95-qj-TfG"/>
+                        <outlet property="costOutputDistanceUnitControl" destination="Xbb-Rj-Zyz" id="yJm-zT-JKK"/>
+                        <outlet property="costOutputTextField" destination="2N0-JY-lPF" id="Esk-XA-VAR"/>
+                        <outlet property="costOutputUnitQuantityControl" destination="QA5-bs-dup" id="xqI-wJ-TTy"/>
+                        <outlet property="distanceInputTextField" destination="ZQ2-pi-vZe" id="Tvr-uX-9nT"/>
+                        <outlet property="distanceInputUnitControl" destination="cAO-UL-hes" id="Wgs-PD-APC"/>
+                        <outlet property="fuelInputTextField" destination="s3G-AT-dIk" id="Gtu-Qx-oE8"/>
+                        <outlet property="fuelInputUnitControl" destination="O1S-Sw-1w8" id="Lmw-Cm-gCb"/>
+                        <outlet property="fuelOutputTextField" destination="1nB-Qi-w8m" id="r8m-H9-6sA"/>
+                        <outlet property="fuelOutputTypeControl" destination="3Fw-an-ljL" id="OEK-K6-Jjb"/>
+                        <outlet property="priceInputCurrencyControl" destination="Rc6-Vx-Wjd" id="j6e-mJ-0T6"/>
+                        <outlet property="priceInputFuelUnitControl" destination="cc6-gP-o3r" id="hd5-9e-qcY"/>
+                        <outlet property="priceInputTextField" destination="lrd-va-3JE" id="WHv-Z3-Dmn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="M7d-AD-1oC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1348" y="250.52473763118442"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="NxF-0I-JbJ">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6UG-hv-ATZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="DQC-zy-ig0" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="b4a-CK-OPj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="QTX-4W-bTu" kind="relationship" relationship="rootViewController" id="g6t-hS-Hxf"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="408.80000000000001" y="250.52473763118442"/>
+        </scene>
+    </scenes>
+</document>
