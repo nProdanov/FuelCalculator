@@ -12,6 +12,7 @@
 		78537CD71E7C38D1005BBC24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78537CD61E7C38D1005BBC24 /* Assets.xcassets */; };
 		78537CDA1E7C38D1005BBC24 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78537CD81E7C38D1005BBC24 /* LaunchScreen.storyboard */; };
 		78B4C1561E7D150700D17916 /* BaseFCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B4C1551E7D150700D17916 /* BaseFCViewController.swift */; };
+		78F7E9041E7D2E8C0081E4B6 /* BaseFuelCalculatorBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F7E9031E7D2E8C0081E4B6 /* BaseFuelCalculatorBrain.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		78537CD91E7C38D1005BBC24 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		78537CDB1E7C38D1005BBC24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		78B4C1551E7D150700D17916 /* BaseFCViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseFCViewController.swift; sourceTree = "<group>"; };
+		78F7E9031E7D2E8C0081E4B6 /* BaseFuelCalculatorBrain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseFuelCalculatorBrain.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +57,7 @@
 			isa = PBXGroup;
 			children = (
 				78B4C1551E7D150700D17916 /* BaseFCViewController.swift */,
+				78F7E9031E7D2E8C0081E4B6 /* BaseFuelCalculatorBrain.swift */,
 				78537CD31E7C38D1005BBC24 /* Main.storyboard */,
 				78537CE11E7C3905005BBC24 /* Supporting Files */,
 			);
@@ -145,6 +148,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78F7E9041E7D2E8C0081E4B6 /* BaseFuelCalculatorBrain.swift in Sources */,
 				78B4C1561E7D150700D17916 /* BaseFCViewController.swift in Sources */,
 				78537CD01E7C38D1005BBC24 /* AppDelegate.swift in Sources */,
 			);
