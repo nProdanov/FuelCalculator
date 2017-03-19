@@ -13,8 +13,7 @@ class BaseFCViewController: UIViewController {
     
     @IBOutlet weak var fuelInputTextField: UITextField!
     @IBOutlet weak var fuelInputUnitControl: UISegmentedControl!
-    @IBAction func toggleFuelInputUnitControl(_ sender: UISegmentedControl) {
-    }
+    
     
     @IBOutlet weak var distanceInputTextField: UITextField!
     @IBOutlet weak var distanceInputUnitControl: UISegmentedControl!
@@ -36,54 +35,49 @@ class BaseFCViewController: UIViewController {
     
     private var brain = BaseFuelCalculatorBrain()
     
-    @IBAction func makeCalculation(_ sender: UIButton) {
-        if  let fuel = convertInputToDouble(from: fuelInputTextField),
+    @IBAction func calculate() {
+        self.makeCalculation()
+    }
+    private func makeCalculation() {
+        if  let fuel = self.convertInputToDouble(from: fuelInputTextField),
             let fuelInputType = self.convertSelectedSegmentToString(from: fuelInputUnitControl),
-            let distance = convertInputToDouble(from: distanceInputTextField),
+            let distance = self.convertInputToDouble(from: distanceInputTextField),
             let distanceInputUnitType = self.convertSelectedSegmentToString(from: distanceInputUnitControl),
             let fuelResultType = self.convertSelectedSegmentToString(from: fuelOutputTypeControl)
-            
         {
-            if let priceQt = self.convertInputToDouble(from: priceInputTextField)
-                {
-                    let priceFuelUnit = self.convertSelectedSegmentToString(from: priceInputFuelUnitControl)!
-                    let priceCurrency = self.convertSelectedSegmentToString(from: priceInputCurrencyControl)!
-                    let costCurrency = self.convertSelectedSegmentToString(from: costOutputCurrencyControl)!
-                    let costDistanceQt = self.convertSelectedSegmentToString(from: costOutputUnitQuantityControl)!
-                    let costDistanceUnitType = self.convertSelectedSegmentToString(from: costOutputDistanceUnitControl)!
-                    
-                    brain.performCalculation(
-                        fuelQt: fuel,
-                        fuelUnit: BaseFuelCalculatorBrain.FuelUnit.fromString(fuelUnitString: fuelInputType)!,
-                        distanceQt: distance,
-                        distanceUnit: BaseFuelCalculatorBrain.DistanceUnit.fromString(distanceUnitString: distanceInputUnitType)!,
-                        fuelResultType: BaseFuelCalculatorBrain.FuelResultType.fromString(fuelResultString: fuelResultType)!,
-                        priceQt: priceQt,
-                        priceFuelUnit: BaseFuelCalculatorBrain.FuelUnit.fromString(fuelUnitString: priceFuelUnit),
-                        priceUnit: BaseFuelCalculatorBrain.Currency.fromString(currencyString: priceCurrency),
-                        costCurrency: BaseFuelCalculatorBrain.Currency.fromString(currencyString: costCurrency),
-                        costDistanceQt: Double(costDistanceQt),
-                        costDistanceUnit: BaseFuelCalculatorBrain.DistanceUnit.fromString(distanceUnitString: costDistanceUnitType))
-                    
-            }
+            let priceQt = self.convertInputToDouble(from: priceInputTextField) ?? nil
+            let priceFuelUnit = self.convertSelectedSegmentToString(from: priceInputFuelUnitControl)!
+            let priceCurrency = self.convertSelectedSegmentToString(from: priceInputCurrencyControl)!
+            let costCurrency = self.convertSelectedSegmentToString(from: costOutputCurrencyControl)!
+            let costDistanceQt = self.convertSelectedSegmentToString(from: costOutputUnitQuantityControl)!
+            let costDistanceUnitType = self.convertSelectedSegmentToString(from: costOutputDistanceUnitControl)!
             
             brain.performCalculation(
-            fuelQt: fuel,
-            fuelUnit: BaseFuelCalculatorBrain.FuelUnit.fromString(fuelUnitString: fuelInputType)!,
-            distanceQt: distance,
-            distanceUnit: BaseFuelCalculatorBrain.DistanceUnit.fromString(distanceUnitString: distanceInputUnitType)!,
-            fuelResultType: BaseFuelCalculatorBrain.FuelResultType.fromString(fuelResultString: fuelResultType)!)
-            
-            
+                fuelQt: fuel,
+                fuelUnit: BaseFuelCalculatorBrain.FuelUnit.fromString(fuelUnitString: fuelInputType)!,
+                distanceQt: distance,
+                distanceUnit: BaseFuelCalculatorBrain.DistanceUnit.fromString(distanceUnitString: distanceInputUnitType)!,
+                fuelResultType: BaseFuelCalculatorBrain.FuelResultType.fromString(fuelResultString: fuelResultType)!,
+                priceQt: priceQt,
+                priceFuelUnit: BaseFuelCalculatorBrain.FuelUnit.fromString(fuelUnitString: priceFuelUnit),
+                priceUnit: BaseFuelCalculatorBrain.Currency.fromString(currencyString: priceCurrency),
+                costCurrency: BaseFuelCalculatorBrain.Currency.fromString(currencyString: costCurrency),
+                costDistanceQt: Double(costDistanceQt),
+                costDistanceUnit: BaseFuelCalculatorBrain.DistanceUnit.fromString(distanceUnitString: costDistanceUnitType))
             
             if let result = brain.fuelResult {
                 self.setDoubleToTextField(valueForSet: result, textFieldToSet: fuelOutputTextField)
+                
+                if let costResult = brain.costResult {
+                    self.setDoubleToTextField(valueForSet: costResult, textFieldToSet: costOutputTextField)
+                }
+                else {
+                    costOutputTextField.text = "-"                }
             }
-            
-            if let costResult = brain.costResult {
-                self.setDoubleToTextField(valueForSet: costResult, textFieldToSet: costOutputTextField)
-            }
+        }else{
+            fuelOutputTextField.text = "-"
         }
+        
     }
     
     private func convertInputToDouble(from input: UITextField!) -> Double? {

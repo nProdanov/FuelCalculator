@@ -42,11 +42,12 @@ struct BaseFuelCalculatorBrain {
             let price = priceQuantity * priceType.rawValue * priceFuelType.rawValue
             
             
-            costResult = (price * (1 / costResultCurrency.rawValue) * costDistanceUnitType.rawValue) / (100 / costDistanceQuantity) * fuelResult
+            self.costResult = (price * (1 / costResultCurrency.rawValue) * costDistanceUnitType.rawValue) / (100 / costDistanceQuantity) * fuelResult
+        }
+        else{
+            self.costResult = nil
         }
     }
-    
-    
     
     enum FuelResultType: Double {
         case KM = 1.0

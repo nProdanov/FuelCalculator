@@ -212,7 +212,7 @@
                                             <color key="titleColor" red="0.95134314470000003" green="1" blue="0.67786778339999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="makeCalculation:" destination="QTX-4W-bTu" eventType="touchUpInside" id="qHB-Tp-DtJ"/>
+                                            <action selector="calculate" destination="QTX-4W-bTu" eventType="touchUpInside" id="FZv-we-mo0"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -278,7 +278,6 @@
         <!--Navigation Controller-->
         <scene sceneID="NxF-0I-JbJ">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6UG-hv-ATZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="DQC-zy-ig0" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="b4a-CK-OPj">
@@ -290,6 +289,7 @@
                         <segue destination="QTX-4W-bTu" kind="relationship" relationship="rootViewController" id="g6t-hS-Hxf"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6UG-hv-ATZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="408.80000000000001" y="250.52473763118442"/>
         </scene>
