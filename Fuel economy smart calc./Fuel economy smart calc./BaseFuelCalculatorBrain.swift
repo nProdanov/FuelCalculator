@@ -50,6 +50,12 @@ struct BaseFuelCalculatorBrain {
         let rawDistanceUnit = distanceUnits[distanceUnit]!
         let rawFuelResultType = fuelResultTypes[fuelResultUnit]!
         
+        if fuelQt == 0 || distanceQt == 0 {
+            self.fuelResult = nil
+            self.costResult = nil
+            return
+        }
+        
         let fuel = fuelQt * rawFuelUnit
         let distance = distanceQt * rawDistanceUnit
         
@@ -64,6 +70,11 @@ struct BaseFuelCalculatorBrain {
             let costDistanceQuantity = costDistanceQt,
             let costDistanceUnitType = costDistanceUnit
         {
+            if priceQuantity == 0 {
+                self.costResult = nil
+                return
+            }
+            
             let rawPriceUnit = self.currencyTypes[priceType]!
             let rawPriceFuelUnit = self.fuelUnits[priceFuelType]!
             let rawCostUnit = self.currencyTypes[costResultCurrency]!
