@@ -54,6 +54,9 @@
                                     <segment title="USD"/>
                                 </segments>
                                 <color key="tintColor" red="0.80169282210000004" green="0.86029914659999995" blue="0.9642163212" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="changeControl:" destination="QTX-4W-bTu" eventType="valueChanged" id="BTT-8V-5ZE"/>
+                                </connections>
                             </segmentedControl>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Ek8-Hr-qf6">
                                 <rect key="frame" x="16" y="415.5" width="343" height="36"/>
@@ -78,6 +81,9 @@
                                             <segment title="MPG"/>
                                         </segments>
                                         <color key="tintColor" red="0.80169282210000004" green="0.86029914659999995" blue="0.9642163212" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="changeControl:" destination="QTX-4W-bTu" eventType="valueChanged" id="0AB-y6-Z6R"/>
+                                        </connections>
                                     </segmentedControl>
                                 </subviews>
                             </stackView>
@@ -112,6 +118,9 @@
                                     <segment title="GAL"/>
                                 </segments>
                                 <color key="tintColor" red="0.80169282210000004" green="0.86029914659999995" blue="0.9642163212" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="changeControl:" destination="QTX-4W-bTu" eventType="valueChanged" id="bda-OX-hBo"/>
+                                </connections>
                             </segmentedControl>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="WN8-JE-7q0">
                                 <rect key="frame" x="16" y="97" width="343" height="31.5"/>
@@ -137,7 +146,7 @@
                                         </segments>
                                         <color key="tintColor" red="0.80169282210791482" green="0.86029914657399398" blue="0.9642163212435233" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
-                                            <action selector="toggleFuelInputUnitControl:" destination="QTX-4W-bTu" eventType="valueChanged" id="ddj-C4-psI"/>
+                                            <action selector="changeControl:" destination="QTX-4W-bTu" eventType="valueChanged" id="AMQ-Po-MfE"/>
                                         </connections>
                                     </segmentedControl>
                                 </subviews>
@@ -165,6 +174,9 @@
                                             <segment title="MIL"/>
                                         </segments>
                                         <color key="tintColor" red="0.80169282210000004" green="0.86029914659999995" blue="0.9642163212" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="changeControl:" destination="QTX-4W-bTu" eventType="valueChanged" id="Y32-iG-wIs"/>
+                                        </connections>
                                     </segmentedControl>
                                 </subviews>
                             </stackView>
@@ -177,6 +189,9 @@
                                     <segment title="USD"/>
                                 </segments>
                                 <color key="tintColor" red="0.80169282210000004" green="0.86029914659999995" blue="0.9642163212" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="changeControl:" destination="QTX-4W-bTu" eventType="valueChanged" id="uDh-NI-WdT"/>
+                                </connections>
                             </segmentedControl>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="pZs-lm-F4C">
                                 <rect key="frame" x="151.5" y="571.5" width="207.5" height="28"/>
@@ -190,6 +205,9 @@
                                             <segment title="1"/>
                                         </segments>
                                         <color key="tintColor" red="0.80169282210000004" green="0.86029914659999995" blue="0.9642163212" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="changeControl:" destination="QTX-4W-bTu" eventType="valueChanged" id="VBl-CF-3mF"/>
+                                        </connections>
                                     </segmentedControl>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Xbb-Rj-Zyz">
                                         <rect key="frame" x="108.5" y="0.0" width="99" height="29"/>
@@ -199,6 +217,9 @@
                                             <segment title="MIL"/>
                                         </segments>
                                         <color key="tintColor" red="0.80169282210000004" green="0.86029914659999995" blue="0.9642163212" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="changeControl:" destination="QTX-4W-bTu" eventType="valueChanged" id="cI0-hR-nQX"/>
+                                        </connections>
                                     </segmentedControl>
                                 </subviews>
                             </stackView>
@@ -212,7 +233,7 @@
                                             <color key="titleColor" red="0.95134314470000003" green="1" blue="0.67786778339999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="calculate" destination="QTX-4W-bTu" eventType="touchUpInside" id="FZv-we-mo0"/>
+                                            <action selector="calculate:" destination="QTX-4W-bTu" eventType="touchUpInside" id="kPg-H9-XOy"/>
                                         </connections>
                                     </button>
                                 </subviews>

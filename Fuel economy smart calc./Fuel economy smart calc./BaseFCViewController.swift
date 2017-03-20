@@ -32,12 +32,19 @@ class BaseFCViewController: UIViewController {
     @IBOutlet weak var costOutputUnitQuantityControl: UISegmentedControl!
     @IBOutlet weak var costOutputDistanceUnitControl: UISegmentedControl!
     
+    @IBAction func changeControl(_ sender: UISegmentedControl) {
+        self.makeCalculation()
+    }
+    
+    
+    
+    @IBAction func calculate(_ sender: UIButton) {
+        self.makeCalculation()
+    }
     
     private var brain = BaseFuelCalculatorBrain()
     
-    @IBAction func calculate() {
-        self.makeCalculation()
-    }
+    
     private func makeCalculation() {
         if  let fuel = self.convertInputToDouble(from: fuelInputTextField),
             let fuelInputType = self.convertSelectedSegmentToString(from: fuelInputUnitControl),
@@ -72,10 +79,12 @@ class BaseFCViewController: UIViewController {
                     self.setDoubleToTextField(valueForSet: costResult, textFieldToSet: costOutputTextField)
                 }
                 else {
-                    costOutputTextField.text = "-"                }
+                    costOutputTextField.text = "-"
+                }
             }
         }else{
             fuelOutputTextField.text = "-"
+            costOutputTextField.text = "-"
         }
         
     }
