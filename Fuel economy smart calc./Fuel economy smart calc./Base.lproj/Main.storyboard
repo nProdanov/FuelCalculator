@@ -238,8 +238,33 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bTe-24-vnW">
+                                <rect key="frame" x="16" y="570" width="64" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <inset key="contentEdgeInsets" minX="4" minY="0.0" maxX="4" maxY="0.0"/>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Clear all">
+                                            <attributes>
+                                                <color key="NSColor" red="0.16108002239999999" green="0.27393704169999999" blue="0.40748461790000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <font key="NSFont" size="15" name=".AppleSystemUIFont"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="7"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="clear:" destination="QTX-4W-bTu" eventType="touchUpInside" id="CZS-Ep-URp"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.16108002235772201" green="0.27393704172414368" blue="0.40748461787564771" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="Rc6-Vx-Wjd" secondAttribute="trailing" id="0d6-oO-T4Y"/>
                             <constraint firstAttribute="trailingMargin" secondItem="742-By-DsX" secondAttribute="trailing" id="0g1-AE-jPx"/>
@@ -272,6 +297,9 @@
                             <constraint firstAttribute="leadingMargin" secondItem="WN8-JE-7q0" secondAttribute="leading" id="vVy-8J-oKK"/>
                             <constraint firstItem="Ek8-Hr-qf6" firstAttribute="top" secondItem="cc6-gP-o3r" secondAttribute="bottom" constant="70" id="zAS-9b-Hwr"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="Djk-1l-jaE" appends="YES" id="1Md-93-q1T"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Fuel Calculator" id="Kbh-vo-Kg3"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -293,6 +321,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M7d-AD-1oC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Djk-1l-jaE"/>
             </objects>
             <point key="canvasLocation" x="1348" y="250.52473763118442"/>
         </scene>

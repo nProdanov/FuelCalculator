@@ -10,6 +10,21 @@ import UIKit
 
 class BaseFCViewController: UIViewController {
     
+    private let defaultInputValue = ""
+    private let defaultOutputValue = "-"
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        
+        view.addGestureRecognizer(tap)
+    }
+    
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
     
     @IBOutlet weak var fuelInputTextField: UITextField!
     @IBOutlet weak var fuelInputUnitControl: UISegmentedControl!
@@ -37,13 +52,26 @@ class BaseFCViewController: UIViewController {
     }
     
     @IBAction func calculate(_ sender: UIButton) {
+        self.dismissKeyboard()
         self.makeCalculation()
+    }
+    @IBAction func clear(_ sender: Any) {
+        self.dismissKeyboard()
+        
+        fuelInputTextField.text = self.defaultInputValue
+        distanceInputTextField.text = self.defaultInputValue
+        priceInputTextField.text = self.defaultInputValue
+        
+        fuelOutputTextField.text = self.defaultOutputValue
+        costOutputTextField.text = self.defaultOutputValue
     }
     
     private var brain = BaseFuelCalculatorBrain()
     
     
     private func makeCalculation() {
+        self.dismissKeyboard()
+        
         if  let fuel = self.convertInputToDouble(from: fuelInputTextField),
             let fuelInputType = self.convertSelectedSegmentToString(from: fuelInputUnitControl),
             let distance = self.convertInputToDouble(from: distanceInputTextField),
@@ -77,12 +105,12 @@ class BaseFCViewController: UIViewController {
                     self.setDoubleToTextField(valueForSet: costResult, textFieldToSet: costOutputTextField)
                 }
                 else {
-                    costOutputTextField.text = "-"
+                    costOutputTextField.text = self.defaultOutputValue
                 }
             }
         }else{
-            fuelOutputTextField.text = "-"
-            costOutputTextField.text = "-"
+            fuelOutputTextField.text = self.defaultOutputValue
+            costOutputTextField.text = self.defaultOutputValue
         }
         
     }
