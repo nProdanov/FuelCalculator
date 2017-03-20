@@ -13,93 +13,68 @@ struct BaseFuelCalculatorBrain {
     var fuelResult: Double?
     var costResult: Double?
     
-    mutating func performCalculation(fuelQt: Double,
-                                     fuelUnit: FuelUnit,
-                                     distanceQt: Double,
-                                     distanceUnit: DistanceUnit,
-                                     fuelResultType: FuelResultType,
-                                     priceQt: Double? = nil,
-                                     priceFuelUnit: FuelUnit? = nil,
-                                     priceUnit: Currency? = nil,
-                                     costCurrency: Currency? = nil,
-                                     costDistanceQt: Double? = nil,
-                                     costDistanceUnit: DistanceUnit? = nil){
-        let fuel = fuelQt * fuelUnit.rawValue
-        let distance = distanceQt * distanceUnit.rawValue
+    private let fuelResultTypes = [
+        "l/100km": 1.0,
+        "MPG":235.214583
+    ]
+    
+    private let fuelUnits = [
+        "LTR": 1.0,
+        "GAL": 3.78541178
+    ]
+    
+    private let distanceUnits = [
+        "KM": 1.0,
+        "MIL": 1.609344
+    ]
+    
+    private let currencyTypes = [
+        "LV": 1.0,
+        "EUR": 1.95797,
+        "USD": 1.8218
+        
+    ]
+    
+    mutating func performCalculation(fuelQuantity fuelQt: Double,
+                                     fuelUnit: String,
+                                     distanceQuantity distanceQt: Double,
+                                     distanceUnit: String,
+                                     fuelResultUnit: String,
+                                     priceQuantity priceQt: Double? = nil,
+                                     priceFuelUnit: String? = nil,
+                                     priceCurrencyUnit: String? = nil,
+                                     costCurrencyUnit: String? = nil,
+                                     costDistanceQuantity costDistanceQt: Double? = nil,
+                                     costDistanceUnit: String? = nil){
+        let rawFuelUnit = fuelUnits[fuelUnit]!
+        let rawDistanceUnit = distanceUnits[distanceUnit]!
+        let rawFuelResultType = fuelResultTypes[fuelResultUnit]!
+        
+        let fuel = fuelQt * rawFuelUnit
+        let distance = distanceQt * rawDistanceUnit
         
         let result = fuel / (distance / 100)
-        fuelResult = result * fuelResultType.rawValue
+        fuelResult = result * rawFuelResultType
         
         if let priceQuantity = priceQt,
-            let priceType = priceUnit,
+            let priceType = priceCurrencyUnit,
             let priceFuelType = priceFuelUnit,
             let fuelResult = self.fuelResult,
-            let costResultCurrency = costCurrency,
+            let costResultCurrency = costCurrencyUnit,
             let costDistanceQuantity = costDistanceQt,
             let costDistanceUnitType = costDistanceUnit
         {
+            let rawPriceUnit = self.currencyTypes[priceType]!
+            let rawPriceFuelUnit = self.fuelUnits[priceFuelType]!
+            let rawCostUnit = self.currencyTypes[costResultCurrency]!
+            let rawCostDistanceUnit = self.distanceUnits[costDistanceUnitType]!
             
-            let price = priceQuantity * priceType.rawValue * priceFuelType.rawValue
+            let price = priceQuantity * rawPriceUnit * rawPriceFuelUnit
             
-            
-            self.costResult = (price * (1 / costResultCurrency.rawValue) * costDistanceUnitType.rawValue) / (100 / costDistanceQuantity) * fuelResult
+            self.costResult = (price * (1 / rawCostUnit) * rawCostDistanceUnit) / (100 / costDistanceQuantity) * fuelResult
         }
         else{
             self.costResult = nil
-        }
-    }
-    
-    enum FuelResultType: Double {
-        case KM = 1.0
-        case MPG = 235.214583
-        
-        static func fromString(fuelResultString: String) -> FuelResultType? {
-            switch fuelResultString {
-            case "l/100km": return .KM
-            case "MPG": return .MPG
-            default: return nil
-            }
-        }
-    }
-    
-    enum FuelUnit: Double {
-        case LTR = 1.0
-        case GAL = 3.78541178
-        
-        public static func fromString(fuelUnitString: String) -> FuelUnit? {
-            switch fuelUnitString {
-            case "LTR": return .LTR
-            case "GAL": return .GAL
-            default: return nil
-            }
-        }
-    }
-    
-    enum DistanceUnit: Double {
-        case KM = 1.0
-        case MIL = 1.609344
-        
-        static func fromString(distanceUnitString: String) -> DistanceUnit? {
-            switch distanceUnitString {
-            case "KM": return .KM
-            case "MIL": return .MIL
-            default: return nil
-            }
-        }
-    }
-    
-    enum Currency: Double {
-        case LV = 1.0
-        case EUR = 1.95797
-        case USD = 1.8218
-        
-        static func fromString(currencyString: String) -> Currency? {
-            switch currencyString {
-            case "LV" : return .LV
-            case "EUR" : return .EUR
-            case "USD" : return .USD
-            default: return nil
-            }
         }
     }
 }

@@ -36,8 +36,6 @@ class BaseFCViewController: UIViewController {
         self.makeCalculation()
     }
     
-    
-    
     @IBAction func calculate(_ sender: UIButton) {
         self.makeCalculation()
     }
@@ -60,17 +58,17 @@ class BaseFCViewController: UIViewController {
             let costDistanceUnitType = self.convertSelectedSegmentToString(from: costOutputDistanceUnitControl)!
             
             brain.performCalculation(
-                fuelQt: fuel,
-                fuelUnit: BaseFuelCalculatorBrain.FuelUnit.fromString(fuelUnitString: fuelInputType)!,
-                distanceQt: distance,
-                distanceUnit: BaseFuelCalculatorBrain.DistanceUnit.fromString(distanceUnitString: distanceInputUnitType)!,
-                fuelResultType: BaseFuelCalculatorBrain.FuelResultType.fromString(fuelResultString: fuelResultType)!,
-                priceQt: priceQt,
-                priceFuelUnit: BaseFuelCalculatorBrain.FuelUnit.fromString(fuelUnitString: priceFuelUnit),
-                priceUnit: BaseFuelCalculatorBrain.Currency.fromString(currencyString: priceCurrency),
-                costCurrency: BaseFuelCalculatorBrain.Currency.fromString(currencyString: costCurrency),
-                costDistanceQt: Double(costDistanceQt),
-                costDistanceUnit: BaseFuelCalculatorBrain.DistanceUnit.fromString(distanceUnitString: costDistanceUnitType))
+                fuelQuantity: fuel,
+                fuelUnit: fuelInputType,
+                distanceQuantity: distance,
+                distanceUnit: distanceInputUnitType,
+                fuelResultUnit: fuelResultType,
+                priceQuantity: priceQt,
+                priceFuelUnit: priceFuelUnit,
+                priceCurrencyUnit: priceCurrency,
+                costCurrencyUnit: costCurrency,
+                costDistanceQuantity: Double(costDistanceQt),
+                costDistanceUnit: costDistanceUnitType)
             
             if let result = brain.fuelResult {
                 self.setDoubleToTextField(valueForSet: result, textFieldToSet: fuelOutputTextField)
