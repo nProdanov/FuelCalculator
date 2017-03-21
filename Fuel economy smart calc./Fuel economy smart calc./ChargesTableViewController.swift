@@ -15,13 +15,15 @@ class ChargesTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.tableView.separatorStyle = .none
+        
         charges = [
             Charge(chargingDate: Date.init(), gasStationName: "Eko Mladost", gasStationCoordinates: (23.0, 23.0), chargedFuel: 65.0, distancePast: 1000, price: 2.0, fuelUnit: "LTR", distanceUnit: "KM", priceUnit: "LV", fuelConsumption: 6.5, priceConsumption: 13.0),
             Charge(chargingDate: Date.init(), gasStationName: "Eko Botevgradsko", gasStationCoordinates: (23.0, 23.0), chargedFuel: 60.0, distancePast: 1000, price: 2.0, fuelUnit: "LTR", distanceUnit: "KM", priceUnit: "LV", fuelConsumption: 6.0, priceConsumption: 12.0),
             Charge(chargingDate: Date.init(), gasStationName: "Ivony", gasStationCoordinates: (100.0, 23.0), chargedFuel: 60.0, distancePast: 1000, price: 1.83, fuelUnit: "LTR", distanceUnit: "KM", priceUnit: "LV", fuelConsumption: 6.0, priceConsumption: 10.98)
         ]
     }
-
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -44,6 +46,7 @@ class ChargesTableViewController: UITableViewController {
         if let chargeCell = cell as? ChargeTableViewCell {
             chargeCell.charge = charge
         }
+        cell.backgroundColor = UIColor(red: 36, green: 68, blue: 105, alpha: 0)
 
         return cell
     }

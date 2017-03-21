@@ -355,17 +355,17 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="147" sectionHeaderHeight="28" sectionFooterHeight="28" id="REh-hG-PGE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.16108002239999999" green="0.27393704169999999" blue="0.40748461790000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="charge" rowHeight="147" id="KC2-ht-vWb" customClass="ChargeTableViewCell" customModule="Fuel_economy_smart_calc_" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="147"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KC2-ht-vWb" id="gjd-0h-5hB">
+                                <tableViewCellContentView key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KC2-ht-vWb" id="gjd-0h-5hB">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="146"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gas station" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="6rm-k6-KZN">
-                                            <rect key="frame" x="110" y="8" width="258" height="21"/>
+                                            <rect key="frame" x="129" y="8" width="239" height="21"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -377,7 +377,7 @@
                                             </constraints>
                                             <string key="text">2 Mar
 2017</string>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -504,6 +504,10 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dwu-GY-owU">
+                                            <rect key="frame" x="8" y="-9" width="17" height="164"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </view>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="Dvq-xh-O3x" firstAttribute="leading" secondItem="bNB-az-yyf" secondAttribute="trailing" constant="3" id="1RK-aW-RVZ"/>
@@ -537,7 +541,7 @@
                                         <constraint firstItem="5bN-Fe-9wL" firstAttribute="baseline" secondItem="FOY-E5-VfB" secondAttribute="baseline" id="ZUB-if-3HO"/>
                                         <constraint firstItem="nMR-AF-exG" firstAttribute="leading" secondItem="Uha-vc-dx3" secondAttribute="trailing" constant="8" symbolic="YES" id="ZdO-xv-2gQ"/>
                                         <constraint firstItem="HAQ-Gf-K1V" firstAttribute="leading" secondItem="Dvq-xh-O3x" secondAttribute="trailing" constant="3" id="aJQ-Re-CF7"/>
-                                        <constraint firstItem="6rm-k6-KZN" firstAttribute="leading" secondItem="6M8-0I-BqO" secondAttribute="trailing" constant="8" symbolic="YES" id="bFq-HZ-RIE"/>
+                                        <constraint firstItem="6rm-k6-KZN" firstAttribute="leading" secondItem="6M8-0I-BqO" secondAttribute="trailing" constant="27" id="bFq-HZ-RIE"/>
                                         <constraint firstItem="dc0-HT-UIE" firstAttribute="top" secondItem="Uha-vc-dx3" secondAttribute="bottom" constant="17" id="cum-bE-31M"/>
                                         <constraint firstItem="HAQ-Gf-K1V" firstAttribute="firstBaseline" secondItem="oyJ-Bc-kKX" secondAttribute="firstBaseline" id="e94-Z7-0b7"/>
                                         <constraint firstItem="oyJ-Bc-kKX" firstAttribute="baseline" secondItem="KG1-Lg-YBF" secondAttribute="baseline" id="ekh-s0-88A"/>
