@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		780C797E1E8155EA00E3369A /* ChargesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780C797D1E8155EA00E3369A /* ChargesTableViewController.swift */; };
+		780C79801E81560C00E3369A /* Charge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780C797F1E81560C00E3369A /* Charge.swift */; };
+		780C79821E815C6200E3369A /* ChargeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780C79811E815C6200E3369A /* ChargeTableViewCell.swift */; };
 		78537CD01E7C38D1005BBC24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78537CCF1E7C38D1005BBC24 /* AppDelegate.swift */; };
 		78537CD51E7C38D1005BBC24 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78537CD31E7C38D1005BBC24 /* Main.storyboard */; };
 		78537CD71E7C38D1005BBC24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78537CD61E7C38D1005BBC24 /* Assets.xcassets */; };
@@ -16,6 +19,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		780C797D1E8155EA00E3369A /* ChargesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChargesTableViewController.swift; sourceTree = "<group>"; };
+		780C797F1E81560C00E3369A /* Charge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Charge.swift; sourceTree = "<group>"; };
+		780C79811E815C6200E3369A /* ChargeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChargeTableViewCell.swift; sourceTree = "<group>"; };
 		78537CCC1E7C38D1005BBC24 /* Fuel economy smart calc..app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fuel economy smart calc..app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		78537CCF1E7C38D1005BBC24 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		78537CD41E7C38D1005BBC24 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -37,6 +43,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		78455B331E8042EF00C7013F /* Base Fuel Calculator */ = {
+			isa = PBXGroup;
+			children = (
+				78B4C1551E7D150700D17916 /* BaseFCViewController.swift */,
+				78F7E9031E7D2E8C0081E4B6 /* BaseFuelCalculatorBrain.swift */,
+			);
+			name = "Base Fuel Calculator";
+			sourceTree = "<group>";
+		};
 		78537CC31E7C38D0005BBC24 = {
 			isa = PBXGroup;
 			children = (
@@ -56,10 +71,12 @@
 		78537CCE1E7C38D1005BBC24 /* Fuel economy smart calc. */ = {
 			isa = PBXGroup;
 			children = (
-				78B4C1551E7D150700D17916 /* BaseFCViewController.swift */,
-				78F7E9031E7D2E8C0081E4B6 /* BaseFuelCalculatorBrain.swift */,
 				78537CD31E7C38D1005BBC24 /* Main.storyboard */,
+				78455B331E8042EF00C7013F /* Base Fuel Calculator */,
 				78537CE11E7C3905005BBC24 /* Supporting Files */,
+				780C797D1E8155EA00E3369A /* ChargesTableViewController.swift */,
+				780C797F1E81560C00E3369A /* Charge.swift */,
+				780C79811E815C6200E3369A /* ChargeTableViewCell.swift */,
 			);
 			path = "Fuel economy smart calc.";
 			sourceTree = "<group>";
@@ -150,6 +167,9 @@
 			files = (
 				78F7E9041E7D2E8C0081E4B6 /* BaseFuelCalculatorBrain.swift in Sources */,
 				78B4C1561E7D150700D17916 /* BaseFCViewController.swift in Sources */,
+				780C79801E81560C00E3369A /* Charge.swift in Sources */,
+				780C79821E815C6200E3369A /* ChargeTableViewCell.swift in Sources */,
+				780C797E1E8155EA00E3369A /* ChargesTableViewController.swift in Sources */,
 				78537CD01E7C38D1005BBC24 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
