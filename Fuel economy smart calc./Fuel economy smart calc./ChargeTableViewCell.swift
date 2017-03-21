@@ -65,9 +65,9 @@ class ChargeTableViewCell: UITableViewCell {
     }
     
     override func draw(_ rect: CGRect) {
-        UIColor.blue.set()
+        let customColor = UIColor(hue: 0.5083, saturation: 0, brightness: 0.92, alpha: 1.0) /* #eaeaea */
+        customColor.set()
         pathForTimelinePath().fill()
-        
         pathForTimeLinePointer().fill()
         
     }
