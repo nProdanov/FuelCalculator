@@ -15,7 +15,7 @@ class ChargesTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.tableView.separatorStyle = .none
+//        self.tableView.separatorStyle = .none
         
         charges = [
             Charge(chargingDate: Date.init(), gasStationName: "Eko Mladost", gasStationCoordinates: (23.0, 23.0), chargedFuel: 65.0, distancePast: 1000, price: 2.0, fuelUnit: "LTR", distanceUnit: "KM", priceUnit: "LV", fuelConsumption: 6.5, priceConsumption: 13.0),
@@ -58,7 +58,6 @@ class ChargesTableViewController: UITableViewController {
                         
             chargeCell.backgroundColor = UIColor(hue: 0.5889, saturation: 0.65, brightness: 0.41, alpha: 1.0)
         }
-        
         
         
         return cell

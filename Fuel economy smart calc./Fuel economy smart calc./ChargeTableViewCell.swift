@@ -10,8 +10,12 @@ import UIKit
 
 class ChargeTableViewCell: UITableViewCell {
     
-    private let timelinePathXOffset = 30
-    private let parentWidthToTimelinePathScale = 30
+    private let timelinePathXOffset = CGFloat(25)
+    private let timelinePathWidth = CGFloat(5.0)
+    
+    private let timelinePointerRadius = CGFloat(10)
+    private let startAngle = CGFloat(0)
+    private let endAngle = 2 * CGFloat.pi
     
     @IBOutlet weak var date: UILabel!
     @IBOutlet weak var gasStationName: UILabel!
@@ -30,26 +34,13 @@ class ChargeTableViewCell: UITableViewCell {
     @IBOutlet weak var distancePast: UILabel!
     @IBOutlet weak var distancePastUnit: UILabel!
     
-    private var timelinePathMinX: CGFloat {
-        return self.date.frame.minX - CGFloat(self.timelinePathXOffset)
-    }
-    
-    private var timelinePathWidth: CGFloat {
-        return self.bounds.width / CGFloat(self.parentWidthToTimelinePathScale)
-    }
-    
-    private var timelinePointerMinY: CGFloat {
-        return self.date.frame.minY
-    }
-    
-    private var timelinePointerMaxY: CGFloat {
-        return self.date.frame.maxY
+    private var timelineMinX: CGFloat {
+        return date.frame.minX - self.timelinePathXOffset
     }
     
     var charge: Charge? {
         didSet {
             updateUI()
-            self.setNeedsDisplay()
         }
     }
     
@@ -61,38 +52,40 @@ class ChargeTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         
-        // Configure the view for the selected state
+        // Configure the view for the selected
+        let selectedBackgroundView = UIView()
+        selectedBackgroundView.backgroundColor = UIColor(hue: 0.5889, saturation: 0.63, brightness: 0.65, alpha: 1.0) /* #3e6ea8 */
+        
+        // set color here
+        self.selectedBackgroundView = selectedBackgroundView
     }
     
     override func draw(_ rect: CGRect) {
         let customColor = UIColor(hue: 0.5083, saturation: 0, brightness: 0.92, alpha: 1.0) /* #eaeaea */
         customColor.set()
-        pathForTimelinePath().fill()
+        pathForTimelinePath().stroke()
         pathForTimeLinePointer().fill()
         
     }
     
     private func pathForTimeLinePointer() -> UIBezierPath {
-        let path = UIBezierPath()
-        path.move(to: CGPoint(
-            x: self.timelinePathMinX + self.timelinePathWidth,
-            y: self.timelinePointerMinY + 10))
+        let centerX = self.timelineMinX
+        let centerY = date.frame.minY + ((date.frame.maxY - date.frame.minY) / 2)
+        let center = CGPoint(x: centerX, y: centerY)
         
-        path.addLine(to: CGPoint(
-            x: self.timelinePathMinX + self.timelinePathWidth + self.timelinePathWidth,
-            y: self.timelinePathMinX + (self.timelinePointerMaxY - self.timelinePointerMinY) / 2))
-        
-        path.addLine(to: CGPoint(
-            x: self.timelinePathMinX + self.timelinePathWidth,
-            y: self.timelinePointerMaxY - 10))
-        path.close()
+        let path = UIBezierPath(arcCenter: center, radius: self.timelinePointerRadius, startAngle: self.startAngle, endAngle: self.endAngle, clockwise: false)
         
         return path
     }
     
     private func pathForTimelinePath() -> UIBezierPath {
-        let rect = CGRect(x: self.timelinePathMinX, y: self.bounds.minY, width: self.timelinePathWidth, height: self.bounds.height)
-        let path = UIBezierPath(rect: rect)
+        let path = UIBezierPath()
+        let startPoint = CGPoint(x: self.timelineMinX, y: self.bounds.minY)
+        let endPoint = CGPoint(x: self.timelineMinX, y: self.bounds.maxY)
+        
+        path.move(to: startPoint)
+        path.addLine(to: endPoint)
+        path.lineWidth = self.timelinePathWidth
         return path
     }
     
