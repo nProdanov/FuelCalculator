@@ -361,7 +361,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="147"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KC2-ht-vWb" id="gjd-0h-5hB">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="146"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="147"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gas station" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="6rm-k6-KZN">
@@ -613,7 +613,7 @@
         <!--Graph-->
         <scene sceneID="sZk-Ul-Xaz">
             <objects>
-                <viewController id="lIS-3i-uRo" sceneMemberID="viewController">
+                <viewController id="lIS-3i-uRo" customClass="GraphViewController" customModule="Fuel_economy_smart_calc_" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="NQO-cY-ORv"/>
                         <viewControllerLayoutGuide type="bottom" id="AYr-1C-dB9"/>
@@ -621,9 +621,24 @@
                     <view key="view" contentMode="scaleToFill" id="yeF-Do-kcf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o1S-AR-B5W" customClass="GraphView" customModule="Fuel_economy_smart_calc_" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="o1S-AR-B5W" firstAttribute="leading" secondItem="yeF-Do-kcf" secondAttribute="leading" id="CEC-jA-e6C"/>
+                            <constraint firstItem="o1S-AR-B5W" firstAttribute="bottom" secondItem="AYr-1C-dB9" secondAttribute="top" id="Pvd-zU-yJc"/>
+                            <constraint firstAttribute="trailing" secondItem="o1S-AR-B5W" secondAttribute="trailing" id="VgU-z2-xKB"/>
+                            <constraint firstItem="o1S-AR-B5W" firstAttribute="top" secondItem="NQO-cY-ORv" secondAttribute="bottom" id="sHs-mZ-JmN"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Graph" id="obj-2a-Kv0"/>
+                    <connections>
+                        <outlet property="graphView" destination="o1S-AR-B5W" id="xJS-4w-xtg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hbh-Wm-7cc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
