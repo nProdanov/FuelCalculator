@@ -10,6 +10,8 @@ import UIKit
 
 class GraphView: UIView {
     
+    private let consumptionHelpersCount = 20
+    
     private var startX: CGFloat {
         return self.bounds.width / CGFloat(20)
     }
@@ -31,16 +33,17 @@ class GraphView: UIView {
         return CGPoint(x: endX, y: self.startY)
     }
     
+    private var deltaY: CGFloat {
+        return (self.startPoint.y - self.endPointOrdinate.y) / CGFloat(self.consumptionHelpersCount)
+    }
+    
     private var consumptionsYs: [CGFloat] {
         var consumptions: [CGFloat] = []
         
-        let consCount = 20
-        let deltaY = (self.startPoint.y - self.endPointOrdinate.y) / CGFloat(consCount)
-        
-        var currentConsumptionY = self.startPoint.y - deltaY
-        for _ in 0..<consCount {
+        var currentConsumptionY = self.startPoint.y - self.deltaY
+        for _ in 0 ..< self.consumptionHelpersCount {
             consumptions.append(currentConsumptionY)
-            currentConsumptionY -= deltaY
+            currentConsumptionY -= self.deltaY
         }
         
         return consumptions
@@ -75,6 +78,8 @@ class GraphView: UIView {
     
     private var monthsStrings: [String]?
     
+    var charges: [(Double, Int, String)]?
+    
     override func draw(_ rect: CGRect) {
         UIColor.darkGray.set()
         self.pathForOrdinateLine().stroke()
@@ -89,6 +94,10 @@ class GraphView: UIView {
         
         addConsumptions()
         addMonths()
+        
+        for ch in self.charges! {
+            print(ch)
+        }
     }
     
     func loadView() {
