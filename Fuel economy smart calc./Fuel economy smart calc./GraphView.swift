@@ -12,6 +12,18 @@ class GraphView: UIView {
     
     private let consumptionHelpersCount = 20
     
+    private var consumptionsLabels: [UILabel]?
+    
+    private var monthsLabels: [UILabel]?
+    
+    private var monthsStrings: [String]?
+    
+    var charges: [(Double, Int, String)]? {
+        didSet {
+            updateUI()
+        }
+    }
+    
     private var startX: CGFloat {
         return self.bounds.width / CGFloat(20)
     }
@@ -71,14 +83,6 @@ class GraphView: UIView {
         
         return months
     }
-    
-    private var consumptionsLabels: [UILabel]?
-    
-    private var monthsLabels: [UILabel]?
-    
-    private var monthsStrings: [String]?
-    
-    var charges: [(Double, Int, String)]?
     
     override func draw(_ rect: CGRect) {
         UIColor.darkGray.set()
@@ -158,7 +162,6 @@ class GraphView: UIView {
             }
         }
     }
-    
     
     private func addConsumptions(){
         let consumptionsYs = self.consumptionsYs
