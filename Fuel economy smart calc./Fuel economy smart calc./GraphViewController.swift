@@ -21,8 +21,11 @@ class GraphViewController: UIViewController {
         charges = appDelegate.charges
     }
 
-    
-    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        
+        graphView.updateUI()
+    }
     /*
     // MARK: - Navigation
 
