@@ -20,22 +20,9 @@ class GraphViewController: UIViewController {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         charges = appDelegate.charges
     }
-    
-    override var shouldAutorotate: Bool {
-        return false
-    }
-    
-    
-    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        return UIInterfaceOrientationMask.landscapeLeft
-    }
-    
-    override var preferredInterfaceOrientationForPresentation: UIInterfaceOrientation {
-        return UIInterfaceOrientation.landscapeLeft
-    }
-    
-    
 
+    
+    
     /*
     // MARK: - Navigation
 
