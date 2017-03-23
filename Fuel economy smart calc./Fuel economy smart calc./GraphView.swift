@@ -34,13 +34,13 @@ class GraphView: UIView {
     private var consumptionsYs: [CGFloat] {
         var consumptions: [CGFloat] = []
         
-        let deltaY = (self.startPoint.y - self.endPointOrdinate.y) / 20
         let consCount = 20
+        let deltaY = (self.startPoint.y - self.endPointOrdinate.y) / CGFloat(consCount)
         
         var currentConsumptionY = self.startPoint.y - deltaY
         for _ in 0..<consCount {
             consumptions.append(currentConsumptionY)
-            currentConsumptionY = currentConsumptionY - deltaY
+            currentConsumptionY -= deltaY
         }
         
         return consumptions
@@ -50,6 +50,25 @@ class GraphView: UIView {
         return self.bounds.width / 50
     }
     
+    private var monthsDashedLine: CGFloat {
+        return self.bounds.height / 50
+    }
+    
+    private var monthsXs: [CGFloat] {
+        var months: [CGFloat] = []
+        
+        let monthsCount = 9
+        let deltaX = (self.endPointAbcise.x - self.startPoint.x) / CGFloat(monthsCount + 1)
+        
+        var currentMonthX = self.startPoint.x + deltaX
+        for _ in 0..<monthsCount {
+            months.append(currentMonthX)
+            currentMonthX += deltaX
+        }
+        
+        return months
+    }
+    
     override func draw(_ rect: CGRect) {
         UIColor.darkGray.set()
         self.pathForOrdinateLine().stroke()
@@ -57,10 +76,31 @@ class GraphView: UIView {
         self.pathForAbciseLine().stroke()
         self.pathForArrowAbcise().fill()
         self.pathForConsumptionsHelperLines().stroke()
+        self.pathForMonthsHelperLines().stroke()
     }
     
     func updateUI(){
         setNeedsDisplay()
+    }
+    
+    private func pathForMonthsHelperLines() -> UIBezierPath {
+        let path = UIBezierPath()
+        
+        let monthsXs = self.monthsXs
+        
+        for index in 0..<monthsXs.count {
+            path.move(to: CGPoint(x: monthsXs[index], y: self.startY))
+            
+            var currentY = self.startY
+            while currentY > self.endPointOrdinate.y {
+                path.move(to: CGPoint(x: monthsXs[index], y: currentY))
+                path.addLine(to: CGPoint(x: monthsXs[index], y: currentY - self.monthsDashedLine))
+                currentY -= 1.3 *  self.monthsDashedLine
+            }
+        }
+        
+        path.lineWidth = 0.25
+        return path
     }
     
     private func pathForConsumptionsHelperLines() -> UIBezierPath {
@@ -72,13 +112,11 @@ class GraphView: UIView {
             path.move(to: CGPoint(x: self.startX, y: consumptionsYs[index]))
             
             var currentX = self.startX
-            repeat {
+            while currentX < self.endPointAbcise.x - self.consumptionDashedLine {
                 path.move(to: CGPoint(x: currentX, y: consumptionsYs[index]))
                 path.addLine(to: CGPoint(x: currentX + self.consumptionDashedLine, y: consumptionsYs[index]))
                 currentX += 1.3 * self.consumptionDashedLine
-            } while currentX < self.endPointAbcise.x - self.consumptionDashedLine
-            
-            path.addLine(to: CGPoint(x: self.endPointAbcise.x, y: consumptionsYs[index]))
+            }
         }
         
         path.lineWidth = 0.25
