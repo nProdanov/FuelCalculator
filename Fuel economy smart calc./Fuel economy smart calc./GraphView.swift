@@ -97,18 +97,28 @@ class GraphView: UIView {
         var consumptions: [UILabel] = []
         var currentValue = 1
         for index in 0..<consumptionsYs.count {
-            
             let consumptionLabel = UILabel(frame: labelFrame)
             consumptionLabel.center = CGPoint(x: self.startX - consumptionXOffset, y: consumptionsYs[index])
             consumptionLabel.textAlignment = .center
             consumptionLabel.text = currentValue.description
             consumptionLabel.font = labelFont
+            
             consumptions.append(consumptionLabel)
             
             self.addSubview(consumptionLabel)
             
             currentValue += 1
         }
+        
+        let consumptionTitleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 33, height: 12))
+        consumptionTitleLabel.center = CGPoint(x: self.startX - consumptionXOffset, y: self.startPoint.y + 10)
+        consumptionTitleLabel.textAlignment = .center
+        consumptionTitleLabel.text = "l/100km"
+        consumptionTitleLabel.font = labelFont
+        
+        self.addSubview(consumptionTitleLabel)
+        
+        consumptions.append(consumptionTitleLabel)
         
         self.consumptionsLabels = consumptions
     }
