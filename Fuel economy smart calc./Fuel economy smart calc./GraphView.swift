@@ -11,6 +11,7 @@ import UIKit
 class GraphView: UIView {
     
     private let consumptionHelpersCount = 20
+    private let monthsCount = 9
     
     private var consumptionsLabels: [UILabel]?
     
@@ -19,6 +20,12 @@ class GraphView: UIView {
     private var monthsStrings: [String]?
     
     var charges: [(Double, Int, String)]? {
+        didSet {
+            
+        }
+    }
+    
+    var chargesPoints: [CGPoint]? {
         didSet {
             updateUI()
         }
@@ -45,17 +52,17 @@ class GraphView: UIView {
         return CGPoint(x: endX, y: self.startY)
     }
     
-    private var deltaY: CGFloat {
+    private var consumptionsDeltaY: CGFloat {
         return (self.startPoint.y - self.endPointOrdinate.y) / CGFloat(self.consumptionHelpersCount)
     }
     
     private var consumptionsYs: [CGFloat] {
         var consumptions: [CGFloat] = []
         
-        var currentConsumptionY = self.startPoint.y - self.deltaY
+        var currentConsumptionY = self.startPoint.y - self.consumptionsDeltaY
         for _ in 0 ..< self.consumptionHelpersCount {
             consumptions.append(currentConsumptionY)
-            currentConsumptionY -= self.deltaY
+            currentConsumptionY -= self.consumptionsDeltaY
         }
         
         return consumptions
@@ -69,16 +76,19 @@ class GraphView: UIView {
         return self.bounds.height / 50
     }
     
+    private var monthsDeltaX: CGFloat {
+        return (self.endPointAbcise.x - self.startPoint.x) / CGFloat(self.monthsCount + 1)
+    }
+    
     private var monthsXs: [CGFloat] {
         var months: [CGFloat] = []
         
         let monthsCount = 9
-        let deltaX = (self.endPointAbcise.x - self.startPoint.x) / CGFloat(monthsCount + 1)
         
-        var currentMonthX = self.startPoint.x + deltaX
+        var currentMonthX = self.startPoint.x + self.monthsDeltaX
         for _ in 0..<monthsCount {
             months.append(currentMonthX)
-            currentMonthX += deltaX
+            currentMonthX += self.monthsDeltaX
         }
         
         return months
@@ -92,6 +102,12 @@ class GraphView: UIView {
         self.pathForArrowAbcise().fill()
         self.pathForConsumptionsHelperLines().stroke()
         self.pathForMonthsHelperLines().stroke()
+        
+        self.generateConsumptionsPoints()
+        self.pathForConsumptionCurve().stroke()
+        self.consumptionDots()
+        
+        
         
         removeConsumptions()
         removeMonths()
@@ -110,6 +126,22 @@ class GraphView: UIView {
     
     func updateUI(){
         setNeedsDisplay()
+    }
+    
+    private func generateConsumptionsPoints() {
+        var points: [CGPoint] = []
+        var val = 1
+        for charge in charges! {
+            let monthsIndex = (monthsStrings?.index(of: charge.2))! as Int
+            let deltaXDay = self.monthsDeltaX / 30
+            let x = self.startX +  CGFloat(monthsIndex) * self.monthsDeltaX + CGFloat(charge.1) * deltaXDay
+            let y = self.startY - CGFloat(charge.0) * self.consumptionsDeltaY
+            
+            points.append(CGPoint(x: x, y: y))
+            val += 1
+        }
+        
+        chargesPoints = points
     }
     
     private func generateMonthsStrings() {
@@ -142,7 +174,7 @@ class GraphView: UIView {
         
         for index in 0..<monthsXs.count {
             let monthLabel = UILabel(frame: labelFrame)
-            monthLabel.center = CGPoint(x: monthsXs[index], y: self.startY + monthYOffset)
+            monthLabel.center = CGPoint(x: monthsXs[index] - self.monthsDeltaX / 2, y: self.startY + monthYOffset)
             monthLabel.textAlignment = .center
             monthLabel.text = self.monthsStrings?[index]
             monthLabel.font = labelFont
@@ -204,6 +236,31 @@ class GraphView: UIView {
                 label.removeFromSuperview()
             }
         }
+    }
+    
+    private func consumptionDots(){
+        if let points  = self.chargesPoints {
+            for point in points {
+                let path = UIBezierPath(arcCenter: point, radius: 3, startAngle: 0, endAngle: 2 * CGFloat.pi, clockwise: false)
+                path.fill()
+            }
+        }
+    }
+    
+    private func pathForConsumptionCurve() -> UIBezierPath {
+        let path = UIBezierPath()
+        
+        if let points = self.chargesPoints {
+            path.move(to: points[0])
+            
+            for index in 1..<points.count {
+                path.addLine(to: points[index])
+            }
+        }
+        
+        path.lineWidth = 2.0
+        
+        return path
     }
     
     private func pathForMonthsHelperLines() -> UIBezierPath {
