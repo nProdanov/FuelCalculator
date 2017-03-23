@@ -46,6 +46,10 @@ class GraphView: UIView {
         return consumptions
     }
     
+    private var consumptionDashedLine: CGFloat {
+        return self.bounds.width / 50
+    }
+    
     override func draw(_ rect: CGRect) {
         UIColor.darkGray.set()
         self.pathForOrdinateLine().stroke()
@@ -66,10 +70,18 @@ class GraphView: UIView {
         
         for index in 0..<consumptionsYs.count {
             path.move(to: CGPoint(x: self.startX, y: consumptionsYs[index]))
+            
+            var currentX = self.startX
+            repeat {
+                path.move(to: CGPoint(x: currentX, y: consumptionsYs[index]))
+                path.addLine(to: CGPoint(x: currentX + self.consumptionDashedLine, y: consumptionsYs[index]))
+                currentX += 1.3 * self.consumptionDashedLine
+            } while currentX < self.endPointAbcise.x - self.consumptionDashedLine
+            
             path.addLine(to: CGPoint(x: self.endPointAbcise.x, y: consumptionsYs[index]))
         }
         
-        path.lineWidth = 0.5
+        path.lineWidth = 0.25
         return path
     }
     
