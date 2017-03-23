@@ -12,7 +12,7 @@ class GraphViewController: UIViewController {
     
     var charges: [Charge]?
 
-    @IBOutlet weak var graphView: GraphView!
+    @IBOutlet weak var graphView: GraphView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,8 +24,9 @@ class GraphViewController: UIViewController {
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
         
-        graphView.updateUI()
+        graphView?.updateUI()
     }
+    
     /*
     // MARK: - Navigation
 

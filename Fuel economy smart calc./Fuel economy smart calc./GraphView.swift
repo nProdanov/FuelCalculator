@@ -69,6 +69,8 @@ class GraphView: UIView {
         return months
     }
     
+    private var consumptionsLabels: [UILabel]?
+    
     override func draw(_ rect: CGRect) {
         UIColor.darkGray.set()
         self.pathForOrdinateLine().stroke()
@@ -77,10 +79,46 @@ class GraphView: UIView {
         self.pathForArrowAbcise().fill()
         self.pathForConsumptionsHelperLines().stroke()
         self.pathForMonthsHelperLines().stroke()
+        
+        removeConsumptions()
+        addConsumptions()
     }
     
     func updateUI(){
         setNeedsDisplay()
+    }
+    
+    private func addConsumptions(){
+        let consumptionsYs = self.consumptionsYs
+        let consumptionXOffset = CGFloat(10)
+        let labelFrame = CGRect(x: 0, y: 0, width: 11, height: 12)
+        let labelFont = UIFont.systemFont(ofSize: 8)
+        
+        var consumptions: [UILabel] = []
+        var currentValue = 1
+        for index in 0..<consumptionsYs.count {
+            
+            let consumptionLabel = UILabel(frame: labelFrame)
+            consumptionLabel.center = CGPoint(x: self.startX - consumptionXOffset, y: consumptionsYs[index])
+            consumptionLabel.textAlignment = .center
+            consumptionLabel.text = currentValue.description
+            consumptionLabel.font = labelFont
+            consumptions.append(consumptionLabel)
+            
+            self.addSubview(consumptionLabel)
+            
+            currentValue += 1
+        }
+        
+        self.consumptionsLabels = consumptions
+    }
+    
+    private func removeConsumptions() {
+        if let labels = self.consumptionsLabels {
+            for label in labels {
+                label.removeFromSuperview()
+            }
+        }
     }
     
     private func pathForMonthsHelperLines() -> UIBezierPath {
@@ -120,6 +158,7 @@ class GraphView: UIView {
         }
         
         path.lineWidth = 0.25
+        
         return path
     }
     
