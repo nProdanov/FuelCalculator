@@ -71,6 +71,10 @@ class GraphView: UIView {
     
     private var consumptionsLabels: [UILabel]?
     
+    private var monthsLabels: [UILabel]?
+    
+    private var monthsStrings: [String]?
+    
     override func draw(_ rect: CGRect) {
         UIColor.darkGray.set()
         self.pathForOrdinateLine().stroke()
@@ -81,12 +85,71 @@ class GraphView: UIView {
         self.pathForMonthsHelperLines().stroke()
         
         removeConsumptions()
+        removeMonths()
+        
         addConsumptions()
+        addMonths()
+    }
+    
+    func loadView() {
+        self.generateMonthsStrings()
     }
     
     func updateUI(){
         setNeedsDisplay()
     }
+    
+    private func generateMonthsStrings() {
+        self.monthsStrings = []
+        
+        var currentDate = Date.init()
+        let dateFormater = DateFormatter()
+        dateFormater.dateFormat = "MMMM"
+        
+        let day = Calendar.current.component(.day, from: currentDate)
+        
+        if day < 3 {
+            currentDate = currentDate.addingTimeInterval(2*24*60*60)
+        }
+        
+        for _ in 1...9 {
+            monthsStrings?.insert(dateFormater.string(from: currentDate), at: 0)
+            currentDate =  currentDate.addingTimeInterval(-31*24*60*60)
+        }
+        
+    }
+    
+    private func addMonths(){
+        let monthsXs = self.monthsXs
+        let monthYOffset = CGFloat(10)
+        let labelFrame = CGRect(x: 0, y: 0, width: 60, height: 12)
+        let labelFont = UIFont.systemFont(ofSize: 8)
+        
+        var months: [UILabel] = []
+        
+        for index in 0..<monthsXs.count {
+            let monthLabel = UILabel(frame: labelFrame)
+            monthLabel.center = CGPoint(x: monthsXs[index], y: self.startY + monthYOffset)
+            monthLabel.textAlignment = .center
+            monthLabel.text = self.monthsStrings?[index]
+            monthLabel.font = labelFont
+            
+            months.append(monthLabel)
+            
+            self.addSubview(monthLabel)
+        }
+        
+        self.monthsLabels = months
+    }
+    
+    private func removeMonths() {
+        if let labels = monthsLabels {
+            for label in labels {
+                label.removeFromSuperview()
+            }
+        }
+    }
+    
     
     private func addConsumptions(){
         let consumptionsYs = self.consumptionsYs

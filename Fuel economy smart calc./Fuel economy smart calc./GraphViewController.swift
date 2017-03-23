@@ -19,6 +19,8 @@ class GraphViewController: UIViewController {
 
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         charges = appDelegate.charges
+        
+        graphView?.loadView()
     }
 
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
