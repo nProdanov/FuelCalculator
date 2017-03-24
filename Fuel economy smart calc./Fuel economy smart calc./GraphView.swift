@@ -13,11 +13,13 @@ class GraphView: UIView {
     private let consumptionHelpersCount = 20
     private let monthsCount = 9
     
+    var monthsStrings: [String]?
+    
+    var consumptionTitleText: String?
+    
     private var consumptionsLabels: [UILabel]?
     
     private var monthsLabels: [UILabel]?
-    
-    private var monthsStrings: [String]?
     
     var charges: [(Double, Int, String)]? {
         didSet {
@@ -107,8 +109,6 @@ class GraphView: UIView {
         self.pathForConsumptionCurve().stroke()
         self.consumptionDots()
         
-        
-        
         removeConsumptions()
         removeMonths()
         
@@ -118,10 +118,6 @@ class GraphView: UIView {
         for ch in self.charges! {
             print(ch)
         }
-    }
-    
-    func loadView() {
-        self.generateMonthsStrings()
     }
     
     func updateUI(){
@@ -142,26 +138,6 @@ class GraphView: UIView {
         }
         
         chargesPoints = points
-    }
-    
-    private func generateMonthsStrings() {
-        self.monthsStrings = []
-        
-        var currentDate = Date.init()
-        let dateFormater = DateFormatter()
-        dateFormater.dateFormat = "MMMM"
-        
-        let day = Calendar.current.component(.day, from: currentDate)
-        
-        if day < 3 {
-            currentDate = currentDate.addingTimeInterval(2*24*60*60)
-        }
-        
-        for _ in 1...9 {
-            monthsStrings?.insert(dateFormater.string(from: currentDate), at: 0)
-            currentDate =  currentDate.addingTimeInterval(-31*24*60*60)
-        }
-        
     }
     
     private func addMonths(){
@@ -220,7 +196,7 @@ class GraphView: UIView {
         let consumptionTitleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 33, height: 12))
         consumptionTitleLabel.center = CGPoint(x: self.startX - consumptionXOffset, y: self.startPoint.y + 10)
         consumptionTitleLabel.textAlignment = .center
-        consumptionTitleLabel.text = "l/100km"
+        consumptionTitleLabel.text = self.consumptionTitleText ??  ""
         consumptionTitleLabel.font = labelFont
         
         self.addSubview(consumptionTitleLabel)

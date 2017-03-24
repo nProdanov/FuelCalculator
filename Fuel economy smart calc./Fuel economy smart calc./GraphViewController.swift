@@ -10,6 +10,8 @@ import UIKit
 
 class GraphViewController: UIViewController {
     
+    private let consumptionTitleText = "l/100km"
+    
     var charges: [Charge]?
     
     @IBOutlet weak var graphView: GraphView?
@@ -19,7 +21,8 @@ class GraphViewController: UIViewController {
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         graphView?.charges = mapChargesForGraphView(appDelegate.charges)
-        graphView?.loadView()
+        graphView?.monthsStrings = self.generateMonthStrings()
+        graphView?.consumptionTitleText = self.consumptionTitleText
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -43,6 +46,27 @@ class GraphViewController: UIViewController {
                 Calendar.current.component(.day, from: charge.chargingDate),
                 months[ Calendar.current.component(.month, from: charge.chargingDate) - 1])
         }
+    }
+    
+    private func generateMonthStrings() -> [String] {
+        var monthsStrings: [String] = []
+        
+        var currentDate = Date.init()
+        let dateFormater = DateFormatter()
+        dateFormater.dateFormat = "MMMM"
+        
+        let day = Calendar.current.component(.day, from: currentDate)
+        
+        if day < 3 {
+            currentDate = currentDate.addingTimeInterval(2*24*60*60)
+        }
+        
+        for _ in 1...9 {
+            monthsStrings.insert(dateFormater.string(from: currentDate), at: 0)
+            currentDate =  currentDate.addingTimeInterval(-31*24*60*60)
+        }
+        
+        return monthsStrings
     }
     
     /*
