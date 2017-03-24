@@ -15,6 +15,7 @@
 		78537CD71E7C38D1005BBC24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78537CD61E7C38D1005BBC24 /* Assets.xcassets */; };
 		78537CDA1E7C38D1005BBC24 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78537CD81E7C38D1005BBC24 /* LaunchScreen.storyboard */; };
 		78B4C1561E7D150700D17916 /* BaseFCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B4C1551E7D150700D17916 /* BaseFCViewController.swift */; };
+		78CDFB961E850E0F00A7D1C2 /* CurrentChargeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CDFB951E850E0F00A7D1C2 /* CurrentChargeViewController.swift */; };
 		78E6120A1E828ADE0098B35B /* GraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E612091E828ADE0098B35B /* GraphViewController.swift */; };
 		78E6120C1E828B3A0098B35B /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E6120B1E828B3A0098B35B /* GraphView.swift */; };
 		78F7E9041E7D2E8C0081E4B6 /* BaseFuelCalculatorBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F7E9031E7D2E8C0081E4B6 /* BaseFuelCalculatorBrain.swift */; };
@@ -31,6 +32,7 @@
 		78537CD91E7C38D1005BBC24 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		78537CDB1E7C38D1005BBC24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		78B4C1551E7D150700D17916 /* BaseFCViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseFCViewController.swift; sourceTree = "<group>"; };
+		78CDFB951E850E0F00A7D1C2 /* CurrentChargeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentChargeViewController.swift; sourceTree = "<group>"; };
 		78E612091E828ADE0098B35B /* GraphViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphViewController.swift; sourceTree = "<group>"; };
 		78E6120B1E828B3A0098B35B /* GraphView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
 		78F7E9031E7D2E8C0081E4B6 /* BaseFuelCalculatorBrain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseFuelCalculatorBrain.swift; sourceTree = "<group>"; };
@@ -79,9 +81,9 @@
 				78455B331E8042EF00C7013F /* Base Fuel Calculator */,
 				78E612081E8279050098B35B /* Charges */,
 				78E612071E82789E0098B35B /* Models */,
-				78E612091E828ADE0098B35B /* GraphViewController.swift */,
-				78E6120B1E828B3A0098B35B /* GraphView.swift */,
+				78CDFB941E850DDA00A7D1C2 /* Graph */,
 				78537CE11E7C3905005BBC24 /* Supporting Files */,
+				78CDFB951E850E0F00A7D1C2 /* CurrentChargeViewController.swift */,
 			);
 			path = "Fuel economy smart calc.";
 			sourceTree = "<group>";
@@ -95,6 +97,15 @@
 				78537CDB1E7C38D1005BBC24 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		78CDFB941E850DDA00A7D1C2 /* Graph */ = {
+			isa = PBXGroup;
+			children = (
+				78E612091E828ADE0098B35B /* GraphViewController.swift */,
+				78E6120B1E828B3A0098B35B /* GraphView.swift */,
+			);
+			name = Graph;
 			sourceTree = "<group>";
 		};
 		78E612071E82789E0098B35B /* Models */ = {
@@ -188,6 +199,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				78F7E9041E7D2E8C0081E4B6 /* BaseFuelCalculatorBrain.swift in Sources */,
+				78CDFB961E850E0F00A7D1C2 /* CurrentChargeViewController.swift in Sources */,
 				78B4C1561E7D150700D17916 /* BaseFCViewController.swift in Sources */,
 				78E6120A1E828ADE0098B35B /* GraphViewController.swift in Sources */,
 				780C79801E81560C00E3369A /* Charge.swift in Sources */,
