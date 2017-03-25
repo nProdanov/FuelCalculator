@@ -33,6 +33,8 @@ class CurrentChargeViewController: UIViewController {
         print("add to journey")
     }
     
+    var currentCharge: Charge?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -44,6 +46,7 @@ class CurrentChargeViewController: UIViewController {
     func save() {
         
     }
+    
 
     /*
     // MARK: - Navigation

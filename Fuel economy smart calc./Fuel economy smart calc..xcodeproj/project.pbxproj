@@ -17,6 +17,7 @@
 		78B4C1561E7D150700D17916 /* BaseFCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B4C1551E7D150700D17916 /* BaseFCViewController.swift */; };
 		78CDFB961E850E0F00A7D1C2 /* CurrentChargeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CDFB951E850E0F00A7D1C2 /* CurrentChargeViewController.swift */; };
 		78E20A571E86549200001E58 /* VCDismissKeyboardExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E20A561E86549200001E58 /* VCDismissKeyboardExtension.swift */; };
+		78E20A591E86715000001E58 /* ChargingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E20A581E86715000001E58 /* ChargingViewController.swift */; };
 		78E6120A1E828ADE0098B35B /* GraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E612091E828ADE0098B35B /* GraphViewController.swift */; };
 		78E6120C1E828B3A0098B35B /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E6120B1E828B3A0098B35B /* GraphView.swift */; };
 		78F7E9041E7D2E8C0081E4B6 /* BaseFuelCalculatorBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F7E9031E7D2E8C0081E4B6 /* BaseFuelCalculatorBrain.swift */; };
@@ -35,6 +36,7 @@
 		78B4C1551E7D150700D17916 /* BaseFCViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseFCViewController.swift; sourceTree = "<group>"; };
 		78CDFB951E850E0F00A7D1C2 /* CurrentChargeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentChargeViewController.swift; sourceTree = "<group>"; };
 		78E20A561E86549200001E58 /* VCDismissKeyboardExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCDismissKeyboardExtension.swift; sourceTree = "<group>"; };
+		78E20A581E86715000001E58 /* ChargingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChargingViewController.swift; sourceTree = "<group>"; };
 		78E612091E828ADE0098B35B /* GraphViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphViewController.swift; sourceTree = "<group>"; };
 		78E6120B1E828B3A0098B35B /* GraphView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
 		78F7E9031E7D2E8C0081E4B6 /* BaseFuelCalculatorBrain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseFuelCalculatorBrain.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 				78CDFB941E850DDA00A7D1C2 /* Graph */,
 				78537CE11E7C3905005BBC24 /* Supporting Files */,
 				78CDFB951E850E0F00A7D1C2 /* CurrentChargeViewController.swift */,
+				78E20A581E86715000001E58 /* ChargingViewController.swift */,
 				78E20A551E86545B00001E58 /* Extensions */,
 			);
 			path = "Fuel economy smart calc.";
@@ -217,6 +220,7 @@
 				780C79801E81560C00E3369A /* Charge.swift in Sources */,
 				780C79821E815C6200E3369A /* ChargeTableViewCell.swift in Sources */,
 				780C797E1E8155EA00E3369A /* ChargesTableViewController.swift in Sources */,
+				78E20A591E86715000001E58 /* ChargingViewController.swift in Sources */,
 				78537CD01E7C38D1005BBC24 /* AppDelegate.swift in Sources */,
 				78E6120C1E828B3A0098B35B /* GraphView.swift in Sources */,
 			);
