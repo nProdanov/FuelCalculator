@@ -16,16 +16,8 @@ class BaseFCViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
-        
-        
-        view.addGestureRecognizer(tap)
+        addGestureForDismissingKeyboard()
     }
-    
-    func dismissKeyboard() {
-        view.endEditing(true)
-    }
-    
     
     @IBOutlet weak var fuelInputTextField: UITextField!
     @IBOutlet weak var fuelInputUnitControl: UISegmentedControl!
