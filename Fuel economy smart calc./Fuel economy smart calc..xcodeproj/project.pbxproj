@@ -79,7 +79,6 @@
 			isa = PBXGroup;
 			children = (
 				78F7E9031E7D2E8C0081E4B6 /* BaseFuelCalculatorBrain.swift */,
-				78E20A551E86545B00001E58 /* Extensions */,
 				78537CD31E7C38D1005BBC24 /* Main.storyboard */,
 				78455B331E8042EF00C7013F /* Base Fuel Calculator */,
 				78E612081E8279050098B35B /* Charges */,
@@ -87,6 +86,7 @@
 				78CDFB941E850DDA00A7D1C2 /* Graph */,
 				78537CE11E7C3905005BBC24 /* Supporting Files */,
 				78CDFB951E850E0F00A7D1C2 /* CurrentChargeViewController.swift */,
+				78E20A551E86545B00001E58 /* Extensions */,
 			);
 			path = "Fuel economy smart calc.";
 			sourceTree = "<group>";

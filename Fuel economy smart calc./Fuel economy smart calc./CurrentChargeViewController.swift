@@ -10,7 +10,28 @@ import UIKit
 
 class CurrentChargeViewController: UIViewController {
 
+    
+    @IBOutlet weak var gasStationNameTextField: UITextField!
     @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var fuelChargedQuantityTextField: UITextField!
+    @IBOutlet weak var fuelPriceQuantityTextField: UITextField!
+    @IBOutlet weak var tripQuantityTextField: UITextField!
+    @IBOutlet weak var journeyQuantityTextField: UITextField!
+    
+    @IBOutlet weak var fuelChargedUnitLabel: UILabel!
+    @IBOutlet weak var fuelPriceCurrencyUnitLabel: UILabel!
+    @IBOutlet weak var fuelPriceUnitLabel: UILabel!
+    @IBOutlet weak var tripUnitLabel: UILabel!
+    @IBOutlet weak var journeyUnitLabel: UILabel!
+    
+    
+    @IBAction func provideViaLovation() {
+        print("location")
+    }
+    
+    @IBAction func addTripToJourney() {
+        print("add to journey")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

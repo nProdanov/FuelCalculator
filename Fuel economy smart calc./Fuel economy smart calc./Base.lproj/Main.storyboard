@@ -738,6 +738,9 @@
                                         <integer key="value" value="7"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="provideViaLovation" destination="2q7-9W-deP" eventType="touchUpInside" id="QpC-hP-oi9"/>
+                                </connections>
                             </button>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="pPZ-aM-Ijv">
                                 <rect key="frame" x="69" y="191" width="290" height="104"/>
@@ -834,6 +837,9 @@
                                         <integer key="value" value="7"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="addTripToJourney" destination="2q7-9W-deP" eventType="touchUpInside" id="NzT-ZP-Uh0"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Journey" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5cm-3e-XKy">
                                 <rect key="frame" x="16" y="498" width="79" height="21"/>
@@ -923,6 +929,16 @@
                     <navigationItem key="navigationItem" title="Current charge" id="V3b-m4-tVI"/>
                     <connections>
                         <outlet property="datePicker" destination="pPZ-aM-Ijv" id="jII-P1-LEX"/>
+                        <outlet property="fuelChargedQuantityTextField" destination="iSQ-sN-G9t" id="5r4-bB-khs"/>
+                        <outlet property="fuelChargedUnitLabel" destination="1aC-z4-Ikv" id="UBe-Dl-OSP"/>
+                        <outlet property="fuelPriceCurrencyUnitLabel" destination="cAz-Ui-FbW" id="T2f-jC-EuV"/>
+                        <outlet property="fuelPriceQuantityTextField" destination="5cf-ZC-qMZ" id="sI6-q2-0UL"/>
+                        <outlet property="fuelPriceUnitLabel" destination="VV8-dk-x4R" id="EgI-a7-ryP"/>
+                        <outlet property="gasStationNameTextField" destination="J4Y-hQ-DVj" id="UNX-MT-fhn"/>
+                        <outlet property="journeyQuantityTextField" destination="t0b-i8-aJc" id="BLZ-P2-1wg"/>
+                        <outlet property="journeyUnitLabel" destination="UPM-uR-DEp" id="hp9-bs-Z1R"/>
+                        <outlet property="tripQuantityTextField" destination="9Yf-my-ZGJ" id="o0q-9z-qa5"/>
+                        <outlet property="tripUnitLabel" destination="2bQ-x6-a3p" id="rAF-oC-pcm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Ta-At-nGe" userLabel="First Responder" sceneMemberID="firstResponder"/>
