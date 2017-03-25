@@ -25,7 +25,18 @@ class CurrentChargeViewController: UIViewController {
     
     
     @IBAction func addTripToJourney() {
-        print("add to journey")
+        let trip = Double(tripQuantityTextField.text!)
+        
+        if currentCharge != nil {
+            currentCharge!.distancePast = currentCharge!.distancePast ?? 0
+            
+            if let tripDistance = trip {
+                currentCharge?.distancePast! += tripDistance
+            }
+        }
+        
+        tripQuantityTextField.text = ""
+        dismissKeyboard()
     }
     
     var currentCharge: Charge? {
