@@ -30,7 +30,9 @@ class ChargingViewController: UIViewController {
         super.viewDidLoad()
         
         datePicker.setValue(UIColor.white, forKey: "textColor")
-        currentCharge = (UIApplication.shared.delegate as! AppDelegate).charges?[0]
+        
+        addGestureForDismissingKeyboard()
+//        currentCharge = (UIApplication.shared.delegate as! AppDelegate).charges?[0]
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -40,7 +42,9 @@ class ChargingViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.tabBarController?.selectedIndex = 2
+        if currentCharge != nil {
+            self.tabBarController?.selectedIndex = 2
+        }
     }
     
     // TODO: Provide Gas Station via Location
