@@ -9,15 +9,14 @@
 import UIKit
 
 class CurrentChargeViewController: UIViewController {
-
     
-    @IBOutlet weak var gasStationNameTextField: UITextField!
-    @IBOutlet weak var datePicker: UIDatePicker!
-    @IBOutlet weak var fuelChargedQuantityTextField: UITextField!
-    @IBOutlet weak var fuelPriceQuantityTextField: UITextField!
     @IBOutlet weak var tripQuantityTextField: UITextField!
     @IBOutlet weak var journeyQuantityTextField: UITextField!
     
+    @IBOutlet weak var gasStationNameLabel: UILabel!
+    @IBOutlet weak var dateChargedlabel: UILabel!
+    @IBOutlet weak var fuelChargedQuantityLabel: UILabel!
+    @IBOutlet weak var fuelPriceLabel: UILabel!
     @IBOutlet weak var fuelChargedUnitLabel: UILabel!
     @IBOutlet weak var fuelPriceCurrencyUnitLabel: UILabel!
     @IBOutlet weak var fuelPriceUnitLabel: UILabel!
@@ -25,37 +24,75 @@ class CurrentChargeViewController: UIViewController {
     @IBOutlet weak var journeyUnitLabel: UILabel!
     
     
-    @IBAction func provideViaLovation() {
-        print("location")
-    }
-    
     @IBAction func addTripToJourney() {
         print("add to journey")
     }
     
-    var currentCharge: Charge?
+    var currentCharge: Charge? {
+        didSet {
+            self.updateUI()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        addGestureForDismissingKeyboard()
+        addSaveButtonToNavBar()
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(save))
-        
-        datePicker.setValue(UIColor.white, forKeyPath: "textColor")
+        currentCharge = (UIApplication.shared.delegate as! AppDelegate).charges?[0]
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if currentCharge == nil {
+            self.tabBarController?.selectedIndex = 1
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if currentCharge == nil {
+            self.tabBarController?.selectedIndex = 1
+        }
     }
     
     func save() {
         
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    private func updateUI() {
+        if let charge = currentCharge {
+            gasStationNameLabel.text = charge.gasStationName
+            
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "dd MMMM YYYY"
+            dateChargedlabel.text = dateFormatter.string(from: charge.chargingDate)
+            
+            fuelChargedQuantityLabel.text = charge.chargedFuel.description
+            fuelChargedUnitLabel.text = charge.fuelUnit
+            
+            fuelPriceLabel.text = charge.price.description
+            fuelPriceCurrencyUnitLabel.text = charge.priceUnit
+            fuelPriceUnitLabel.text = charge.fuelUnit
+            
+            tripUnitLabel.text = charge.distanceUnit
+            journeyUnitLabel.text = charge.distanceUnit
+            
+            journeyQuantityTextField.text = charge.distancePast?.description
+        }
+        
     }
-    */
-
+    
+    private func addSaveButtonToNavBar() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(save))
+    }
+    
+    /*
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
