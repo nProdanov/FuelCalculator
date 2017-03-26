@@ -590,6 +590,41 @@
             </objects>
             <point key="canvasLocation" x="2284" y="485"/>
         </scene>
+        <!--Charge Location View Controller-->
+        <scene sceneID="t0L-yc-D7f">
+            <objects>
+                <viewController storyboardIdentifier="ChargeLocation" id="voP-6Y-pdO" customClass="ChargeLocationViewController" customModule="Fuel_economy_smart_calc_" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="us3-jk-sfu"/>
+                        <viewControllerLayoutGuide type="bottom" id="bFa-Gz-GUC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="X5C-GF-cKi">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="3vc-YW-kGD">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <connections>
+                                    <outlet property="delegate" destination="voP-6Y-pdO" id="cuC-z2-nMc"/>
+                                </connections>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="3vc-YW-kGD" secondAttribute="trailing" id="LF1-qi-HfE"/>
+                            <constraint firstItem="3vc-YW-kGD" firstAttribute="leading" secondItem="X5C-GF-cKi" secondAttribute="leading" id="e6x-H5-V1u"/>
+                            <constraint firstItem="3vc-YW-kGD" firstAttribute="top" secondItem="X5C-GF-cKi" secondAttribute="top" id="k7W-0f-N7L"/>
+                            <constraint firstItem="3vc-YW-kGD" firstAttribute="bottom" secondItem="bFa-Gz-GUC" secondAttribute="top" id="q35-AU-WQy"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="3vc-YW-kGD" id="k4M-ul-GeQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fct-hd-QhY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2988" y="482.60869565217394"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="8Tt-Mu-ZSd">
             <objects>

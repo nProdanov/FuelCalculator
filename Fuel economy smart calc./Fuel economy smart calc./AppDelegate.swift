@@ -20,18 +20,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         self.charges = [
-            Charge(chargingDate: Date.init(), gasStationName: "Eko Botevgradsko", gasStationCoordinates: (23.0, 23.0), chargedFuel: 60.0, distancePast: 1000, price: 2.0, fuelUnit: "LTR", distanceUnit: "KM", priceUnit: "LV", fuelConsumption: 6.0, priceConsumption: 12.0),
-            Charge(chargingDate: Date.init(), gasStationName: "Ivony", gasStationCoordinates: (100.0, 23.0), chargedFuel: 60.0, distancePast: 1000, price: 1.83, fuelUnit: "LTR", distanceUnit: "KM", priceUnit: "LV", fuelConsumption: 6.0, priceConsumption: 10.98),
-            Charge(chargingDate: Date.init(), gasStationName: "Eko Botevgradsko", gasStationCoordinates: (23.0, 23.0), chargedFuel: 60.0, distancePast: 1000, price: 2.0, fuelUnit: "LTR", distanceUnit: "KM", priceUnit: "LV", fuelConsumption: 6.0, priceConsumption: 12.0),
-            Charge(chargingDate: Date.init(), gasStationName: "Eko Botevgradsko", gasStationCoordinates: (23.0, 23.0), chargedFuel: 60.0, distancePast: 1000, price: 2.0, fuelUnit: "LTR", distanceUnit: "KM", priceUnit: "LV", fuelConsumption: 6.0, priceConsumption: 12.0),
-            Charge(chargingDate: Date.init(), gasStationName: "Eko Botevgradsko", gasStationCoordinates: (23.0, 23.0), chargedFuel: 60.0, distancePast: 1000, price: 2.0, fuelUnit: "LTR", distanceUnit: "KM", priceUnit: "LV", fuelConsumption: 6.0, priceConsumption: 12.0),
-            Charge(chargingDate: Date.init(), gasStationName: "Eko Botevgradsko", gasStationCoordinates: (23.0, 23.0), chargedFuel: 60.0, distancePast: 1000, price: 2.0, fuelUnit: "LTR", distanceUnit: "KM", priceUnit: "LV", fuelConsumption: 6.0, priceConsumption: 12.0),
-            Charge(chargingDate: Date.init(), gasStationName: "Eko Botevgradsko", gasStationCoordinates: (23.0, 23.0), chargedFuel: 60.0, distancePast: 1000, price: 2.0, fuelUnit: "LTR", distanceUnit: "KM", priceUnit: "LV", fuelConsumption: 6.0, priceConsumption: 12.0),
-            Charge(chargingDate: Date.init(), gasStationName: "Eko Botevgradsko", gasStationCoordinates: (23.0, 23.0), chargedFuel: 60.0, distancePast: 1000, price: 2.0, fuelUnit: "LTR", distanceUnit: "KM", priceUnit: "LV", fuelConsumption: 6.0, priceConsumption: 12.0),
-            Charge(chargingDate: Date.init(), gasStationName: "Eko Botevgradsko", gasStationCoordinates: (23.0, 23.0), chargedFuel: 60.0, distancePast: 1000, price: 2.0, fuelUnit: "LTR", distanceUnit: "KM", priceUnit: "LV", fuelConsumption: 6.0, priceConsumption: 12.0),
-            Charge(chargingDate: Date.init(), gasStationName: "Eko Botevgradsko", gasStationCoordinates: (23.0, 23.0), chargedFuel: 60.0, distancePast: 1000, price: 2.0, fuelUnit: "LTR", distanceUnit: "KM", priceUnit: "LV", fuelConsumption: 6.0, priceConsumption: 12.0),
-            Charge(chargingDate: Date.init(), gasStationName: "Eko Botevgradsko", gasStationCoordinates: (23.0, 23.0), chargedFuel: 60.0, distancePast: 1000, price: 2.0, fuelUnit: "LTR", distanceUnit: "KM", priceUnit: "LV", fuelConsumption: 6.0, priceConsumption: 12.0),
-            Charge(chargingDate: Date.init(), gasStationName: "Eko Botevgradsko", gasStationCoordinates: (23.0, 23.0), chargedFuel: 60.0, distancePast: 1000, price: 2.0, fuelUnit: "LTR", distanceUnit: "KM", priceUnit: "LV", fuelConsumption: 6.0, priceConsumption: 12.0)
+            Charge(chargingDate: Date.init(), gasStationName: "Eko Botevgradsko", gasStationCoordinates: (43.0, 25.0), chargedFuel: 60.0, distancePast: 1000, price: 2.0, fuelUnit: "LTR", distanceUnit: "KM", priceUnit: "LV", fuelConsumption: 6.0, priceConsumption: 12.0),
+            Charge(chargingDate: Date.init(), gasStationName: "Ivony", gasStationCoordinates: (43.0, 25.0), chargedFuel: 60.0, distancePast: 1000, price: 1.83, fuelUnit: "LTR", distanceUnit: "KM", priceUnit: "LV", fuelConsumption: 6.0, priceConsumption: 10.98),
+            Charge(chargingDate: Date.init(), gasStationName: "Eko Botevgradsko", gasStationCoordinates: (43.0, 25.0), chargedFuel: 60.0, distancePast: 1000, price: 2.0, fuelUnit: "LTR", distanceUnit: "KM", priceUnit: "LV", fuelConsumption: 6.0, priceConsumption: 12.0),
+            Charge(chargingDate: Date.init(), gasStationName: "Eko Botevgradsko", gasStationCoordinates: (43.0, 25.0), chargedFuel: 60.0, distancePast: 1000, price: 2.0, fuelUnit: "LTR", distanceUnit: "KM", priceUnit: "LV", fuelConsumption: 6.0, priceConsumption: 12.0),
+            Charge(chargingDate: Date.init(), gasStationName: "Eko Botevgradsko", gasStationCoordinates: (43.0, 25.0), chargedFuel: 60.0, distancePast: 1000, price: 2.0, fuelUnit: "LTR", distanceUnit: "KM", priceUnit: "LV", fuelConsumption: 6.0, priceConsumption: 12.0),
+            Charge(chargingDate: Date.init(), gasStationName: "Eko Botevgradsko", gasStationCoordinates: (43.0, 25.0), chargedFuel: 60.0, distancePast: 1000, price: 2.0, fuelUnit: "LTR", distanceUnit: "KM", priceUnit: "LV", fuelConsumption: 6.0, priceConsumption: 12.0),
+            Charge(chargingDate: Date.init(), gasStationName: "Eko Botevgradsko", gasStationCoordinates: (43.0, 25.0), chargedFuel: 60.0, distancePast: 1000, price: 2.0, fuelUnit: "LTR", distanceUnit: "KM", priceUnit: "LV", fuelConsumption: 6.0, priceConsumption: 12.0),
+            Charge(chargingDate: Date.init(), gasStationName: "Eko Botevgradsko", gasStationCoordinates: (43.0, 25.0), chargedFuel: 60.0, distancePast: 1000, price: 2.0, fuelUnit: "LTR", distanceUnit: "KM", priceUnit: "LV", fuelConsumption: 6.0, priceConsumption: 12.0),
+            Charge(chargingDate: Date.init(), gasStationName: "Eko Botevgradsko", gasStationCoordinates: (43.0, 25.0), chargedFuel: 60.0, distancePast: 1000, price: 2.0, fuelUnit: "LTR", distanceUnit: "KM", priceUnit: "LV", fuelConsumption: 6.0, priceConsumption: 12.0),
+            Charge(chargingDate: Date.init(), gasStationName: "Eko Botevgradsko", gasStationCoordinates: (43.0, 25.0), chargedFuel: 60.0, distancePast: 1000, price: 2.0, fuelUnit: "LTR", distanceUnit: "KM", priceUnit: "LV", fuelConsumption: 6.0, priceConsumption: 12.0),
+            Charge(chargingDate: Date.init(), gasStationName: "Eko Botevgradsko", gasStationCoordinates: (43.0, 25.0), chargedFuel: 60.0, distancePast: 1000, price: 2.0, fuelUnit: "LTR", distanceUnit: "KM", priceUnit: "LV", fuelConsumption: 6.0, priceConsumption: 12.0),
+            Charge(chargingDate: Date.init(), gasStationName: "Eko Botevgradsko", gasStationCoordinates: (43.0, 25.0), chargedFuel: 60.0, distancePast: 1000, price: 2.0, fuelUnit: "LTR", distanceUnit: "KM", priceUnit: "LV", fuelConsumption: 6.0, priceConsumption: 12.0)
         ]
         
         var currentDate = Date.init()
@@ -46,7 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
             
             self.charges?.append(
-                Charge(chargingDate: currentDate, gasStationName: "Eko Mladost", gasStationCoordinates: (23.0, 23.0), chargedFuel: 65.0, distancePast: 1000, price: 2.0, fuelUnit: "LTR", distanceUnit: "KM", priceUnit: "LV", fuelConsumption: fuelConsumpt, priceConsumption: 13.0))
+                Charge(chargingDate: currentDate, gasStationName: "Eko Mladost", gasStationCoordinates: (43.0, 25.0), chargedFuel: 65.0, distancePast: 1000, price: 2.0, fuelUnit: "LTR", distanceUnit: "KM", priceUnit: "LV", fuelConsumption: fuelConsumpt, priceConsumption: 13.0))
             currentDate = currentDate.addingTimeInterval(-20*24*60*60)
         }
  
