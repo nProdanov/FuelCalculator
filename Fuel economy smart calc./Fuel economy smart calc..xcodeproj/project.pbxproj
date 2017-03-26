@@ -10,6 +10,8 @@
 		780C797E1E8155EA00E3369A /* ChargesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780C797D1E8155EA00E3369A /* ChargesTableViewController.swift */; };
 		780C79801E81560C00E3369A /* Charge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780C797F1E81560C00E3369A /* Charge.swift */; };
 		780C79821E815C6200E3369A /* ChargeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780C79811E815C6200E3369A /* ChargeTableViewCell.swift */; };
+		781A85B31E87A4900024A5D6 /* GasStationLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781A85B21E87A4900024A5D6 /* GasStationLocationViewController.swift */; };
+		781A85B51E87C3290024A5D6 /* LocationSearchTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781A85B41E87C3290024A5D6 /* LocationSearchTable.swift */; };
 		78537CD01E7C38D1005BBC24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78537CCF1E7C38D1005BBC24 /* AppDelegate.swift */; };
 		78537CD51E7C38D1005BBC24 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78537CD31E7C38D1005BBC24 /* Main.storyboard */; };
 		78537CD71E7C38D1005BBC24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78537CD61E7C38D1005BBC24 /* Assets.xcassets */; };
@@ -27,6 +29,8 @@
 		780C797D1E8155EA00E3369A /* ChargesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChargesTableViewController.swift; sourceTree = "<group>"; };
 		780C797F1E81560C00E3369A /* Charge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Charge.swift; sourceTree = "<group>"; };
 		780C79811E815C6200E3369A /* ChargeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChargeTableViewCell.swift; sourceTree = "<group>"; };
+		781A85B21E87A4900024A5D6 /* GasStationLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GasStationLocationViewController.swift; sourceTree = "<group>"; };
+		781A85B41E87C3290024A5D6 /* LocationSearchTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSearchTable.swift; sourceTree = "<group>"; };
 		78537CCC1E7C38D1005BBC24 /* Fuel economy smart calc..app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fuel economy smart calc..app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		78537CCF1E7C38D1005BBC24 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		78537CD41E7C38D1005BBC24 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -90,6 +94,8 @@
 				78CDFB951E850E0F00A7D1C2 /* CurrentChargeViewController.swift */,
 				78E20A581E86715000001E58 /* ChargingViewController.swift */,
 				78E20A551E86545B00001E58 /* Extensions */,
+				781A85B21E87A4900024A5D6 /* GasStationLocationViewController.swift */,
+				781A85B41E87C3290024A5D6 /* LocationSearchTable.swift */,
 			);
 			path = "Fuel economy smart calc.";
 			sourceTree = "<group>";
@@ -212,8 +218,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				781A85B51E87C3290024A5D6 /* LocationSearchTable.swift in Sources */,
 				78F7E9041E7D2E8C0081E4B6 /* BaseFuelCalculatorBrain.swift in Sources */,
 				78CDFB961E850E0F00A7D1C2 /* CurrentChargeViewController.swift in Sources */,
+				781A85B31E87A4900024A5D6 /* GasStationLocationViewController.swift in Sources */,
 				78B4C1561E7D150700D17916 /* BaseFCViewController.swift in Sources */,
 				78E6120A1E828ADE0098B35B /* GraphViewController.swift in Sources */,
 				78E20A571E86549200001E58 /* VCDismissKeyboardExtension.swift in Sources */,

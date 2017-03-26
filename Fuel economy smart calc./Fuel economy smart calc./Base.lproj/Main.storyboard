@@ -940,6 +940,9 @@
                                         <integer key="value" value="7"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="wDR-cV-uDY" kind="show" id="Rtl-89-YCz"/>
+                                </connections>
                             </button>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Sd5-MI-wsR">
                                 <rect key="frame" x="16" y="180" width="343" height="137"/>
@@ -1084,6 +1087,85 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fiq-kh-Vqs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2221.5999999999999" y="2660.4197901049479"/>
+        </scene>
+        <!--Gas Station Location View Controller-->
+        <scene sceneID="gw3-80-YH8">
+            <objects>
+                <viewController id="wDR-cV-uDY" customClass="GasStationLocationViewController" customModule="Fuel_economy_smart_calc_" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zsE-LP-7Yu"/>
+                        <viewControllerLayoutGuide type="bottom" id="RwX-2k-s9Q"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="KzK-i2-9BU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eli-Vt-oNW">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <connections>
+                                    <outlet property="delegate" destination="wDR-cV-uDY" id="hNf-pJ-Wcv"/>
+                                </connections>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="eli-Vt-oNW" secondAttribute="trailing" id="JuZ-oY-fry"/>
+                            <constraint firstItem="eli-Vt-oNW" firstAttribute="leading" secondItem="KzK-i2-9BU" secondAttribute="leading" id="LHw-Yq-Bw7"/>
+                            <constraint firstItem="eli-Vt-oNW" firstAttribute="top" secondItem="KzK-i2-9BU" secondAttribute="top" id="Xiw-CY-Qes"/>
+                            <constraint firstAttribute="bottom" secondItem="eli-Vt-oNW" secondAttribute="bottom" id="otx-uM-yb1"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="eli-Vt-oNW" id="pod-ag-X14"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="v4H-9G-2ai" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2964" y="2661"/>
+        </scene>
+        <!--Location Search Table-->
+        <scene sceneID="urE-Wh-czN">
+            <objects>
+                <tableViewController storyboardIdentifier="LocationSearchTable" id="sFL-XZ-Qka" customClass="LocationSearchTable" customModule="Fuel_economy_smart_calc_" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="QNt-Dz-2Mf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="XNj-JX-esD" detailTextLabel="Paz-vd-1nd" style="IBUITableViewCellStyleSubtitle" id="t0o-k8-WOn">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="t0o-k8-WOn" id="jiR-Gb-Gyd">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="XNj-JX-esD">
+                                            <rect key="frame" x="15" y="4" width="34" height="21"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Paz-vd-1nd">
+                                            <rect key="frame" x="15" y="25" width="44" height="15"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="sFL-XZ-Qka" id="lrp-13-EBV"/>
+                            <outlet property="delegate" destination="sFL-XZ-Qka" id="5Fu-Xk-IT3"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mwe-Hy-fWi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3649" y="2661"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ovo-fk-1PT">
