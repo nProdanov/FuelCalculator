@@ -14,6 +14,7 @@
 		781A85B51E87C3290024A5D6 /* LocationSearchTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781A85B41E87C3290024A5D6 /* LocationSearchTable.swift */; };
 		781A85B91E87EEA70024A5D6 /* ChargeLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781A85B81E87EEA70024A5D6 /* ChargeLocationViewController.swift */; };
 		7850CD5E1E8975F500FF44C5 /* GasStationFromDict.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7850CD5D1E8975F500FF44C5 /* GasStationFromDict.swift */; };
+		7850CD601E898A4200FF44C5 /* MKGasStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7850CD5F1E898A4200FF44C5 /* MKGasStation.swift */; };
 		78537CD01E7C38D1005BBC24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78537CCF1E7C38D1005BBC24 /* AppDelegate.swift */; };
 		78537CD51E7C38D1005BBC24 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78537CD31E7C38D1005BBC24 /* Main.storyboard */; };
 		78537CD71E7C38D1005BBC24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78537CD61E7C38D1005BBC24 /* Assets.xcassets */; };
@@ -41,6 +42,7 @@
 		781A85B41E87C3290024A5D6 /* LocationSearchTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSearchTable.swift; sourceTree = "<group>"; };
 		781A85B81E87EEA70024A5D6 /* ChargeLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChargeLocationViewController.swift; sourceTree = "<group>"; };
 		7850CD5D1E8975F500FF44C5 /* GasStationFromDict.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GasStationFromDict.swift; sourceTree = "<group>"; };
+		7850CD5F1E898A4200FF44C5 /* MKGasStation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKGasStation.swift; sourceTree = "<group>"; };
 		78537CCC1E7C38D1005BBC24 /* Fuel economy smart calc..app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fuel economy smart calc..app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		78537CCF1E7C38D1005BBC24 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		78537CD41E7C38D1005BBC24 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				7850CD5D1E8975F500FF44C5 /* GasStationFromDict.swift */,
+				7850CD5F1E898A4200FF44C5 /* MKGasStation.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -377,6 +380,7 @@
 				780C79821E815C6200E3369A /* ChargeTableViewCell.swift in Sources */,
 				781A85B91E87EEA70024A5D6 /* ChargeLocationViewController.swift in Sources */,
 				78CF6F3D1E8930AB0096DCB4 /* GasStationDataDelegate.swift in Sources */,
+				7850CD601E898A4200FF44C5 /* MKGasStation.swift in Sources */,
 				780C797E1E8155EA00E3369A /* ChargesTableViewController.swift in Sources */,
 				78E20A591E86715000001E58 /* ChargingViewController.swift in Sources */,
 				78537CD01E7C38D1005BBC24 /* AppDelegate.swift in Sources */,

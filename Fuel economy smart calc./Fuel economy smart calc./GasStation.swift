@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct GasStation {
+class GasStation: NSObject {
     var address: String
     var brandName: String
     var city: String
@@ -16,4 +16,14 @@ struct GasStation {
     var latitude: Double
     var longtitude: Double
     var name: String
+    
+    init(address: String, brandName: String, city: String, id: Int, latitude: Double, longtitude: Double, name: String){
+        self.address = address
+        self.brandName = brandName
+        self.city = city
+        self.id = id
+        self.latitude = latitude
+        self.longtitude = longtitude
+        self.name = name
+    }
 }
