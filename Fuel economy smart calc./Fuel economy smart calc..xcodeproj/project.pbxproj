@@ -17,6 +17,7 @@
 		78537CD51E7C38D1005BBC24 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78537CD31E7C38D1005BBC24 /* Main.storyboard */; };
 		78537CD71E7C38D1005BBC24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78537CD61E7C38D1005BBC24 /* Assets.xcassets */; };
 		78537CDA1E7C38D1005BBC24 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78537CD81E7C38D1005BBC24 /* LaunchScreen.storyboard */; };
+		789F70131E8917FD00F96B0A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 789F70121E8917FD00F96B0A /* GoogleService-Info.plist */; };
 		78B4C1561E7D150700D17916 /* BaseFCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B4C1551E7D150700D17916 /* BaseFCViewController.swift */; };
 		78CDFB961E850E0F00A7D1C2 /* CurrentChargeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CDFB951E850E0F00A7D1C2 /* CurrentChargeViewController.swift */; };
 		78E20A571E86549200001E58 /* VCDismissKeyboardExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E20A561E86549200001E58 /* VCDismissKeyboardExtension.swift */; };
@@ -24,6 +25,7 @@
 		78E6120A1E828ADE0098B35B /* GraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E612091E828ADE0098B35B /* GraphViewController.swift */; };
 		78E6120C1E828B3A0098B35B /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E6120B1E828B3A0098B35B /* GraphView.swift */; };
 		78F7E9041E7D2E8C0081E4B6 /* BaseFuelCalculatorBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F7E9031E7D2E8C0081E4B6 /* BaseFuelCalculatorBrain.swift */; };
+		8188A359A0EE1E1D44DB9043 /* Pods_Fuel_economy_smart_calc_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8322E4FBD878951C516B6925 /* Pods_Fuel_economy_smart_calc_.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +41,7 @@
 		78537CD61E7C38D1005BBC24 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		78537CD91E7C38D1005BBC24 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		78537CDB1E7C38D1005BBC24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		789F70121E8917FD00F96B0A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		78B4C1551E7D150700D17916 /* BaseFCViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseFCViewController.swift; sourceTree = "<group>"; };
 		78CDFB951E850E0F00A7D1C2 /* CurrentChargeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentChargeViewController.swift; sourceTree = "<group>"; };
 		78E20A561E86549200001E58 /* VCDismissKeyboardExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCDismissKeyboardExtension.swift; sourceTree = "<group>"; };
@@ -46,6 +49,9 @@
 		78E612091E828ADE0098B35B /* GraphViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphViewController.swift; sourceTree = "<group>"; };
 		78E6120B1E828B3A0098B35B /* GraphView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
 		78F7E9031E7D2E8C0081E4B6 /* BaseFuelCalculatorBrain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseFuelCalculatorBrain.swift; sourceTree = "<group>"; };
+		8322E4FBD878951C516B6925 /* Pods_Fuel_economy_smart_calc_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Fuel_economy_smart_calc_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A2034E15604D52A14D31A88 /* Pods-Fuel economy smart calc..release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fuel economy smart calc..release.xcconfig"; path = "Pods/Target Support Files/Pods-Fuel economy smart calc./Pods-Fuel economy smart calc..release.xcconfig"; sourceTree = "<group>"; };
+		C3C69D147A7C07A590E354ED /* Pods-Fuel economy smart calc..debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fuel economy smart calc..debug.xcconfig"; path = "Pods/Target Support Files/Pods-Fuel economy smart calc./Pods-Fuel economy smart calc..debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,12 +59,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8188A359A0EE1E1D44DB9043 /* Pods_Fuel_economy_smart_calc_.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		502EF40768150AF9035AAD80 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C3C69D147A7C07A590E354ED /* Pods-Fuel economy smart calc..debug.xcconfig */,
+				8A2034E15604D52A14D31A88 /* Pods-Fuel economy smart calc..release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		781A85B61E87ED270024A5D6 /* CurrentCharge */ = {
 			isa = PBXGroup;
 			children = (
@@ -90,6 +106,8 @@
 			children = (
 				78537CCE1E7C38D1005BBC24 /* Fuel economy smart calc. */,
 				78537CCD1E7C38D1005BBC24 /* Products */,
+				502EF40768150AF9035AAD80 /* Pods */,
+				FE49C246338FB0894C478817 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -125,6 +143,7 @@
 				78537CD61E7C38D1005BBC24 /* Assets.xcassets */,
 				78537CD81E7C38D1005BBC24 /* LaunchScreen.storyboard */,
 				78537CDB1E7C38D1005BBC24 /* Info.plist */,
+				789F70121E8917FD00F96B0A /* GoogleService-Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -164,6 +183,14 @@
 			name = Charges;
 			sourceTree = "<group>";
 		};
+		FE49C246338FB0894C478817 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8322E4FBD878951C516B6925 /* Pods_Fuel_economy_smart_calc_.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -171,9 +198,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 78537CDE1E7C38D1005BBC24 /* Build configuration list for PBXNativeTarget "Fuel economy smart calc." */;
 			buildPhases = (
+				EDD2714CDDE39120A53ED17C /* [CP] Check Pods Manifest.lock */,
 				78537CC81E7C38D0005BBC24 /* Sources */,
 				78537CC91E7C38D0005BBC24 /* Frameworks */,
 				78537CCA1E7C38D0005BBC24 /* Resources */,
+				417D8D92408A983B1D458398 /* [CP] Embed Pods Frameworks */,
+				E3287D951B1CA9276CB379B3 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -225,12 +255,61 @@
 			buildActionMask = 2147483647;
 			files = (
 				78537CDA1E7C38D1005BBC24 /* LaunchScreen.storyboard in Resources */,
+				789F70131E8917FD00F96B0A /* GoogleService-Info.plist in Resources */,
 				78537CD71E7C38D1005BBC24 /* Assets.xcassets in Resources */,
 				78537CD51E7C38D1005BBC24 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		417D8D92408A983B1D458398 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Fuel economy smart calc./Pods-Fuel economy smart calc.-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E3287D951B1CA9276CB379B3 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Fuel economy smart calc./Pods-Fuel economy smart calc.-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EDD2714CDDE39120A53ED17C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		78537CC81E7C38D0005BBC24 /* Sources */ = {
@@ -371,6 +450,7 @@
 		};
 		78537CDF1E7C38D1005BBC24 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C3C69D147A7C07A590E354ED /* Pods-Fuel economy smart calc..debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = N5G47N4HRW;
@@ -384,6 +464,7 @@
 		};
 		78537CE01E7C38D1005BBC24 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8A2034E15604D52A14D31A88 /* Pods-Fuel economy smart calc..release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = N5G47N4HRW;

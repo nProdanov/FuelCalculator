@@ -1,0 +1,6 @@
+framework module Pods_Fuel_economy_smart_calc_ {
+  umbrella header "Pods-Fuel economy smart calc.-umbrella.h"
+
+  export *
+  module * { export * }
+}
