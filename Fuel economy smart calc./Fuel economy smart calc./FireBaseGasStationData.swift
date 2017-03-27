@@ -35,7 +35,10 @@ class FireBaseGasStationData: BaseGasStationData {
             }
             
         }
-        
+    }
+    
+    func setDelegate(_ delegate: GasStationDataDelegate) {
+        self.delegate = delegate
     }
     
     private struct Constants {

@@ -9,5 +9,6 @@
 import Foundation
 
 protocol BaseGasStationData {
+    func setDelegate(_ delegate: GasStationDataDelegate)
     func getAll()
 }

@@ -15,46 +15,36 @@ protocol HandleMapSearch {
 
 class GasStationLocationViewController: UIViewController {
     
-    var selectedPin:MKPlacemark?
-    
-    var resultSearchController: UISearchController?
-    
     let locationManager = CLLocationManager()
     
-    @IBOutlet weak var mapView: MKMapView!
+    var gasStationData: BaseGasStationData?
+    
+    @IBOutlet weak var mapView: MKMapView! {
+        didSet {
+            mapView.mapType = .standard
+//            mapView.delegate = self
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
-        locationManager.requestWhenInUseAuthorization()
-        locationManager.requestLocation()
+        gasStationData = FireBaseGasStationData()
+        gasStationData?.setDelegate(self)
+        gasStationData?.getAll()
         
-        let locationSearchTable = storyboard!.instantiateViewController(withIdentifier: "LocationSearchTable") as! LocationSearchTable
-        resultSearchController = UISearchController(searchResultsController: locationSearchTable)
-        resultSearchController?.searchResultsUpdater = locationSearchTable
-        
-        let searchBar = resultSearchController!.searchBar
-        searchBar.sizeToFit()
-        searchBar.placeholder = "Search for gas station"
-        navigationItem.titleView = resultSearchController?.searchBar
-        
-        resultSearchController?.hidesNavigationBarDuringPresentation = false
-        resultSearchController?.dimsBackgroundDuringPresentation = true
-        definesPresentationContext = true
-        
-        locationSearchTable.mapView = mapView
-        locationSearchTable.handleMapSearchDelegate = self
-        
+                locationManager.delegate = self
+                locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
+                locationManager.requestWhenInUseAuthorization()
+                locationManager.requestLocation()
     }
     
-    func getDirections(){
-        if let selectedPin = selectedPin {
-            let mapItem = MKMapItem(placemark: selectedPin)
-            let launchOptions = [MKLaunchOptionsDirectionsModeKey : MKLaunchOptionsDirectionsModeDriving]
-            mapItem.openInMaps(launchOptions: launchOptions)
-        }
+    fileprivate func clearGasStations() {
+        mapView?.removeAnnotations(mapView.annotations)
+    }
+    
+    fileprivate func addGasStations(_ gasStations: [GasStation]) {
+        mapView?.addAnnotations(gasStations)
     }
 }
 
@@ -78,43 +68,14 @@ extension GasStationLocationViewController: CLLocationManagerDelegate {
     }
 }
 
-extension GasStationLocationViewController : HandleMapSearch {
-    func dropPin(placemark: MKPlacemark) {
-        // cache the pin
-        selectedPin = placemark
-        // clear existing pins
-        mapView.removeAnnotations(mapView.annotations)
-        let annotation = MKPointAnnotation()
-        annotation.coordinate = placemark.coordinate
-        annotation.title = placemark.name
-        if let city = placemark.locality,
-            let state = placemark.administrativeArea {
-            annotation.subtitle = "\(city) \(state)"
-        }
-        mapView.addAnnotation(annotation)
-        let span = MKCoordinateSpanMake(0.05, 0.05)
-        let region = MKCoordinateRegionMake(placemark.coordinate, span)
-        mapView.setRegion(region, animated: true)
-    }
-}
-
-extension GasStationLocationViewController : MKMapViewDelegate {
-    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        if annotation is MKUserLocation {
-            //return nil so map view draws "blue dot" for standard user location
-            return nil
-        }
-        let reuseId = "pin"
-        var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId) as? MKPinAnnotationView
-        pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
-        pinView?.pinTintColor = .orange
-        pinView?.canShowCallout = true
-        let smallSquare = CGSize(width: 30, height: 30)
-        let button = UIButton(frame: CGRect(origin: CGPoint.zero, size: smallSquare))
-        button.setBackgroundImage(UIImage(named: "car"), for: .normal)
-        button.addTarget(self, action: #selector(getDirections), for: .touchUpInside)
-        pinView?.leftCalloutAccessoryView = button
-        return pinView
+extension GasStationLocationViewController: GasStationDataDelegate {
+    func didReceiveGasStations(gasStations: [GasStation]) {
+        self.clearGasStations()
         
+        self.addGasStations(gasStations)
+    }
+    
+    func didReceiveError(error: Error) {
+        print(error)
     }
 }
