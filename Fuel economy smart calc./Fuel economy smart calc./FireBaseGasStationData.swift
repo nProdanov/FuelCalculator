@@ -25,10 +25,13 @@ class FireBaseGasStationData: BaseGasStationData {
             self?.dbReference
                 .child(Constants.gasStationDbChild)
                 .observeSingleEvent(of: .value, with: {(snapshop) in
-                    let value = snapshop.value as! [NSDictionary]
-                    print(value)
+                    let gasStationsDict = snapshop.value as! [NSDictionary]
+                    let gasStations = gasStationsDict.map { GasStation.fromDict($0) }
+                    DispatchQueue.main.async {
+                        self?.delegate?.didReceiveGasStations(gasStations: gasStations)
+                    }
                 }) {error in
-                    print(error)
+                        self?.delegate?.didReceiveError(error: error)
             }
             
         }

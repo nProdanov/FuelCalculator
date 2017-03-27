@@ -9,5 +9,6 @@
 import Foundation
 
 protocol GasStationDataDelegate {
-    func didRecieveGasStations(gasStations: [GasStation])
+    func didReceiveGasStations(gasStations: [GasStation])
+    func didReceiveError(error: Error)
 }

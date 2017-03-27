@@ -10,7 +10,7 @@ import Foundation
 
 struct GasStation {
     var address: String
-    var brandname: String
+    var brandName: String
     var city: String
     var id: Int
     var latitude: Double
