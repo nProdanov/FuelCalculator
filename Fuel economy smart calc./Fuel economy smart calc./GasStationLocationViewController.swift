@@ -76,12 +76,10 @@ class GasStationLocationViewController: UIViewController, MKMapViewDelegate
         }
         
         let leftViewButton = view.leftCalloutAccessoryView as! UIButton
-        leftViewButton.setTitle("Charge here!", for: .normal)
-        leftViewButton.setTitleColor(UIColor.white, for: .normal)
-        leftViewButton.setTitleColor(UIColor.gray, for: .selected)
-        leftViewButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
-        leftViewButton.backgroundColor = UIColor(hue: 0.5972, saturation: 0.54, brightness: 0.74, alpha: 1.0)
-        
+        leftViewButton.setTitle(Constants.LeftCalloutButtonTitle, for: .normal)
+        leftViewButton.setTitleColor(Constants.LeftCalloutButtonTitleColor, for: .normal)
+        leftViewButton.titleLabel?.font = Constants.LeftCalloutButtonTitleFont
+        leftViewButton.backgroundColor = Constants.LeftCalloutButtonBackgroundColor
     }
     
     fileprivate func clearGasStations() {
@@ -94,9 +92,13 @@ class GasStationLocationViewController: UIViewController, MKMapViewDelegate
     
     private struct Constants {
         static let AnnotationReuseIdentifier = "gasStation"
-        static let LeftCalloutFrame = CGRect(x: 0, y: 0, width: 100, height: 59)
         static let ShowChargingWithGasStationNameSegue = "showCharging"
         static let ImageForAnnotation = "gasstationpin"
+        static let LeftCalloutFrame = CGRect(x: 0, y: 0, width: 100, height: 59)
+        static let LeftCalloutButtonBackgroundColor = UIColor(hue: 0.5972, saturation: 0.54, brightness: 0.74, alpha: 1.0)
+        static let LeftCalloutButtonTitle = "Charge here"
+        static let LeftCalloutButtonTitleColor = UIColor.white
+        static let LeftCalloutButtonTitleFont = UIFont.boldSystemFont(ofSize: 14)
     }
 }
 
