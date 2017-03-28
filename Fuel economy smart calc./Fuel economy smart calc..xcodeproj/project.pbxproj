@@ -24,6 +24,9 @@
 		78C1F6381E8AB0110032AC2D /* DbModelCharge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C1F6371E8AB0110032AC2D /* DbModelCharge.swift */; };
 		78C1F63A1E8AB04F0032AC2D /* DbModelGasStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C1F6391E8AB04F0032AC2D /* DbModelGasStation.swift */; };
 		78C1F63D1E8AB08E0032AC2D /* DbModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 78C1F63B1E8AB08E0032AC2D /* DbModel.xcdatamodeld */; };
+		78C1F63F1E8AC2290032AC2D /* BaseRemoteGasStationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C1F63E1E8AC2290032AC2D /* BaseRemoteGasStationData.swift */; };
+		78C1F6411E8AC2B00032AC2D /* GasStationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C1F6401E8AC2B00032AC2D /* GasStationData.swift */; };
+		78C1F6431E8AC4E70032AC2D /* RemoteGasStationDataDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C1F6421E8AC4E70032AC2D /* RemoteGasStationDataDelegate.swift */; };
 		78CDFB961E850E0F00A7D1C2 /* CurrentChargeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CDFB951E850E0F00A7D1C2 /* CurrentChargeViewController.swift */; };
 		78CF6F351E8928440096DCB4 /* GasStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CF6F341E8928440096DCB4 /* GasStation.swift */; };
 		78CF6F3A1E892F040096DCB4 /* BaseGasStationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CF6F391E892F040096DCB4 /* BaseGasStationData.swift */; };
@@ -57,6 +60,9 @@
 		78C1F6371E8AB0110032AC2D /* DbModelCharge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DbModelCharge.swift; sourceTree = "<group>"; };
 		78C1F6391E8AB04F0032AC2D /* DbModelGasStation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DbModelGasStation.swift; sourceTree = "<group>"; };
 		78C1F63C1E8AB08E0032AC2D /* DbModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DbModel.xcdatamodel; sourceTree = "<group>"; };
+		78C1F63E1E8AC2290032AC2D /* BaseRemoteGasStationData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseRemoteGasStationData.swift; sourceTree = "<group>"; };
+		78C1F6401E8AC2B00032AC2D /* GasStationData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GasStationData.swift; sourceTree = "<group>"; };
+		78C1F6421E8AC4E70032AC2D /* RemoteGasStationDataDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteGasStationDataDelegate.swift; sourceTree = "<group>"; };
 		78CDFB951E850E0F00A7D1C2 /* CurrentChargeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentChargeViewController.swift; sourceTree = "<group>"; };
 		78CF6F341E8928440096DCB4 /* GasStation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GasStation.swift; sourceTree = "<group>"; };
 		78CF6F391E892F040096DCB4 /* BaseGasStationData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseGasStationData.swift; sourceTree = "<group>"; };
@@ -201,6 +207,7 @@
 				78CF6F3B1E892F7C0096DCB4 /* Delegates */,
 				78CF6F381E892EE70096DCB4 /* Base */,
 				78CF6F3E1E89313C0096DCB4 /* FireBaseGasStationData.swift */,
+				78C1F6401E8AC2B00032AC2D /* GasStationData.swift */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -209,6 +216,7 @@
 			isa = PBXGroup;
 			children = (
 				78CF6F391E892F040096DCB4 /* BaseGasStationData.swift */,
+				78C1F63E1E8AC2290032AC2D /* BaseRemoteGasStationData.swift */,
 			);
 			name = Base;
 			sourceTree = "<group>";
@@ -217,6 +225,7 @@
 			isa = PBXGroup;
 			children = (
 				78CF6F3C1E8930AB0096DCB4 /* GasStationDataDelegate.swift */,
+				78C1F6421E8AC4E70032AC2D /* RemoteGasStationDataDelegate.swift */,
 			);
 			name = Delegates;
 			sourceTree = "<group>";
@@ -386,8 +395,10 @@
 				781A85B51E87C3290024A5D6 /* LocationSearchTable.swift in Sources */,
 				78F7E9041E7D2E8C0081E4B6 /* BaseFuelCalculatorBrain.swift in Sources */,
 				78CDFB961E850E0F00A7D1C2 /* CurrentChargeViewController.swift in Sources */,
+				78C1F6411E8AC2B00032AC2D /* GasStationData.swift in Sources */,
 				78CF6F351E8928440096DCB4 /* GasStation.swift in Sources */,
 				781A85B31E87A4900024A5D6 /* GasStationLocationViewController.swift in Sources */,
+				78C1F6431E8AC4E70032AC2D /* RemoteGasStationDataDelegate.swift in Sources */,
 				78B4C1561E7D150700D17916 /* BaseFCViewController.swift in Sources */,
 				7850CD5E1E8975F500FF44C5 /* GasStationFromDict.swift in Sources */,
 				78C1F6381E8AB0110032AC2D /* DbModelCharge.swift in Sources */,
@@ -398,6 +409,7 @@
 				780C79801E81560C00E3369A /* Charge.swift in Sources */,
 				78CF6F3A1E892F040096DCB4 /* BaseGasStationData.swift in Sources */,
 				780C79821E815C6200E3369A /* ChargeTableViewCell.swift in Sources */,
+				78C1F63F1E8AC2290032AC2D /* BaseRemoteGasStationData.swift in Sources */,
 				781A85B91E87EEA70024A5D6 /* ChargeLocationViewController.swift in Sources */,
 				78CF6F3D1E8930AB0096DCB4 /* GasStationDataDelegate.swift in Sources */,
 				7850CD601E898A4200FF44C5 /* MKGasStation.swift in Sources */,

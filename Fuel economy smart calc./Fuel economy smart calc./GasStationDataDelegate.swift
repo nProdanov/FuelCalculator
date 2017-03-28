@@ -8,7 +8,8 @@
 
 import Foundation
 
-protocol GasStationDataDelegate {
+protocol GasStationDataDelegate
+{
     func didReceiveGasStations(gasStations: [GasStation])
     func didReceiveError(error: Error)
 }

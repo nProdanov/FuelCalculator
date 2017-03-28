@@ -8,7 +8,8 @@
 
 import Foundation
 
-protocol BaseGasStationData {
+protocol BaseGasStationData
+{
     func setDelegate(_ delegate: GasStationDataDelegate)
     func getAll()
 }

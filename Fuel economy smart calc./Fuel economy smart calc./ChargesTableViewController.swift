@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import CoreData
 
 class ChargesTableViewController: UITableViewController {
+    
+    var container: NSPersistentContainer? = (UIApplication.shared.delegate as! AppDelegate).persistentContainer
     
     var charges: [Charge]?
     
@@ -28,7 +31,7 @@ extension ChargesTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return charges!.count
+        return charges?.count ?? 0
     }
     
     

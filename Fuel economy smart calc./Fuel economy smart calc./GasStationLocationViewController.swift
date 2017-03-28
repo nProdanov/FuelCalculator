@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import CoreData
 
 protocol GasStaionLocationDelegate {
     func didReceiveGasStation(_ gasStaion: GasStation)
@@ -18,6 +19,8 @@ class GasStationLocationViewController: UIViewController, MKMapViewDelegate
     var areAnotationsReady = false
     var gasStationLocationDelegate: GasStaionLocationDelegate?
     var currentGasStation: GasStation?
+    
+    var container: NSPersistentContainer? = (UIApplication.shared.delegate as! AppDelegate).persistentContainer
     
     var locationManager: CLLocationManager? {
         didSet {
@@ -46,7 +49,7 @@ class GasStationLocationViewController: UIViewController, MKMapViewDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        gasStationData = FireBaseGasStationData() // Swinject
+        gasStationData = GasStationData() // Swinject
         locationManager = CLLocationManager() // Swinject
     }
     
@@ -143,6 +146,22 @@ extension GasStationLocationViewController: CLLocationManagerDelegate
 extension GasStationLocationViewController: GasStationDataDelegate
 {
     func didReceiveGasStations(gasStations: [GasStation]) {
+        //DB shit
+        container?.performBackgroundTask { [weak self] context in
+            for gasStationInfo in gasStations {
+                _ = try? DbModelGasStation.findOrCreateGasStation(with: gasStationInfo, in: context)
+            }
+            
+            try? context.save()
+            
+            if let cont = self?.container?.viewContext {
+                cont.perform {
+                    if let gasStationsCount = (try? cont.count(for: DbModelGasStation.fetchRequest())) {
+                       print("count: \(gasStationsCount)")
+                    }
+                }
+            }
+        }
         self.clearGasStations()
         self.addGasStations(gasStations)
     }
