@@ -26,13 +26,19 @@ class ChargingViewController: UIViewController {
     
     var currentCharge: Charge?
     
+    var choosedGasStation: GasStation? {
+        didSet {
+            gasStationNameTextField.text = "\(choosedGasStation!.brandName) \(choosedGasStation!.address)"
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         datePicker.setValue(UIColor.white, forKey: "textColor")
         
         addGestureForDismissingKeyboard()
-//        currentCharge = (UIApplication.shared.delegate as! AppDelegate).charges?[0]
+        //        currentCharge = (UIApplication.shared.delegate as! AppDelegate).charges?[0]
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -49,14 +55,20 @@ class ChargingViewController: UIViewController {
     
     // TODO: Provide Gas Station via Location
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
+    // MARK: - Navigation
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showGasStationsMap" {
+            let gasStationLocationViewController = segue.destination as! GasStationLocationViewController
+            gasStationLocationViewController.gasStationLocationDelegate = self
+        }
+    }
+}
+
+extension ChargingViewController: GasStaionLocationDelegate {
+    func didReceiveGasStation(_ gasStation: GasStation) {
+        choosedGasStation = gasStation
+    }
 }

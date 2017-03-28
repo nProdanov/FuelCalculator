@@ -976,7 +976,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="wDR-cV-uDY" kind="show" id="Rtl-89-YCz"/>
+                                    <segue destination="wDR-cV-uDY" kind="show" identifier="showGasStationsMap" id="Rtl-89-YCz"/>
                                 </connections>
                             </button>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Sd5-MI-wsR">

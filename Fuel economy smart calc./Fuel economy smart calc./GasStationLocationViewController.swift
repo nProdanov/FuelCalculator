@@ -9,9 +9,15 @@
 import UIKit
 import MapKit
 
+protocol GasStaionLocationDelegate {
+    func didReceiveGasStation(_ gasStaion: GasStation)
+}
+
 class GasStationLocationViewController: UIViewController, MKMapViewDelegate
 {
     var areAnotationsReady = false
+    var gasStationLocationDelegate: GasStaionLocationDelegate?
+    var currentGasStation: GasStation?
     
     var locationManager: CLLocationManager? {
         didSet {
@@ -75,11 +81,21 @@ class GasStationLocationViewController: UIViewController, MKMapViewDelegate
             return
         }
         
+        self.currentGasStation = view.annotation as? GasStation
         let leftViewButton = view.leftCalloutAccessoryView as! UIButton
         leftViewButton.setTitle(Constants.LeftCalloutButtonTitle, for: .normal)
         leftViewButton.setTitleColor(Constants.LeftCalloutButtonTitleColor, for: .normal)
         leftViewButton.titleLabel?.font = Constants.LeftCalloutButtonTitleFont
         leftViewButton.backgroundColor = Constants.LeftCalloutButtonBackgroundColor
+        
+        leftViewButton.addTarget(self, action: #selector(chooseGasStation), for: .touchUpInside)
+    }
+    
+    func chooseGasStation() {
+        if let gasStation = self.currentGasStation {
+            self.gasStationLocationDelegate?.didReceiveGasStation(gasStation)
+            _ = navigationController?.popViewController(animated: true)
+        }
     }
     
     fileprivate func clearGasStations() {
