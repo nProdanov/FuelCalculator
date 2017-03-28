@@ -62,9 +62,7 @@ class GasStationLocationViewController: UIViewController, MKMapViewDelegate
         }
         else {
             annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: Constants.AnnotationReuseIdentifier)
-            
             let leftViewButton = UIButton(frame: Constants.LeftCalloutFrame)
-            
             annotationView?.leftCalloutAccessoryView = leftViewButton
         }
         
