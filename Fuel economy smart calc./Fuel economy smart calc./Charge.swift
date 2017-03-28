@@ -9,6 +9,7 @@
 import Foundation
 
 struct Charge {
+    var id: String
     var chargingDate: Date
     var gasStation: GasStation
     var chargedFuel: Double
