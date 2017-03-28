@@ -16,7 +16,7 @@ extension GasStation : MKAnnotation
     }
     
     var title: String? {
-        return "\(brandName) \(name)"
+        return self.fullName
     }
     
     var subtitle: String? {

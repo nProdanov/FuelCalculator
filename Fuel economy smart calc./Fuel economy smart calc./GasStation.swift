@@ -18,6 +18,10 @@ class GasStation: NSObject
     var longtitude: Double
     var name: String
     
+    var fullName: String {
+        return "\(brandName) \(name)"
+    }
+    
     init(address: String, brandName: String, city: String, id: Int, latitude: Double, longtitude: Double, name: String){
         self.address = address
         self.brandName = brandName

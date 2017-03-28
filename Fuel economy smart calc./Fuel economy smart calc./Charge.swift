@@ -10,8 +10,7 @@ import Foundation
 
 struct Charge {
     var chargingDate: Date
-    var gasStationName: String
-    var gasStationCoordinates: (Double, Double)?
+    var gasStation: GasStation
     var chargedFuel: Double
     var distancePast: Double?
     var price: Double

@@ -71,7 +71,7 @@ class CurrentChargeViewController: UIViewController {
     
     private func updateUI() {
         if let charge = currentCharge {
-            gasStationNameLabel.text = charge.gasStationName
+            gasStationNameLabel.text = charge.gasStation.fullName
             
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "dd MMMM YYYY"

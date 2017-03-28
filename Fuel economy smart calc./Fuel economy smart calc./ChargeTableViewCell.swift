@@ -94,7 +94,7 @@ class ChargeTableViewCell: UITableViewCell {
         dateFormatter.dateFormat = "dd MMM yyyy"
         
         date.text = dateFormatter.string(from: (charge?.chargingDate)!)
-        gasStationName.text = charge?.gasStationName
+        gasStationName.text = charge?.gasStation.fullName
         
         price.text = String(format: "%.2f", (charge?.price)!)
         priceUnit.text = charge?.priceUnit

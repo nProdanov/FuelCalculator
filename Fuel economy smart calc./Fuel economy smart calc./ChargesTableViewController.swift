@@ -47,10 +47,9 @@ extension ChargesTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let charges = charges,
-            let coordinates = charges[indexPath.row].gasStationCoordinates {
+        if let charges = charges {
             let chargeLocationVC = storyboard?.instantiateViewController(withIdentifier: "ChargeLocation") as! ChargeLocationViewController
-            chargeLocationVC.chargeInfo = (name: charges[indexPath.row].gasStationName, coordinates: coordinates)
+            chargeLocationVC.gasStation = charges[indexPath.row].gasStation
             
             navigationController?.show(chargeLocationVC, sender: self)
         }

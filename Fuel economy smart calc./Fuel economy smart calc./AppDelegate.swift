@@ -20,20 +20,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FIRApp.configure()
         
         // Override point for customization after application launch.
+        let gasStation = GasStation(address: "до Кат север", brandName: "Lukoil", city: "Плевен", id: 109, latitude: 43.435799, longtitude: 24.5996, name: "B128")
         
         self.charges = [
-            Charge(chargingDate: Date.init(), gasStationName: "Eko Botevgradsko", gasStationCoordinates: (43.0, 25.0), chargedFuel: 60.0, distancePast: 1000, price: 2.0, fuelUnit: "LTR", distanceUnit: "KM", priceUnit: "LV", fuelConsumption: 6.0, priceConsumption: 12.0),
-            Charge(chargingDate: Date.init(), gasStationName: "Ivony", gasStationCoordinates: (43.0, 25.0), chargedFuel: 60.0, distancePast: 1000, price: 1.83, fuelUnit: "LTR", distanceUnit: "KM", priceUnit: "LV", fuelConsumption: 6.0, priceConsumption: 10.98),
-            Charge(chargingDate: Date.init(), gasStationName: "Eko Botevgradsko", gasStationCoordinates: (43.0, 25.0), chargedFuel: 60.0, distancePast: 1000, price: 2.0, fuelUnit: "LTR", distanceUnit: "KM", priceUnit: "LV", fuelConsumption: 6.0, priceConsumption: 12.0),
-            Charge(chargingDate: Date.init(), gasStationName: "Eko Botevgradsko", gasStationCoordinates: (43.0, 25.0), chargedFuel: 60.0, distancePast: 1000, price: 2.0, fuelUnit: "LTR", distanceUnit: "KM", priceUnit: "LV", fuelConsumption: 6.0, priceConsumption: 12.0),
-            Charge(chargingDate: Date.init(), gasStationName: "Eko Botevgradsko", gasStationCoordinates: (43.0, 25.0), chargedFuel: 60.0, distancePast: 1000, price: 2.0, fuelUnit: "LTR", distanceUnit: "KM", priceUnit: "LV", fuelConsumption: 6.0, priceConsumption: 12.0),
-            Charge(chargingDate: Date.init(), gasStationName: "Eko Botevgradsko", gasStationCoordinates: (43.0, 25.0), chargedFuel: 60.0, distancePast: 1000, price: 2.0, fuelUnit: "LTR", distanceUnit: "KM", priceUnit: "LV", fuelConsumption: 6.0, priceConsumption: 12.0),
-            Charge(chargingDate: Date.init(), gasStationName: "Eko Botevgradsko", gasStationCoordinates: (43.0, 25.0), chargedFuel: 60.0, distancePast: 1000, price: 2.0, fuelUnit: "LTR", distanceUnit: "KM", priceUnit: "LV", fuelConsumption: 6.0, priceConsumption: 12.0),
-            Charge(chargingDate: Date.init(), gasStationName: "Eko Botevgradsko", gasStationCoordinates: (43.0, 25.0), chargedFuel: 60.0, distancePast: 1000, price: 2.0, fuelUnit: "LTR", distanceUnit: "KM", priceUnit: "LV", fuelConsumption: 6.0, priceConsumption: 12.0),
-            Charge(chargingDate: Date.init(), gasStationName: "Eko Botevgradsko", gasStationCoordinates: (43.0, 25.0), chargedFuel: 60.0, distancePast: 1000, price: 2.0, fuelUnit: "LTR", distanceUnit: "KM", priceUnit: "LV", fuelConsumption: 6.0, priceConsumption: 12.0),
-            Charge(chargingDate: Date.init(), gasStationName: "Eko Botevgradsko", gasStationCoordinates: (43.0, 25.0), chargedFuel: 60.0, distancePast: 1000, price: 2.0, fuelUnit: "LTR", distanceUnit: "KM", priceUnit: "LV", fuelConsumption: 6.0, priceConsumption: 12.0),
-            Charge(chargingDate: Date.init(), gasStationName: "Eko Botevgradsko", gasStationCoordinates: (43.0, 25.0), chargedFuel: 60.0, distancePast: 1000, price: 2.0, fuelUnit: "LTR", distanceUnit: "KM", priceUnit: "LV", fuelConsumption: 6.0, priceConsumption: 12.0),
-            Charge(chargingDate: Date.init(), gasStationName: "Eko Botevgradsko", gasStationCoordinates: (43.0, 25.0), chargedFuel: 60.0, distancePast: 1000, price: 2.0, fuelUnit: "LTR", distanceUnit: "KM", priceUnit: "LV", fuelConsumption: 6.0, priceConsumption: 12.0)
+        Charge(chargingDate: Date.init(), gasStation: gasStation, chargedFuel: 62.4, distancePast: 945, price: 2.09, fuelUnit: "LTR", distanceUnit: "KM", priceUnit: "LV", fuelConsumption: 7.2, priceConsumption: 16.0)
         ]
         
         var currentDate = Date.init()
@@ -48,7 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
             
             self.charges?.append(
-                Charge(chargingDate: currentDate, gasStationName: "Eko Mladost", gasStationCoordinates: (43.0, 25.0), chargedFuel: 65.0, distancePast: 1000, price: 2.0, fuelUnit: "LTR", distanceUnit: "KM", priceUnit: "LV", fuelConsumption: fuelConsumpt, priceConsumption: 13.0))
+                Charge(chargingDate: currentDate, gasStation: gasStation, chargedFuel: 65.0, distancePast: 1000, price: 2.0, fuelUnit: "LTR", distanceUnit: "KM", priceUnit: "LV", fuelConsumption: fuelConsumpt, priceConsumption: 13.0))
             currentDate = currentDate.addingTimeInterval(-20*24*60*60)
         }
  
