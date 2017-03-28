@@ -50,7 +50,7 @@ class CurrentChargeViewController: UIViewController {
         addGestureForDismissingKeyboard()
         addSaveButtonToNavBar()
         
-        currentCharge = (UIApplication.shared.delegate as! AppDelegate).charges?[0]
+//        currentCharge = (UIApplication.shared.delegate as! AppDelegate).charges?[0]
     }
     
     override func viewDidAppear(_ animated: Bool) {

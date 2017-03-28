@@ -32,7 +32,7 @@ class ChargingViewController: UIViewController {
         datePicker.setValue(UIColor.white, forKey: "textColor")
         
         addGestureForDismissingKeyboard()
-        currentCharge = (UIApplication.shared.delegate as! AppDelegate).charges?[0]
+//        currentCharge = (UIApplication.shared.delegate as! AppDelegate).charges?[0]
     }
     
     override func viewDidAppear(_ animated: Bool) {

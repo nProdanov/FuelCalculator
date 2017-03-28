@@ -8,7 +8,8 @@
 
 import Foundation
 
-class GasStation: NSObject {
+class GasStation: NSObject
+{
     var address: String
     var brandName: String
     var city: String

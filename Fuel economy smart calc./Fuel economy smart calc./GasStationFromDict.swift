@@ -8,7 +8,8 @@
 
 import Foundation
 
-extension GasStation {
+extension GasStation
+{
     static func fromDict(_ dict: NSDictionary) -> GasStation {
         let address = dict["address"] as! String
         let brandName = dict["brand_name"] as! String
