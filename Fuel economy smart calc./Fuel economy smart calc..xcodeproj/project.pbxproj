@@ -20,7 +20,7 @@
 		784C7BB31E8C0C8E000365BE /* BaseRemoteChargesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784C7BB21E8C0C8E000365BE /* BaseRemoteChargesData.swift */; };
 		784C7BB51E8C0E38000365BE /* RemoteChargesDataDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784C7BB41E8C0E38000365BE /* RemoteChargesDataDelegate.swift */; };
 		784C7BB71E8C0FF4000365BE /* FirebaseChargesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784C7BB61E8C0FF4000365BE /* FirebaseChargesData.swift */; };
-		784C7BB91E8C1179000365BE /* ChargeFromDict.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784C7BB81E8C1179000365BE /* ChargeFromDict.swift */; };
+		784C7BB91E8C1179000365BE /* ChargeDict.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784C7BB81E8C1179000365BE /* ChargeDict.swift */; };
 		7850CD5E1E8975F500FF44C5 /* GasStationFromDict.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7850CD5D1E8975F500FF44C5 /* GasStationFromDict.swift */; };
 		7850CD601E898A4200FF44C5 /* MKGasStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7850CD5F1E898A4200FF44C5 /* MKGasStation.swift */; };
 		78537CD01E7C38D1005BBC24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78537CCF1E7C38D1005BBC24 /* AppDelegate.swift */; };
@@ -65,7 +65,7 @@
 		784C7BB21E8C0C8E000365BE /* BaseRemoteChargesData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseRemoteChargesData.swift; sourceTree = "<group>"; };
 		784C7BB41E8C0E38000365BE /* RemoteChargesDataDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteChargesDataDelegate.swift; sourceTree = "<group>"; };
 		784C7BB61E8C0FF4000365BE /* FirebaseChargesData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseChargesData.swift; sourceTree = "<group>"; };
-		784C7BB81E8C1179000365BE /* ChargeFromDict.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChargeFromDict.swift; sourceTree = "<group>"; };
+		784C7BB81E8C1179000365BE /* ChargeDict.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChargeDict.swift; sourceTree = "<group>"; };
 		7850CD5D1E8975F500FF44C5 /* GasStationFromDict.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GasStationFromDict.swift; sourceTree = "<group>"; };
 		7850CD5F1E898A4200FF44C5 /* MKGasStation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKGasStation.swift; sourceTree = "<group>"; };
 		78537CCC1E7C38D1005BBC24 /* Fuel economy smart calc..app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fuel economy smart calc..app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -154,7 +154,7 @@
 				7850CD5F1E898A4200FF44C5 /* MKGasStation.swift */,
 				783D7A1E1E8AF78100B2A054 /* GasStationFromDbModel.swift */,
 				784C7BB01E8B9AD7000365BE /* CurrentChargeFromDbModel.swift */,
-				784C7BB81E8C1179000365BE /* ChargeFromDict.swift */,
+				784C7BB81E8C1179000365BE /* ChargeDict.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -452,7 +452,7 @@
 				78CF6F3D1E8930AB0096DCB4 /* GasStationDataDelegate.swift in Sources */,
 				7850CD601E898A4200FF44C5 /* MKGasStation.swift in Sources */,
 				783D7A1F1E8AF78100B2A054 /* GasStationFromDbModel.swift in Sources */,
-				784C7BB91E8C1179000365BE /* ChargeFromDict.swift in Sources */,
+				784C7BB91E8C1179000365BE /* ChargeDict.swift in Sources */,
 				784C7BAD1E8B9475000365BE /* ChargesData.swift in Sources */,
 				784C7BB71E8C0FF4000365BE /* FirebaseChargesData.swift in Sources */,
 				78F6C6261E8B91200020CB3E /* BaseChargesData.swift in Sources */,

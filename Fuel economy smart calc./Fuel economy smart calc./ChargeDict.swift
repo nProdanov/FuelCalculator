@@ -43,4 +43,28 @@ extension Charge
             fuelConsumption: fuelConsumption,
             priceConsumption: priceConsumption)
     }
+    
+    static func toDict(_ charge: Charge) -> NSDictionary {
+        var dict: Dictionary<String, String> = [:]
+        
+        dict["id"] = charge.id
+        dict["gasStationId"] = charge.gasStation.id.description
+        
+        let dateFormatter = DateFormatter()
+        dict["chargingDate"] = dateFormatter.string(from: charge.chargingDate)
+        
+        dict["chargedFuel"] = charge.chargedFuel.description
+        dict["fuelUnit"] = charge.fuelUnit
+        
+        dict["price"] = charge.price.description
+        dict["priceUnit"] = charge.priceUnit
+        
+        dict["distancePast"] = charge.distancePast?.description
+        dict["distanceUnit"] = charge.distanceUnit
+        
+        dict["fuelConsumption"] = charge.fuelConsumption?.description
+        dict["priceConsumption"] = charge.priceConsumption?.description
+        
+        return dict as NSDictionary
+    }
 }

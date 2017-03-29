@@ -13,26 +13,58 @@ import FirebaseDatabase
 class FireBaseChargesData: BaseRemoteChargesData
 {
     private var dbReference: FIRDatabaseReference!
-    var delegate: ChargesDataDelegate?
+    var delegate: RemoteChargesDataDelegate?
     
     init(){
         dbReference = FIRDatabase.database().reference()
     }
     
-    func setDelegate(_ delegate: ChargesDataDelegate) {
+    func setDelegate(_ delegate: RemoteChargesDataDelegate) {
         self.delegate = delegate
     }
     
     func createCharge(fromChargeInfo chargeInfo: Charge) {
-        
+        DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+            self?.dbReference
+                .child(Constants.ChargesDbChild)
+                .child(chargeInfo.id)
+                .setValue(Charge.toDict(chargeInfo))
+        }
     }
     
     func getAllCharges() {
-        
+        DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+            self?.dbReference
+                .child(Constants.ChargesDbChild)
+                .observeSingleEvent(of: .value, with: {(snapshop) in
+                    let chargesDict = snapshop.value as! [NSDictionary]
+                    
+                    for chargeDict in chargesDict {
+                        // TODO
+                    }
+                    
+                    let charges = chargesDict.map { GasStation.fromDict($0) }
+                    
+                }) {error in
+                    self?.delegate?.didReceiveRemoteError(error: error)
+            }
+            
+        }
+
     }
     
     func getAllChargesCount() {
-        
+        DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+            self?.dbReference
+                .child(Constants.ChargesDbChild)
+                .observeSingleEvent(of: .value, with: {(snapshop) in
+                    DispatchQueue.main.async {
+                        self?.delegate?.didReceiveRemoteChargesCount((snapshop.value as! [Any]).count)
+                    }
+                }) {error in
+                    self?.delegate?.didReceiveRemoteError(error: error)
+            }
+        }
     }
     
     func deleteCharge(byId id: String) {

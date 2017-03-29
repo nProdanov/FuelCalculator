@@ -10,7 +10,7 @@ import Foundation
 
 protocol BaseRemoteChargesData
 {
-    func setDelegate(_ delegate: ChargesDataDelegate)
+    func setDelegate(_ delegate: RemoteChargesDataDelegate)
     func getAllCharges()
     func getAllChargesCount()
     func createCharge(fromChargeInfo chargeInfo: Charge)
