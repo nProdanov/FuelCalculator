@@ -65,8 +65,8 @@ class GasStationData: BaseGasStationData, RemoteGasStationDataDelegate
         private func getAllLocal(){
             if let context = self.container?.viewContext {
                 context.perform { [weak self] in
-                    let req: NSFetchRequest<DbModelGasStation> = DbModelGasStation.fetchRequest()
-                    if let dbGasStations = try? context.fetch(req) {
+                    let request: NSFetchRequest<DbModelGasStation> = DbModelGasStation.fetchRequest()
+                    if let dbGasStations = try? context.fetch(request) {
                         let gasStations = dbGasStations.map { GasStation.fromDbModel($0) }
                         self?.delegate?.didReceiveGasStations(gasStations: gasStations)
                     }
