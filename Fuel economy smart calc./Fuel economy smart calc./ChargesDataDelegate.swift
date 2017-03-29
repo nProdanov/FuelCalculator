@@ -12,6 +12,7 @@ protocol ChargesDataDelegate
 {
     func didReceiveCurrentCharge(_ currentCharge: CurrentCharge?)
     func didCreateCurrentCharge()
+    func didReceiceDeleteCurrentCharge()
     func didCreateCharge()
     func didReceiveAllCharges(_ charges: [Charge])
     func didDeleteCharge()
@@ -24,6 +25,10 @@ extension ChargesDataDelegate
     }
     
     func didCreateCurrentCharge(){
+        
+    }
+    
+    func didReceiceDeleteCurrentCharge(){
         
     }
     

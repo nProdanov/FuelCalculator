@@ -41,5 +41,43 @@ class DbModelCurrentCharge : NSManagedObject
         return currentCharge
     }
     
+    class func updateCurrentCharge(with journey: Double, in context: NSManagedObjectContext) throws
+    {
+        let request: NSFetchRequest<DbModelCurrentCharge> = DbModelCurrentCharge.fetchRequest()
+        
+        do {
+            let matches = try context.fetch(request)
+            
+            if matches.count > 0 {
+                assert(matches.count == 1, "Cannot have more than 1 current charge per time")
+                matches[0].journey = journey
+                
+                try? context.save()
+            } else {
+                // Throw eror - no current charge
+            }
+        } catch {
+            throw error
+        }
+    }
     
+    class func delete(in context: NSManagedObjectContext) throws
+    {
+        let request: NSFetchRequest<DbModelCurrentCharge> = DbModelCurrentCharge.fetchRequest()
+        
+        do {
+            var matches = try context.fetch(request)
+            
+            if matches.count > 0 {
+                assert(matches.count == 1, "Cannot have more than 1 current charge per time")
+                context.delete(matches[0])
+                
+                try? context.save()
+            } else {
+                // Throw eror - no current charge
+            }
+        } catch {
+            throw error
+        }
+    }
 }

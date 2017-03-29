@@ -17,7 +17,7 @@ class CurrentCharge
     let fuelunit: String
     let priceUnit: String
     let distanceUnit: String
-    let journey: Double
+    var journey: Double
     
     init(
         gasStation: GasStation,

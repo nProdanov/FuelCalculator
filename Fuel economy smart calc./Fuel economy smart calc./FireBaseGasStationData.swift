@@ -23,7 +23,7 @@ class FireBaseGasStationData: BaseRemoteGasStationData
     func getAll() {
         DispatchQueue.global(qos: .userInitiated).async { [weak self] in
             self?.dbReference
-                .child(Constants.gasStationDbChild)
+                .child(Constants.GasStationDbChild)
                 .observeSingleEvent(of: .value, with: {(snapshop) in
                     let gasStationsDict = snapshop.value as! [NSDictionary]
                     let gasStations = gasStationsDict.map { GasStation.fromDict($0) }
@@ -40,7 +40,7 @@ class FireBaseGasStationData: BaseRemoteGasStationData
     func getAllCount() {
         DispatchQueue.global(qos: .userInitiated).async { [weak self] in
             self?.dbReference
-                .child(Constants.gasStationDbChild)
+                .child(Constants.GasStationDbChild)
                 .observeSingleEvent(of: .value, with: {(snapshop) in
                     DispatchQueue.main.async {
                         self?.delegate?.didReceiveRemoteGasStationsCount((snapshop.value as! [Any]).count)
@@ -57,6 +57,6 @@ class FireBaseGasStationData: BaseRemoteGasStationData
     }
     
     private struct Constants {
-        fileprivate static let gasStationDbChild = "gasStations"
+         static let GasStationDbChild = "gasStations"
     }
 }

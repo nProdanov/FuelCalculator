@@ -8,8 +8,8 @@
 
 import UIKit
 
-class ChargingViewController: UIViewController {
-    
+class ChargingViewController: UIViewController
+{
     @IBOutlet weak var gasStationNameTextField: UITextField!
     
     @IBOutlet weak var datePicker: UIDatePicker!
@@ -22,15 +22,40 @@ class ChargingViewController: UIViewController {
     @IBOutlet weak var fuelPriceFuelUnitLabel: UILabel!
     
     @IBAction func saveCharge() {
+        if let gasStation = self.choosedGasStation,
+            let chargedFuel = fuelChargedQuantityTextField.text,
+            let price = fuelPriceTextField.text,
+            let fuelUnit = fuelChargedUnitLabel.text,
+            let currency = fuelPriceCurrencyLabel.text
+        {
+            let date = datePicker.date
+            let journey = 0.0
+            let distanceUnit = "KM"
+            
+            let currCharge = CurrentCharge(
+                gasStation: gasStation,
+                chargingDate: date,
+                chargedFuel: Double(chargedFuel)!,
+                price: Double(price)!,
+                fuelUnit: fuelUnit,
+                priceUnit: currency,
+                distanceUnit: distanceUnit,
+                journey: journey)
+            
+            self.chargesData?.createCurrentCharge(from: currCharge)
+        }
+        
     }
     
-    var currentCharge: Charge?
+    var currentCharge: CurrentCharge?
     
     var choosedGasStation: GasStation? {
         didSet {
             gasStationNameTextField.text = "\(choosedGasStation!.brandName) \(choosedGasStation!.address)"
         }
     }
+    
+    var chargesData: BaseChargesData?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +64,9 @@ class ChargingViewController: UIViewController {
         
         addGestureForDismissingKeyboard()
         //        currentCharge = (UIApplication.shared.delegate as! AppDelegate).charges?[0]
+        
+        chargesData = ChargesData()
+        chargesData?.setDelegate(self)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -48,16 +76,8 @@ class ChargingViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        if currentCharge != nil {
-            self.tabBarController?.selectedIndex = 2
-        }
+        self.chargesData?.getCurrentCharge()
     }
-    
-    // TODO: Provide Gas Station via Location
-    
-    
-    // MARK: - Navigation
-    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showGasStationsMap" {
@@ -67,8 +87,22 @@ class ChargingViewController: UIViewController {
     }
 }
 
-extension ChargingViewController: GasStaionLocationDelegate {
+extension ChargingViewController: GasStaionLocationDelegate
+{
     func didReceiveGasStation(_ gasStation: GasStation) {
         choosedGasStation = gasStation
+    }
+}
+
+extension ChargingViewController: ChargesDataDelegate
+{
+    func didReceiveCurrentCharge(_ currentCharge: CurrentCharge?) {
+        if currentCharge != nil {
+            self.tabBarController?.selectedIndex = 2
+        }
+    }
+    
+    func didCreateCurrentCharge() {
+        self.tabBarController?.selectedIndex = 2
     }
 }

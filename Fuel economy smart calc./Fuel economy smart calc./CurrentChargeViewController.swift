@@ -8,8 +8,8 @@
 
 import UIKit
 
-class CurrentChargeViewController: UIViewController {
-    
+class CurrentChargeViewController: UIViewController
+{
     @IBOutlet weak var tripQuantityTextField: UITextField!
     @IBOutlet weak var journeyQuantityTextField: UITextField!
     
@@ -23,23 +23,23 @@ class CurrentChargeViewController: UIViewController {
     @IBOutlet weak var tripUnitLabel: UILabel!
     @IBOutlet weak var journeyUnitLabel: UILabel!
     
-    
     @IBAction func addTripToJourney() {
         let trip = Double(tripQuantityTextField.text!)
         
         if currentCharge != nil {
-            currentCharge!.distancePast = currentCharge!.distancePast ?? 0
-            
             if let tripDistance = trip {
-                currentCharge?.distancePast! += tripDistance
+                self.currentCharge?.journey += tripDistance
             }
         }
         
         tripQuantityTextField.text = ""
+        journeyQuantityTextField.text = self.currentCharge?.journey.description
         dismissKeyboard()
     }
     
-    var currentCharge: Charge? {
+    var chargesData: BaseChargesData?
+    
+    var currentCharge: CurrentCharge? {
         didSet {
             self.updateUI()
         }
@@ -50,7 +50,10 @@ class CurrentChargeViewController: UIViewController {
         addGestureForDismissingKeyboard()
         addSaveButtonToNavBar()
         
-//        currentCharge = (UIApplication.shared.delegate as! AppDelegate).charges?[0]
+        //        currentCharge = (UIApplication.shared.delegate as! AppDelegate).charges?[0]
+        
+        chargesData = ChargesData()
+        chargesData?.setDelegate(self)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -61,12 +64,20 @@ class CurrentChargeViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         if currentCharge == nil {
-            self.tabBarController?.selectedIndex = 1
+            self.chargesData?.getCurrentCharge()
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        if let currentCharge = self.currentCharge {
+            self.chargesData?.updadeCurrentCharge(with: currentCharge.journey)
         }
     }
     
     func save() {
-        
+        if let currentCharge = self.currentCharge {
+            self.chargesData?.createCharge(fromCurrentCharge: currentCharge)
+        }
     }
     
     private func updateUI() {
@@ -78,32 +89,40 @@ class CurrentChargeViewController: UIViewController {
             dateChargedlabel.text = dateFormatter.string(from: charge.chargingDate)
             
             fuelChargedQuantityLabel.text = charge.chargedFuel.description
-            fuelChargedUnitLabel.text = charge.fuelUnit
+            fuelChargedUnitLabel.text = charge.fuelunit
             
             fuelPriceLabel.text = charge.price.description
             fuelPriceCurrencyUnitLabel.text = charge.priceUnit
-            fuelPriceUnitLabel.text = charge.fuelUnit
+            fuelPriceUnitLabel.text = charge.fuelunit
             
             tripUnitLabel.text = charge.distanceUnit
             journeyUnitLabel.text = charge.distanceUnit
             
-            journeyQuantityTextField.text = charge.distancePast?.description
+            journeyQuantityTextField.text = charge.journey.description
         }
-        
     }
     
     private func addSaveButtonToNavBar() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(save))
     }
+}
+
+extension CurrentChargeViewController: ChargesDataDelegate
+{
+    func didReceiveCurrentCharge(_ currentCharge: CurrentCharge?) {
+        if currentCharge != nil {
+            self.currentCharge = currentCharge
+        } else {
+            self.tabBarController?.selectedIndex = 1
+        }
+    }
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
+    func didCreateCharge() {
+        self.chargesData = nil
+        self.chargesData?.deleteCurrentCharge()
+    }
     
+    func didReceiceDeleteCurrentCharge(){
+        self.tabBarController?.selectedIndex = 1
+    }
 }

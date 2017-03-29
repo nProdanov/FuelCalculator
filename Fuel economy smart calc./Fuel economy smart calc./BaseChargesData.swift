@@ -13,6 +13,8 @@ protocol BaseChargesData
     func setDelegate(_ delegate: ChargesDataDelegate)
     func getCurrentCharge()
     func createCurrentCharge(from currCharge: CurrentCharge)
+    func updadeCurrentCharge(with journey: Double)
+    func deleteCurrentCharge()
     func createCharge(fromCurrentCharge currentCharge: CurrentCharge)
     func getAllCharges()
     func deleteCharge(byId id: String)

@@ -12,6 +12,8 @@ import UIKit
 
 class ChargesData: BaseChargesData
 {
+    var remoteChargesData: BaseRemoteChargesData?
+    
     var container: NSPersistentContainer? = (UIApplication.shared.delegate as! AppDelegate).persistentContainer
     
     var delegate: ChargesDataDelegate?
@@ -47,6 +49,18 @@ class ChargesData: BaseChargesData
                     self?.delegate?.didCreateCurrentCharge()
                 }
             }
+        }
+    }
+    
+    func updadeCurrentCharge(with journey: Double) {
+        container?.performBackgroundTask { context in
+            try? DbModelCurrentCharge.updateCurrentCharge(with: journey, in: context)
+        }
+    }
+    
+    func deleteCurrentCharge() {
+        container?.performBackgroundTask { context in
+            try? DbModelCurrentCharge.delete(in: context)
         }
     }
     
