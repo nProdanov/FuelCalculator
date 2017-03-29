@@ -13,6 +13,9 @@
 		781A85B31E87A4900024A5D6 /* GasStationLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781A85B21E87A4900024A5D6 /* GasStationLocationViewController.swift */; };
 		781A85B51E87C3290024A5D6 /* LocationSearchTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781A85B41E87C3290024A5D6 /* LocationSearchTable.swift */; };
 		781A85B91E87EEA70024A5D6 /* ChargeLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781A85B81E87EEA70024A5D6 /* ChargeLocationViewController.swift */; };
+		783D7A1F1E8AF78100B2A054 /* GasStationFromDbModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783D7A1E1E8AF78100B2A054 /* GasStationFromDbModel.swift */; };
+		784C7BAD1E8B9475000365BE /* ChargesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784C7BAC1E8B9475000365BE /* ChargesData.swift */; };
+		784C7BAF1E8B9560000365BE /* ChargesDataDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784C7BAE1E8B9560000365BE /* ChargesDataDelegate.swift */; };
 		7850CD5E1E8975F500FF44C5 /* GasStationFromDict.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7850CD5D1E8975F500FF44C5 /* GasStationFromDict.swift */; };
 		7850CD601E898A4200FF44C5 /* MKGasStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7850CD5F1E898A4200FF44C5 /* MKGasStation.swift */; };
 		78537CD01E7C38D1005BBC24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78537CCF1E7C38D1005BBC24 /* AppDelegate.swift */; };
@@ -36,6 +39,9 @@
 		78E20A591E86715000001E58 /* ChargingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E20A581E86715000001E58 /* ChargingViewController.swift */; };
 		78E6120A1E828ADE0098B35B /* GraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E612091E828ADE0098B35B /* GraphViewController.swift */; };
 		78E6120C1E828B3A0098B35B /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E6120B1E828B3A0098B35B /* GraphView.swift */; };
+		78F6C6241E8B8FE90020CB3E /* DbModelCurrentCharge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F6C6231E8B8FE90020CB3E /* DbModelCurrentCharge.swift */; };
+		78F6C6261E8B91200020CB3E /* BaseChargesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F6C6251E8B91200020CB3E /* BaseChargesData.swift */; };
+		78F6C6281E8B91750020CB3E /* CurrentCharge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F6C6271E8B91750020CB3E /* CurrentCharge.swift */; };
 		78F7E9041E7D2E8C0081E4B6 /* BaseFuelCalculatorBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F7E9031E7D2E8C0081E4B6 /* BaseFuelCalculatorBrain.swift */; };
 		8188A359A0EE1E1D44DB9043 /* Pods_Fuel_economy_smart_calc_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8322E4FBD878951C516B6925 /* Pods_Fuel_economy_smart_calc_.framework */; };
 /* End PBXBuildFile section */
@@ -47,6 +53,9 @@
 		781A85B21E87A4900024A5D6 /* GasStationLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GasStationLocationViewController.swift; sourceTree = "<group>"; };
 		781A85B41E87C3290024A5D6 /* LocationSearchTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSearchTable.swift; sourceTree = "<group>"; };
 		781A85B81E87EEA70024A5D6 /* ChargeLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChargeLocationViewController.swift; sourceTree = "<group>"; };
+		783D7A1E1E8AF78100B2A054 /* GasStationFromDbModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GasStationFromDbModel.swift; sourceTree = "<group>"; };
+		784C7BAC1E8B9475000365BE /* ChargesData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChargesData.swift; sourceTree = "<group>"; };
+		784C7BAE1E8B9560000365BE /* ChargesDataDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChargesDataDelegate.swift; sourceTree = "<group>"; };
 		7850CD5D1E8975F500FF44C5 /* GasStationFromDict.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GasStationFromDict.swift; sourceTree = "<group>"; };
 		7850CD5F1E898A4200FF44C5 /* MKGasStation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKGasStation.swift; sourceTree = "<group>"; };
 		78537CCC1E7C38D1005BBC24 /* Fuel economy smart calc..app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fuel economy smart calc..app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -72,6 +81,9 @@
 		78E20A581E86715000001E58 /* ChargingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChargingViewController.swift; sourceTree = "<group>"; };
 		78E612091E828ADE0098B35B /* GraphViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphViewController.swift; sourceTree = "<group>"; };
 		78E6120B1E828B3A0098B35B /* GraphView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
+		78F6C6231E8B8FE90020CB3E /* DbModelCurrentCharge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DbModelCurrentCharge.swift; sourceTree = "<group>"; };
+		78F6C6251E8B91200020CB3E /* BaseChargesData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseChargesData.swift; sourceTree = "<group>"; };
+		78F6C6271E8B91750020CB3E /* CurrentCharge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentCharge.swift; sourceTree = "<group>"; };
 		78F7E9031E7D2E8C0081E4B6 /* BaseFuelCalculatorBrain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseFuelCalculatorBrain.swift; sourceTree = "<group>"; };
 		8322E4FBD878951C516B6925 /* Pods_Fuel_economy_smart_calc_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Fuel_economy_smart_calc_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A2034E15604D52A14D31A88 /* Pods-Fuel economy smart calc..release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fuel economy smart calc..release.xcconfig"; path = "Pods/Target Support Files/Pods-Fuel economy smart calc./Pods-Fuel economy smart calc..release.xcconfig"; sourceTree = "<group>"; };
@@ -130,6 +142,7 @@
 			children = (
 				7850CD5D1E8975F500FF44C5 /* GasStationFromDict.swift */,
 				7850CD5F1E898A4200FF44C5 /* MKGasStation.swift */,
+				783D7A1E1E8AF78100B2A054 /* GasStationFromDbModel.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -188,6 +201,7 @@
 			children = (
 				78C1F6371E8AB0110032AC2D /* DbModelCharge.swift */,
 				78C1F6391E8AB04F0032AC2D /* DbModelGasStation.swift */,
+				78F6C6231E8B8FE90020CB3E /* DbModelCurrentCharge.swift */,
 			);
 			name = Db;
 			sourceTree = "<group>";
@@ -208,6 +222,7 @@
 				78CF6F381E892EE70096DCB4 /* Base */,
 				78CF6F3E1E89313C0096DCB4 /* FireBaseGasStationData.swift */,
 				78C1F6401E8AC2B00032AC2D /* GasStationData.swift */,
+				784C7BAC1E8B9475000365BE /* ChargesData.swift */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -217,6 +232,7 @@
 			children = (
 				78CF6F391E892F040096DCB4 /* BaseGasStationData.swift */,
 				78C1F63E1E8AC2290032AC2D /* BaseRemoteGasStationData.swift */,
+				78F6C6251E8B91200020CB3E /* BaseChargesData.swift */,
 			);
 			name = Base;
 			sourceTree = "<group>";
@@ -226,6 +242,7 @@
 			children = (
 				78CF6F3C1E8930AB0096DCB4 /* GasStationDataDelegate.swift */,
 				78C1F6421E8AC4E70032AC2D /* RemoteGasStationDataDelegate.swift */,
+				784C7BAE1E8B9560000365BE /* ChargesDataDelegate.swift */,
 			);
 			name = Delegates;
 			sourceTree = "<group>";
@@ -244,6 +261,7 @@
 				78C1F6361E8AAFC80032AC2D /* Db */,
 				7850CD5C1E8975DC00FF44C5 /* Extensions */,
 				780C797F1E81560C00E3369A /* Charge.swift */,
+				78F6C6271E8B91750020CB3E /* CurrentCharge.swift */,
 				78CF6F341E8928440096DCB4 /* GasStation.swift */,
 			);
 			name = Models;
@@ -398,6 +416,7 @@
 				78C1F6411E8AC2B00032AC2D /* GasStationData.swift in Sources */,
 				78CF6F351E8928440096DCB4 /* GasStation.swift in Sources */,
 				781A85B31E87A4900024A5D6 /* GasStationLocationViewController.swift in Sources */,
+				784C7BAF1E8B9560000365BE /* ChargesDataDelegate.swift in Sources */,
 				78C1F6431E8AC4E70032AC2D /* RemoteGasStationDataDelegate.swift in Sources */,
 				78B4C1561E7D150700D17916 /* BaseFCViewController.swift in Sources */,
 				7850CD5E1E8975F500FF44C5 /* GasStationFromDict.swift in Sources */,
@@ -411,11 +430,16 @@
 				780C79821E815C6200E3369A /* ChargeTableViewCell.swift in Sources */,
 				78C1F63F1E8AC2290032AC2D /* BaseRemoteGasStationData.swift in Sources */,
 				781A85B91E87EEA70024A5D6 /* ChargeLocationViewController.swift in Sources */,
+				78F6C6281E8B91750020CB3E /* CurrentCharge.swift in Sources */,
 				78CF6F3D1E8930AB0096DCB4 /* GasStationDataDelegate.swift in Sources */,
 				7850CD601E898A4200FF44C5 /* MKGasStation.swift in Sources */,
+				783D7A1F1E8AF78100B2A054 /* GasStationFromDbModel.swift in Sources */,
+				784C7BAD1E8B9475000365BE /* ChargesData.swift in Sources */,
+				78F6C6261E8B91200020CB3E /* BaseChargesData.swift in Sources */,
 				780C797E1E8155EA00E3369A /* ChargesTableViewController.swift in Sources */,
 				78E20A591E86715000001E58 /* ChargingViewController.swift in Sources */,
 				78537CD01E7C38D1005BBC24 /* AppDelegate.swift in Sources */,
+				78F6C6241E8B8FE90020CB3E /* DbModelCurrentCharge.swift in Sources */,
 				78E6120C1E828B3A0098B35B /* GraphView.swift in Sources */,
 				78CF6F3F1E89313C0096DCB4 /* FireBaseGasStationData.swift in Sources */,
 			);

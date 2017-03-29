@@ -27,7 +27,9 @@ class FireBaseGasStationData: BaseRemoteGasStationData
                 .observeSingleEvent(of: .value, with: {(snapshop) in
                     let gasStationsDict = snapshop.value as! [NSDictionary]
                     let gasStations = gasStationsDict.map { GasStation.fromDict($0) }
-                    self?.delegate?.didReceiveRemoteGasStations(gasStations)
+                    DispatchQueue.main.async {
+                        self?.delegate?.didReceiveRemoteGasStations(gasStations)
+                    }
                 }) {error in
                     self?.delegate?.didReceiveRemoteError(error: error)
             }
@@ -40,7 +42,9 @@ class FireBaseGasStationData: BaseRemoteGasStationData
             self?.dbReference
                 .child(Constants.gasStationDbChild)
                 .observeSingleEvent(of: .value, with: {(snapshop) in
-                    self?.delegate?.didReceiveRemoteGasStationsCount((snapshop.value as! [Any]).count)
+                    DispatchQueue.main.async {
+                        self?.delegate?.didReceiveRemoteGasStationsCount((snapshop.value as! [Any]).count)
+                    }
                 }) {error in
                     self?.delegate?.didReceiveRemoteError(error: error)
             }

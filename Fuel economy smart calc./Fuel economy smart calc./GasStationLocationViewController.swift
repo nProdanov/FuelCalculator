@@ -146,22 +146,22 @@ extension GasStationLocationViewController: CLLocationManagerDelegate
 extension GasStationLocationViewController: GasStationDataDelegate
 {
     func didReceiveGasStations(gasStations: [GasStation]) {
-        //DB shit
-        container?.performBackgroundTask { [weak self] context in
-            for gasStationInfo in gasStations {
-                _ = try? DbModelGasStation.findOrCreateGasStation(with: gasStationInfo, in: context)
-            }
-            
-            try? context.save()
-            
-            if let cont = self?.container?.viewContext {
-                cont.perform {
-                    if let gasStationsCount = (try? cont.count(for: DbModelGasStation.fetchRequest())) {
-                       print("count: \(gasStationsCount)")
-                    }
-                }
-            }
-        }
+//        //DB shit
+//        container?.performBackgroundTask { [weak self] context in
+//            for gasStationInfo in gasStations {
+//                _ = try? DbModelGasStation.findOrCreateGasStation(with: gasStationInfo, in: context)
+//            }
+//            
+//            try? context.save()
+//            
+//            if let cont = self?.container?.viewContext {
+//                cont.perform {
+//                    if let gasStationsCount = (try? cont.count(for: DbModelGasStation.fetchRequest())) {
+//                       print("count: \(gasStationsCount)")
+//                    }
+//                }
+//            }
+//        }
         self.clearGasStations()
         self.addGasStations(gasStations)
     }

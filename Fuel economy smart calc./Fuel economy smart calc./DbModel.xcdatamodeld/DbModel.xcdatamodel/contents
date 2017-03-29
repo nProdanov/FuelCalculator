@@ -13,6 +13,16 @@
         <attribute name="priceUnit" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="gasStation" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DbModelGasStation" inverseName="charges" inverseEntity="DbModelGasStation" syncable="YES"/>
     </entity>
+    <entity name="DbModelCurrentCharge" representedClassName=".DbModelCurrentCharge" syncable="YES" codeGenerationType="category">
+        <attribute name="chargedFuel" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="chargingDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="distanceUnit" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="fuelUnit" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="journey" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="price" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="priceUnit" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="gasStation" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DbModelGasStation" inverseName="currentCharge" inverseEntity="DbModelGasStation" syncable="YES"/>
+    </entity>
     <entity name="DbModelGasStation" representedClassName=".DbModelGasStation" syncable="YES" codeGenerationType="category">
         <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="brandName" optional="YES" attributeType="String" syncable="YES"/>
@@ -21,10 +31,12 @@
         <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="longtitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="charges" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DbModelCharge" inverseName="gasStation" inverseEntity="DbModelCharge" syncable="YES"/>
+        <relationship name="charges" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DbModelCharge" inverseName="gasStation" inverseEntity="DbModelCharge" syncable="YES"/>
+        <relationship name="currentCharge" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DbModelCurrentCharge" inverseName="gasStation" inverseEntity="DbModelCurrentCharge" syncable="YES"/>
     </entity>
     <elements>
-        <element name="DbModelCharge" positionX="-45" positionY="0" width="128" height="208"/>
-        <element name="DbModelGasStation" positionX="106" positionY="3" width="128" height="163"/>
+        <element name="DbModelCharge" positionX="-101" positionY="-3" width="128" height="210"/>
+        <element name="DbModelGasStation" positionX="106" positionY="3" width="128" height="178"/>
+        <element name="DbModelCurrentCharge" positionX="36" positionY="237" width="128" height="163"/>
     </elements>
 </model>
