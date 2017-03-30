@@ -18,9 +18,12 @@ class ChargesData: BaseChargesData, RemoteChargesDataDelegate
     
     var delegate: ChargesDataDelegate?
     
+    var calculatorBrain: BaseFuelCalculatorBrain?
+    
     init() {
-        remoteChargesData = FireBaseChargesData() // Swinject
-        remoteChargesData?.setDelegate(self)
+        self.remoteChargesData = FireBaseChargesData() // Swinject
+        self.remoteChargesData?.setDelegate(self)
+        self.calculatorBrain = BaseFuelCalculatorBrain()
     }
     
     func setDelegate(_ delegate: ChargesDataDelegate){
@@ -64,38 +67,77 @@ class ChargesData: BaseChargesData, RemoteChargesDataDelegate
     }
     
     func deleteCurrentCharge() {
-        container?.performBackgroundTask { context in
+        container?.performBackgroundTask { [weak self] context in
             try? DbModelCurrentCharge.delete(in: context)
+            
+            if let mainContext =  self?.container?.viewContext {
+                mainContext.perform {
+                    self?.delegate?.didReceiceDeleteCurrentCharge()
+                }
+            }
         }
     }
     
     func createCharge(fromCurrentCharge currentCharge: CurrentCharge) {
-        let gas = GasStation(
-            address: "до с. Студена, Пернишко",
-            brandName: "Lukoil",
-            city: "АМ Струма",
-            id: 1,
-            latitude: 42.570553,
-            longtitude: 23.116175,
-            name: "B051")
+        self.calculatorBrain?.performCalculation(
+            fuelQuantity: currentCharge.chargedFuel,
+            fuelUnit: currentCharge.fuelunit,
+            distanceQuantity: currentCharge.journey,
+            distanceUnit: currentCharge.distanceUnit,
+            fuelResultUnit: "l/100km",
+            priceQuantity: currentCharge.price,
+            priceFuelUnit: currentCharge.fuelunit,
+            priceCurrencyUnit: currentCharge.priceUnit,
+            costCurrencyUnit: currentCharge.priceUnit,
+            costDistanceQuantity: 100,
+            costDistanceUnit: currentCharge.distanceUnit)
         
-        let ch = Charge(
-            id: "\(arc4random())",
-            chargingDate: Date.init(),
-            gasStation: gas,
-            chargedFuel: 65.0,
-            distancePast: 900.0,
-            price: 2.09,
-            fuelUnit: "LTR",
-            distanceUnit: "KM",
-            priceUnit: "LV",
-            fuelConsumption: 6.5,
-            priceConsumption: 10.1)
-        self.remoteChargesData?.createCharge(fromChargeInfo: ch)
+        let gasStation = currentCharge.gasStation
+        let charge = Charge(
+            id: "\(arc4random())\(currentCharge.gasStation.name)",
+            chargingDate: currentCharge.chargingDate,
+            gasStation: gasStation,
+            chargedFuel: currentCharge.chargedFuel,
+            distancePast: currentCharge.journey,
+            price: currentCharge.price,
+            fuelUnit: currentCharge.fuelunit,
+            distanceUnit: currentCharge.distanceUnit,
+            priceUnit: currentCharge.priceUnit,
+            fuelConsumption: self.calculatorBrain?.fuelResult,
+            priceConsumption: self.calculatorBrain?.costResult)
+        
+        container?.performBackgroundTask { [weak self] context in
+            _ = try? DbModelCharge.createCharge(with: charge, in: context)
+            
+            if let mainContext =  self?.container?.viewContext {
+                mainContext.perform {
+                    self?.delegate?.didCreateCharge()
+                }
+            }
+        }
+        
+        self.remoteChargesData?.createCharge(fromChargeInfo: charge)
     }
     
     func getAllCharges() {
-        self.remoteChargesData?.getAllCharges()
+        container?.performBackgroundTask { [weak self] context in
+            let request: NSFetchRequest<DbModelCharge> = DbModelCharge.fetchRequest()
+            if let dbCharges = try? context.fetch(request) {
+                if dbCharges.count > 0 {
+                    let charges = dbCharges.map { Charge.fromDbModel($0) }
+                    
+                    if let mainContext =  self?.container?.viewContext {
+                        mainContext.perform {
+                            self?.delegate?.didReceiveAllCharges(charges)
+                        }
+                    }
+                    
+                } else{
+                    self?.delegate?.didReceiveAllCharges([])
+                }
+            }
+        }
+        //        self.remoteChargesData?.getAllCharges()
     }
     
     func deleteCharge(byId id: String) {

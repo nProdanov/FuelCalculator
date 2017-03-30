@@ -118,7 +118,7 @@ extension CurrentChargeViewController: ChargesDataDelegate
     }
     
     func didCreateCharge() {
-        self.chargesData = nil
+        self.currentCharge = nil
         self.chargesData?.deleteCurrentCharge()
     }
     
