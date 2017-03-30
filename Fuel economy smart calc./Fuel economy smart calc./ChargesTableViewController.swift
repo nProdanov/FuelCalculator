@@ -13,19 +13,26 @@ class ChargesTableViewController: UITableViewController {
     
     var container: NSPersistentContainer? = (UIApplication.shared.delegate as! AppDelegate).persistentContainer
     
-    var charges: [Charge]?
+    var charges: [Charge]? {
+        didSet{
+            self.tableView.reloadData()
+        }
+    }
     
     var chargesData: BaseChargesData?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-//        
-//        charges = appDelegate.charges
+        //        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        //
+        //        charges = appDelegate.charges
         
         self.chargesData = ChargesData()
         self.chargesData?.setDelegate(self)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         self.chargesData?.getAllCharges()
     }
 }
@@ -44,7 +51,7 @@ extension ChargesTableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "charge", for: indexPath)
         
-        if let charge = charges?[indexPath.row]{    
+        if let charge = charges?[indexPath.row]{
             if let chargeCell = cell as? ChargeTableViewCell {
                 chargeCell.charge = charge
                 
@@ -67,5 +74,7 @@ extension ChargesTableViewController {
 
 extension ChargesTableViewController: ChargesDataDelegate
 {
-    
+    func didReceiveAllCharges(_ charges: [Charge]) {
+        self.charges = charges
+    }
 }

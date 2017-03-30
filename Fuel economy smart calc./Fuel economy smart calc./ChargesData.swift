@@ -107,7 +107,7 @@ class ChargesData: BaseChargesData, RemoteChargesDataDelegate
     }
     
     func didReceiveRemoteCharges(_ charges: [Charge]) {
-        print(charges)
+        self.delegate?.didReceiveAllCharges(charges)
     }
     
     func didReceiveRemoteError(error: Error) {
