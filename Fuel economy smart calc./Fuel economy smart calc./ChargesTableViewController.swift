@@ -15,12 +15,18 @@ class ChargesTableViewController: UITableViewController {
     
     var charges: [Charge]?
     
+    var chargesData: BaseChargesData?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+//        
+//        charges = appDelegate.charges
         
-        charges = appDelegate.charges
+        self.chargesData = ChargesData()
+        self.chargesData?.setDelegate(self)
+        self.chargesData?.getAllCharges()
     }
 }
 
@@ -57,4 +63,9 @@ extension ChargesTableViewController {
             navigationController?.show(chargeLocationVC, sender: self)
         }
     }
+}
+
+extension ChargesTableViewController: ChargesDataDelegate
+{
+    
 }

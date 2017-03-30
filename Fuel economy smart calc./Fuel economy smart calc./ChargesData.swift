@@ -10,13 +10,18 @@ import Foundation
 import CoreData
 import UIKit
 
-class ChargesData: BaseChargesData
+class ChargesData: BaseChargesData, RemoteChargesDataDelegate
 {
     var remoteChargesData: BaseRemoteChargesData?
     
     var container: NSPersistentContainer? = (UIApplication.shared.delegate as! AppDelegate).persistentContainer
     
     var delegate: ChargesDataDelegate?
+    
+    init() {
+        remoteChargesData = FireBaseChargesData() // Swinject
+        remoteChargesData?.setDelegate(self)
+    }
     
     func setDelegate(_ delegate: ChargesDataDelegate){
         self.delegate = delegate
@@ -65,14 +70,47 @@ class ChargesData: BaseChargesData
     }
     
     func createCharge(fromCurrentCharge currentCharge: CurrentCharge) {
+        let gas = GasStation(
+            address: "до с. Студена, Пернишко",
+            brandName: "Lukoil",
+            city: "АМ Струма",
+            id: 1,
+            latitude: 42.570553,
+            longtitude: 23.116175,
+            name: "B051")
         
+        let ch = Charge(
+            id: "\(arc4random())",
+            chargingDate: Date.init(),
+            gasStation: gas,
+            chargedFuel: 65.0,
+            distancePast: 900.0,
+            price: 2.09,
+            fuelUnit: "LTR",
+            distanceUnit: "KM",
+            priceUnit: "LV",
+            fuelConsumption: 6.5,
+            priceConsumption: 10.1)
+        self.remoteChargesData?.createCharge(fromChargeInfo: ch)
     }
     
     func getAllCharges() {
-        
+        self.remoteChargesData?.getAllCharges()
     }
     
     func deleteCharge(byId id: String) {
+        
+    }
+    
+    func didReceiveRemoteChargesCount(_ count: Int) {
+        print(count)
+    }
+    
+    func didReceiveRemoteCharges(_ charges: [Charge]) {
+        print(charges)
+    }
+    
+    func didReceiveRemoteError(error: Error) {
         
     }
     

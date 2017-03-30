@@ -37,20 +37,26 @@ class FireBaseChargesData: BaseRemoteChargesData
             self?.dbReference
                 .child(Constants.ChargesDbChild)
                 .observeSingleEvent(of: .value, with: {(snapshop) in
-                    let chargesDict = snapshop.value as! [NSDictionary]
-                    
-                    for chargeDict in chargesDict {
-                        // TODO
+                    var charges: [Charge] = []
+                    if snapshop.exists() {
+                        let chargesDict = snapshop.value as! NSDictionary
+                        
+                        for key in chargesDict.allKeys {
+                            let currentChargeDict = chargesDict[key] as! NSDictionary
+                            charges.append(Charge.fromDict(currentChargeDict))
+                        }
                     }
                     
-                    let charges = chargesDict.map { GasStation.fromDict($0) }
+                    DispatchQueue.main.async {
+                        self?.delegate?.didReceiveRemoteCharges(charges)
+                    }
+                    
                     
                 }) {error in
                     self?.delegate?.didReceiveRemoteError(error: error)
             }
-            
         }
-
+        
     }
     
     func getAllChargesCount() {
