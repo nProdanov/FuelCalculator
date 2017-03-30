@@ -23,7 +23,7 @@ class GraphView: UIView {
     
     var charges: [(Double, Int, String)]? {
         didSet {
-            
+            updateUI()
         }
     }
     
@@ -105,19 +105,17 @@ class GraphView: UIView {
         self.pathForConsumptionsHelperLines().stroke()
         self.pathForMonthsHelperLines().stroke()
         
-        self.generateConsumptionsPoints()
-        self.pathForConsumptionCurve().stroke()
-        self.consumptionDots()
+        if self.charges != nil {
+            self.generateConsumptionsPoints()
+            self.pathForConsumptionCurve().stroke()
+            self.consumptionDots()
+        }
         
         removeConsumptions()
         removeMonths()
         
         addConsumptions()
         addMonths()
-        
-        for ch in self.charges! {
-            print(ch)
-        }
     }
     
     func updateUI(){
@@ -226,11 +224,14 @@ class GraphView: UIView {
     private func pathForConsumptionCurve() -> UIBezierPath {
         let path = UIBezierPath()
         
-        if let points = self.chargesPoints {
-            path.move(to: points[0])
-            
-            for index in 1..<points.count {
-                path.addLine(to: points[index])
+        if let points = self.chargesPoints
+        {
+            if points.count > 0 {
+                path.move(to: points[0])
+                
+                for index in 1..<points.count {
+                    path.addLine(to: points[index])
+                }
             }
         }
         

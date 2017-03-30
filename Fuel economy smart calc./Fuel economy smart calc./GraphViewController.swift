@@ -8,21 +8,23 @@
 
 import UIKit
 
-class GraphViewController: UIViewController {
-    
+class GraphViewController: UIViewController, ChargesDataDelegate
+{
     private let consumptionTitleText = "l/100km"
     
-    var charges: [Charge]?
+    var chargesData: BaseChargesData?
     
     @IBOutlet weak var graphView: GraphView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        graphView?.charges = mapChargesForGraphView(appDelegate.charges)
-        graphView?.monthsStrings = self.generateMonthStrings()
-        graphView?.consumptionTitleText = self.consumptionTitleText
+        self.chargesData = ChargesData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.chargesData?.setDelegate(self)
+        self.chargesData?.getAllCharges()
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -31,11 +33,26 @@ class GraphViewController: UIViewController {
         graphView?.updateUI()
     }
     
+    func didReceiveAllCharges(_ charges: [Charge]) {
+        graphView?.monthsStrings = self.generateMonthStrings()
+        graphView?.consumptionTitleText = self.consumptionTitleText
+        graphView?.charges = mapChargesForGraphView(charges)
+    }
+    
     private func mapChargesForGraphView(_ charges: [Charge]?) -> [(Double, Int, String)]? {
-        var nineMonthsAgoDate = Date.init()
-        nineMonthsAgoDate = nineMonthsAgoDate.addingTimeInterval(-9*31*24*60*60)
+        let dateNow = Date.init()
+        let nineMonthsAgoDate = dateNow.addingTimeInterval(-9*31*24*60*60)
         
-        var filteredCharges = charges?.filter { $0.chargingDate > nineMonthsAgoDate }
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "M"
+        
+        let nextMonthDate = dateNow.addingTimeInterval(31*24*60*60)
+        let nextMonth = Int(Calendar.current.component(.month, from: nextMonthDate))
+        
+        var filteredCharges = charges?.filter {
+            $0.chargingDate > nineMonthsAgoDate &&
+                Int(Calendar.current.component(.month, from: $0.chargingDate)) < nextMonth
+        }
         filteredCharges?.sort { $0.chargingDate < $1.chargingDate }
         let months = DateFormatter().monthSymbols!
         return filteredCharges?.map {
@@ -68,15 +85,4 @@ class GraphViewController: UIViewController {
         
         return monthsStrings
     }
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
 }

@@ -15,6 +15,7 @@ class ChargesTableViewController: UITableViewController {
     
     var charges: [Charge]? {
         didSet{
+            self.charges?.sort { $0.chargingDate > $1.chargingDate }
             self.tableView.reloadData()
         }
     }
