@@ -35,8 +35,8 @@
         <relationship name="currentCharge" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DbModelCurrentCharge" inverseName="gasStation" inverseEntity="DbModelCurrentCharge" syncable="YES"/>
     </entity>
     <elements>
-        <element name="DbModelCharge" positionX="-101" positionY="-3" width="128" height="210"/>
-        <element name="DbModelGasStation" positionX="106" positionY="3" width="128" height="178"/>
+        <element name="DbModelCharge" positionX="-101" positionY="-3" width="128" height="208"/>
         <element name="DbModelCurrentCharge" positionX="36" positionY="237" width="128" height="163"/>
+        <element name="DbModelGasStation" positionX="106" positionY="3" width="128" height="178"/>
     </elements>
 </model>

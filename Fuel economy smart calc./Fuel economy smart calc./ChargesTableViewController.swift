@@ -31,10 +31,19 @@ class ChargesTableViewController: UITableViewController {
         
         self.chargesData = ChargesData()
         self.chargesData?.setDelegate(self)
+        let attributes = [NSForegroundColorAttributeName: UIColor.white, NSFontAttributeName: UIFont.systemFont(ofSize: 18)]
+        self.refreshControl?.attributedTitle = NSAttributedString(string: "Refreshing", attributes: attributes)
+        
+        self.refreshControl?.addTarget(self, action: #selector(handleRefresh(refreshControl:)), for: .valueChanged)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.chargesData?.getAllCharges()
+    }
+    
+    func handleRefresh(refreshControl: UIRefreshControl) {
+        self.chargesData?.getAllCharges()
+        refreshControl.endRefreshing()
     }
 }
 
@@ -71,11 +80,25 @@ extension ChargesTableViewController {
             navigationController?.show(chargeLocationVC, sender: self)
         }
     }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            if let charges = self.charges {
+                self.chargesData?.deleteCharge(byId: charges[indexPath.row].id)
+                self.charges?.remove(at: indexPath.row)
+                //                self.tableView.deleteRows(at: [indexPath], with: .fade)
+            }
+        }
+    }
 }
 
 extension ChargesTableViewController: ChargesDataDelegate
 {
     func didReceiveAllCharges(_ charges: [Charge]) {
         self.charges = charges
+    }
+    
+    func didDeleteCharge() {
+        self.tableView.reloadData()
     }
 }

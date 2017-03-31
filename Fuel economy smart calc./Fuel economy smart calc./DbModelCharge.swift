@@ -34,11 +34,11 @@ class DbModelCharge: NSManagedObject
     class func findOrCreateCharge(with chargeInfo: Charge, in context: NSManagedObjectContext) throws -> DbModelCharge
     {
         let request: NSFetchRequest<DbModelCharge> = DbModelCharge.fetchRequest()
-        request.predicate = NSPredicate(format: "id = %a", chargeInfo.id)
+        request.predicate = NSPredicate(format: "id = %@", chargeInfo.id)
         
         do {
             let matches = try context.fetch(request)
-            
+            let charges = matches.map {Charge.fromDbModel($0)}
             if matches.count > 0 {
                 assert(matches.count == 1, "db model gas station -- inconsistency")
                 return matches[0]
@@ -61,5 +61,26 @@ class DbModelCharge: NSManagedObject
         charge.priceUnit = chargeInfo.priceUnit
         
         return charge
+    }
+    
+    class func delete(byId id: String, in context: NSManagedObjectContext) throws
+    {
+        let request: NSFetchRequest<DbModelCharge> = DbModelCharge.fetchRequest()
+        request.predicate = NSPredicate(format: "id = %@", id)
+        
+        do {
+            var matches = try context.fetch(request)
+            
+            if matches.count > 0 {
+                assert(matches.count == 1, "Cannot have more than 1 current charge per time")
+                context.delete(matches[0])
+                
+                try? context.save()
+            } else {
+                // Throw eror - no current charge
+            }
+        } catch {
+            throw error
+        }
     }
 }

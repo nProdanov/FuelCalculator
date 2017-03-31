@@ -65,7 +65,9 @@ class FireBaseChargesData: BaseRemoteChargesData
                 .child(Constants.ChargesDbChild)
                 .observeSingleEvent(of: .value, with: {(snapshop) in
                     DispatchQueue.main.async {
-                        self?.delegate?.didReceiveRemoteChargesCount((snapshop.value as! NSDictionary).allKeys.count)
+                        if snapshop.exists() {
+                            self?.delegate?.didReceiveRemoteChargesCount((snapshop.value as! NSDictionary).allKeys.count)
+                        }
                     }
                 }) {error in
                     self?.delegate?.didReceiveRemoteError(error: error)
@@ -74,7 +76,12 @@ class FireBaseChargesData: BaseRemoteChargesData
     }
     
     func deleteCharge(byId id: String) {
-        
+        DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+            self?.dbReference
+                .child(Constants.ChargesDbChild)
+                .child(id)
+                .removeValue()
+        }
     }
     
     private struct Constants {

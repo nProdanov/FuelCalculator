@@ -139,16 +139,26 @@ class ChargesData: BaseChargesData, RemoteChargesDataDelegate
                 }
             }
         }
-        //        self.remoteChargesData?.getAllCharges()
     }
     
     func deleteCharge(byId id: String) {
+        container?.performBackgroundTask { [weak self] context in
+            try? DbModelCharge.delete(byId: id, in: context)
+            
+            if let mainContext =  self?.container?.viewContext {
+                mainContext.perform {
+                    self?.delegate?.didDeleteCharge()
+                }
+            }
+        }
         
+        self.remoteChargesData?.deleteCharge(byId: id)
     }
     
     func didReceiveRemoteChargesCount(_ count: Int) {
         if let cont = self.container?.viewContext {
             cont.perform {
+                cont.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
                 if let chargesCount = (try? cont.count(for: DbModelCharge.fetchRequest())) {
                     if count != chargesCount {
                         self.remoteChargesData?.getAllCharges()
