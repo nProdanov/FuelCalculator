@@ -13,7 +13,7 @@ class DbModelGasStation: NSManagedObject {
     class func findOrCreateGasStation(with gasStationInfo: GasStation, in context: NSManagedObjectContext) throws -> DbModelGasStation
     {
         let request: NSFetchRequest<DbModelGasStation> = DbModelGasStation.fetchRequest()
-        request.predicate = NSPredicate(format: "name = %@", gasStationInfo.name)
+        request.predicate = NSPredicate(format: "id = %i", gasStationInfo.id)
         
         do {
             let matches = try context.fetch(request)

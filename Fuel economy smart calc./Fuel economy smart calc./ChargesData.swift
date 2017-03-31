@@ -24,6 +24,8 @@ class ChargesData: BaseChargesData, RemoteChargesDataDelegate
         self.remoteChargesData = FireBaseChargesData() // Swinject
         self.remoteChargesData?.setDelegate(self)
         self.calculatorBrain = BaseFuelCalculatorBrain()
+        
+        self.sync()
     }
     
     func setDelegate(_ delegate: ChargesDataDelegate){
@@ -153,6 +155,10 @@ class ChargesData: BaseChargesData, RemoteChargesDataDelegate
     }
     
     func didReceiveRemoteError(error: Error) {
+        
+    }
+    
+    private func sync(){
         
     }
     

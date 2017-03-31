@@ -21,6 +21,8 @@ class GasStationData: BaseGasStationData, RemoteGasStationDataDelegate
     init() {
         remoteData = FireBaseGasStationData() // Swinject
         remoteData?.setDelegate(self)
+        
+        self.sync()
     }
     
     func setDelegate(_ delegate: GasStationDataDelegate){
@@ -28,7 +30,7 @@ class GasStationData: BaseGasStationData, RemoteGasStationDataDelegate
     }
     
     func getAll() {
-        self.remoteData?.getAllCount()
+        self.getAllLocal()
     }
     
     func didReceiveRemoteGasStations(_ gasStations: [GasStation]) {
@@ -39,42 +41,41 @@ class GasStationData: BaseGasStationData, RemoteGasStationDataDelegate
             
             try? context.save()
         }
-        
-        self.delegate?.didReceiveGasStations(gasStations: gasStations)
     }
-        
-        func didReceiveRemoteGasStationsCount(_ count: Int) {
-            if let cont = self.container?.viewContext {
-                cont.perform {
-                    if let gasStationsCount = (try? cont.count(for: DbModelGasStation.fetchRequest())) {
-                        if count == gasStationsCount {
-                            self.getAllLocal()
-                        }
-                        else {
-                            self.getAllRemote()
-                        }
+    
+    func didReceiveRemoteGasStationsCount(_ count: Int) {
+        if let cont = self.container?.viewContext {
+            cont.perform {
+                if let gasStationsCount = (try? cont.count(for: DbModelGasStation.fetchRequest())) {
+                    if count != gasStationsCount {
+                        self.remoteData?.getAll()
                     }
                 }
             }
         }
-        
-        func didReceiveRemoteError(error: Error) {
-            self.getAllLocal()
-        }
-        
-        private func getAllLocal(){
-            if let context = self.container?.viewContext {
-                context.perform { [weak self] in
-                    let request: NSFetchRequest<DbModelGasStation> = DbModelGasStation.fetchRequest()
-                    if let dbGasStations = try? context.fetch(request) {
-                        let gasStations = dbGasStations.map { GasStation.fromDbModel($0) }
-                        self?.delegate?.didReceiveGasStations(gasStations: gasStations)
-                    }
+    }
+    
+    func didReceiveRemoteError(error: Error) {
+        self.getAllLocal()
+    }
+    
+    private func sync() {
+        self.remoteData?.getAllCount()
+    }
+    
+    private func getAllLocal(){
+        if let context = self.container?.viewContext {
+            context.perform { [weak self] in
+                let request: NSFetchRequest<DbModelGasStation> = DbModelGasStation.fetchRequest()
+                if let dbGasStations = try? context.fetch(request) {
+                    let gasStations = dbGasStations.map { GasStation.fromDbModel($0) }
+                    self?.delegate?.didReceiveGasStations(gasStations: gasStations)
                 }
             }
         }
-        
-        private func getAllRemote() {
-            self.remoteData?.getAll()
-        }
+    }
+    
+    private func getAllRemote() {
+        self.remoteData?.getAll()
+    }
 }
