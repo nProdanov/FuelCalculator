@@ -160,13 +160,15 @@ class ChargesData: BaseChargesData, RemoteChargesDataDelegate
             cont.perform {
                 cont.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
                 if let chargesCount = (try? cont.count(for: DbModelCharge.fetchRequest())) {
-                    if count != chargesCount {
+                    if count > chargesCount {
                         self.remoteChargesData?.getAllCharges()
+                    }
+                    else {
+                        self.syncLocalToRemote()
                     }
                 }
             }
         }
-
     }
     
     func didReceiveRemoteCharges(_ charges: [Charge]) {
@@ -181,6 +183,21 @@ class ChargesData: BaseChargesData, RemoteChargesDataDelegate
     
     func didReceiveRemoteError(error: Error) {
         
+    }
+    
+    private func syncLocalToRemote() {
+        container?.performBackgroundTask { [weak self] context in
+            let request: NSFetchRequest<DbModelCharge> = DbModelCharge.fetchRequest()
+            if let dbCharges = try? context.fetch(request) {
+                if dbCharges.count > 0 {
+                    let charges = dbCharges.map { Charge.fromDbModel($0) }
+                    
+                    charges.forEach { self?.remoteChargesData?.createCharge(fromChargeInfo: $0) }
+                } else{
+                    self?.delegate?.didReceiveAllCharges([])
+                }
+            }
+        }
     }
     
     private func sync(){
