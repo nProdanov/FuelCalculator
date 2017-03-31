@@ -123,6 +123,6 @@ extension CurrentChargeViewController: ChargesDataDelegate
     }
     
     func didReceiceDeleteCurrentCharge(){
-        self.tabBarController?.selectedIndex = 1
+        self.tabBarController?.selectedIndex = 3
     }
 }

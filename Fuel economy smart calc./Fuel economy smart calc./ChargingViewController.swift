@@ -63,6 +63,7 @@ class ChargingViewController: UIViewController
         datePicker.setValue(UIColor.white, forKey: "textColor")
         
         addGestureForDismissingKeyboard()
+        self.gasStationNameTextField.text = "-"
         //        currentCharge = (UIApplication.shared.delegate as! AppDelegate).charges?[0]
         
         chargesData = ChargesData()
@@ -103,6 +104,10 @@ extension ChargingViewController: ChargesDataDelegate
     }
     
     func didCreateCurrentCharge() {
+        self.datePicker.setDate(Date.init(), animated: true)
+        self.fuelChargedQuantityTextField.text = ""
+        self.fuelPriceTextField.text = ""
+        self.gasStationNameTextField.text = ""
         self.tabBarController?.selectedIndex = 2
     }
 }

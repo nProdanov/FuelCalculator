@@ -46,8 +46,15 @@ class GraphViewController: UIViewController, ChargesDataDelegate
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "M"
         
-        let nextMonthDate = dateNow.addingTimeInterval(31*24*60*60)
-        let nextMonth = Int(Calendar.current.component(.month, from: nextMonthDate))
+        
+        var nextMonthDate = dateNow.addingTimeInterval(25*24*60*60)
+        let currentMonth = Int(Calendar.current.component(.month, from: dateNow))
+        var nextMonth = Int(Calendar.current.component(.month, from: nextMonthDate))
+        
+        while nextMonth == currentMonth {
+            nextMonthDate = nextMonthDate.addingTimeInterval(25*24*60*60)
+            nextMonth = Int(Calendar.current.component(.month, from: nextMonthDate))
+        }
         
         var filteredCharges = charges?.filter {
             $0.chargingDate > nineMonthsAgoDate &&
