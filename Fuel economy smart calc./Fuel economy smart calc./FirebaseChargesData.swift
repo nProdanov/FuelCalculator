@@ -65,7 +65,7 @@ class FireBaseChargesData: BaseRemoteChargesData
                 .child(Constants.ChargesDbChild)
                 .observeSingleEvent(of: .value, with: {(snapshop) in
                     DispatchQueue.main.async {
-                        self?.delegate?.didReceiveRemoteChargesCount((snapshop.value as! [Any]).count)
+                        self?.delegate?.didReceiveRemoteChargesCount((snapshop.value as! NSDictionary).allKeys.count)
                     }
                 }) {error in
                     self?.delegate?.didReceiveRemoteError(error: error)

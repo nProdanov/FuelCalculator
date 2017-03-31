@@ -20,12 +20,45 @@ class DbModelCharge: NSManagedObject
         charge.distancePast = chargeInfo.distancePast!
         charge.distanceUnit = chargeInfo.distanceUnit
         charge.fuelConsumption = chargeInfo.fuelConsumption!
+        charge.priceConsumption = chargeInfo.priceConsumption!
         charge.fuelUnit = chargeInfo.fuelUnit
         charge.priceUnit = chargeInfo.priceUnit
         charge.price = chargeInfo.price
         charge.id = chargeInfo.id
         
         try? context.save()
+        
+        return charge
+    }
+    
+    class func findOrCreateCharge(with chargeInfo: Charge, in context: NSManagedObjectContext) throws -> DbModelCharge
+    {
+        let request: NSFetchRequest<DbModelCharge> = DbModelCharge.fetchRequest()
+        request.predicate = NSPredicate(format: "id = %a", chargeInfo.id)
+        
+        do {
+            let matches = try context.fetch(request)
+            
+            if matches.count > 0 {
+                assert(matches.count == 1, "db model gas station -- inconsistency")
+                return matches[0]
+            }
+        } catch {
+            throw error
+        }
+        
+        let charge = DbModelCharge(context: context)
+        charge.id = chargeInfo.id
+        charge.chargedFuel = chargeInfo.chargedFuel
+        charge.chargingDate = chargeInfo.chargingDate as NSDate?
+        charge.distancePast = chargeInfo.distancePast!
+        charge.distanceUnit = chargeInfo.distanceUnit
+        charge.fuelConsumption = chargeInfo.fuelConsumption!
+        charge.fuelUnit = chargeInfo.fuelUnit
+        charge.gasStation = try? DbModelGasStation.findOrCreateGasStation(with: chargeInfo.gasStation, in: context)
+        charge.price = chargeInfo.price
+        charge.priceConsumption = chargeInfo.priceConsumption!
+        charge.priceUnit = chargeInfo.priceUnit
         
         return charge
     }

@@ -147,11 +147,26 @@ class ChargesData: BaseChargesData, RemoteChargesDataDelegate
     }
     
     func didReceiveRemoteChargesCount(_ count: Int) {
-        print(count)
+        if let cont = self.container?.viewContext {
+            cont.perform {
+                if let chargesCount = (try? cont.count(for: DbModelCharge.fetchRequest())) {
+                    if count != chargesCount {
+                        self.remoteChargesData?.getAllCharges()
+                    }
+                }
+            }
+        }
+
     }
     
     func didReceiveRemoteCharges(_ charges: [Charge]) {
-        self.delegate?.didReceiveAllCharges(charges)
+        container?.performBackgroundTask { context in
+            for charge in charges {
+                _ = try? DbModelCharge.findOrCreateCharge(with: charge, in: context)
+            }
+            
+            try? context.save()
+        }
     }
     
     func didReceiveRemoteError(error: Error) {
@@ -159,7 +174,7 @@ class ChargesData: BaseChargesData, RemoteChargesDataDelegate
     }
     
     private func sync(){
-        
+        self.remoteChargesData?.getAllChargesCount()
     }
     
     private struct Constants
