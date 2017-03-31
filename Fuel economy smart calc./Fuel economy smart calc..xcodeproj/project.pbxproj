@@ -36,6 +36,8 @@
 		78C1F6411E8AC2B00032AC2D /* GasStationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C1F6401E8AC2B00032AC2D /* GasStationData.swift */; };
 		78C1F6431E8AC4E70032AC2D /* RemoteGasStationDataDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C1F6421E8AC4E70032AC2D /* RemoteGasStationDataDelegate.swift */; };
 		78CAD1A51E8D1670007F5633 /* ChargeFromDbModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CAD1A41E8D1670007F5633 /* ChargeFromDbModel.swift */; };
+		78CAD1A71E8E7DF2007F5633 /* RecomendedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CAD1A61E8E7DF2007F5633 /* RecomendedTableViewController.swift */; };
+		78CAD1A91E8E8CCE007F5633 /* RecomendedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CAD1A81E8E8CCE007F5633 /* RecomendedTableViewCell.swift */; };
 		78CDFB961E850E0F00A7D1C2 /* CurrentChargeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CDFB951E850E0F00A7D1C2 /* CurrentChargeViewController.swift */; };
 		78CF6F351E8928440096DCB4 /* GasStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CF6F341E8928440096DCB4 /* GasStation.swift */; };
 		78CF6F3A1E892F040096DCB4 /* BaseGasStationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CF6F391E892F040096DCB4 /* BaseGasStationData.swift */; };
@@ -84,6 +86,8 @@
 		78C1F6401E8AC2B00032AC2D /* GasStationData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GasStationData.swift; sourceTree = "<group>"; };
 		78C1F6421E8AC4E70032AC2D /* RemoteGasStationDataDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteGasStationDataDelegate.swift; sourceTree = "<group>"; };
 		78CAD1A41E8D1670007F5633 /* ChargeFromDbModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChargeFromDbModel.swift; sourceTree = "<group>"; };
+		78CAD1A61E8E7DF2007F5633 /* RecomendedTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecomendedTableViewController.swift; sourceTree = "<group>"; };
+		78CAD1A81E8E8CCE007F5633 /* RecomendedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecomendedTableViewCell.swift; sourceTree = "<group>"; };
 		78CDFB951E850E0F00A7D1C2 /* CurrentChargeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentChargeViewController.swift; sourceTree = "<group>"; };
 		78CF6F341E8928440096DCB4 /* GasStation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GasStation.swift; sourceTree = "<group>"; };
 		78CF6F391E892F040096DCB4 /* BaseGasStationData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseGasStationData.swift; sourceTree = "<group>"; };
@@ -184,6 +188,8 @@
 			isa = PBXGroup;
 			children = (
 				78F7E9031E7D2E8C0081E4B6 /* BaseFuelCalculatorBrain.swift */,
+				78CAD1A61E8E7DF2007F5633 /* RecomendedTableViewController.swift */,
+				78CAD1A81E8E8CCE007F5633 /* RecomendedTableViewCell.swift */,
 				78537CD31E7C38D1005BBC24 /* Main.storyboard */,
 				78C1F63B1E8AB08E0032AC2D /* DbModel.xcdatamodeld */,
 				78CF6F371E892ED60096DCB4 /* Data */,
@@ -445,9 +451,11 @@
 				78E20A571E86549200001E58 /* VCDismissKeyboardExtension.swift in Sources */,
 				78C1F63A1E8AB04F0032AC2D /* DbModelGasStation.swift in Sources */,
 				78C1F63D1E8AB08E0032AC2D /* DbModel.xcdatamodeld in Sources */,
+				78CAD1A91E8E8CCE007F5633 /* RecomendedTableViewCell.swift in Sources */,
 				784C7BB11E8B9AD7000365BE /* CurrentChargeFromDbModel.swift in Sources */,
 				780C79801E81560C00E3369A /* Charge.swift in Sources */,
 				78CAD1A51E8D1670007F5633 /* ChargeFromDbModel.swift in Sources */,
+				78CAD1A71E8E7DF2007F5633 /* RecomendedTableViewController.swift in Sources */,
 				78CF6F3A1E892F040096DCB4 /* BaseGasStationData.swift in Sources */,
 				780C79821E815C6200E3369A /* ChargeTableViewCell.swift in Sources */,
 				78C1F63F1E8AC2290032AC2D /* BaseRemoteGasStationData.swift in Sources */,
