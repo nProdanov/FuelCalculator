@@ -11,6 +11,6 @@ import Foundation
 protocol RemoteChargesDataDelegate
 {
     func didReceiveRemoteCharges(_ charges: [Charge])
-    func didReceiveRemoteChargesCount(_ count: Int)
+    func didReceiveRemoteChargesCount(_ count: Int?)
     func didReceiveRemoteError(error: Error)
 }

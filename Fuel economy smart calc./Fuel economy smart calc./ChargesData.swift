@@ -133,7 +133,6 @@ class ChargesData: BaseChargesData, RemoteChargesDataDelegate
                             self?.delegate?.didReceiveAllCharges(charges)
                         }
                     }
-                    
                 } else{
                     self?.delegate?.didReceiveAllCharges([])
                 }
@@ -155,16 +154,18 @@ class ChargesData: BaseChargesData, RemoteChargesDataDelegate
         self.remoteChargesData?.deleteCharge(byId: id)
     }
     
-    func didReceiveRemoteChargesCount(_ count: Int) {
-        if let cont = self.container?.viewContext {
-            cont.perform {
-                cont.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
-                if let chargesCount = (try? cont.count(for: DbModelCharge.fetchRequest())) {
-                    if count > chargesCount {
-                        self.remoteChargesData?.getAllCharges()
-                    }
-                    else {
-                        self.syncLocalToRemote()
+    func didReceiveRemoteChargesCount(_ count: Int?) {
+        if let count = count {
+            if let cont = self.container?.viewContext {
+                cont.perform {
+                    cont.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
+                    if let chargesCount = (try? cont.count(for: DbModelCharge.fetchRequest())) {
+                        if count > chargesCount {
+                            self.remoteChargesData?.getAllCharges()
+                        }
+                        else {
+                            self.syncLocalToRemote()
+                        }
                     }
                 }
             }
