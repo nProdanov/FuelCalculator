@@ -186,6 +186,10 @@ class ChargesData: BaseChargesData, RemoteChargesDataDelegate
         
     }
     
+    func sync(){
+        self.remoteChargesData?.getAllChargesCount()
+    }
+    
     private func syncLocalToRemote() {
         container?.performBackgroundTask { [weak self] context in
             let request: NSFetchRequest<DbModelCharge> = DbModelCharge.fetchRequest()
@@ -199,10 +203,6 @@ class ChargesData: BaseChargesData, RemoteChargesDataDelegate
                 }
             }
         }
-    }
-    
-    private func sync(){
-        self.remoteChargesData?.getAllChargesCount()
     }
     
     private struct Constants

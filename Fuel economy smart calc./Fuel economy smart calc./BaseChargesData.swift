@@ -18,4 +18,5 @@ protocol BaseChargesData
     func createCharge(fromCurrentCharge currentCharge: CurrentCharge)
     func getAllCharges()
     func deleteCharge(byId id: String)
+    func sync()
 }

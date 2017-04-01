@@ -42,6 +42,7 @@ class ChargesTableViewController: UITableViewController {
     }
     
     func handleRefresh(refreshControl: UIRefreshControl) {
+        self.chargesData?.sync()
         self.chargesData?.getAllCharges()
         refreshControl.endRefreshing()
     }
