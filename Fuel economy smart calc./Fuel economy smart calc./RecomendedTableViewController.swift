@@ -38,7 +38,8 @@ class RecomendedTableViewController: UITableViewController, ChargesDataDelegate
     }
     
     func didReceiveAllCharges(_ charges: [Charge]) {
-        let sortedCharges = charges.sorted { $0.priceConsumption! < $1.priceConsumption! }[0..<3] // TODO
+        let sortedCharges = charges.sorted { $0.priceConsumption! < $1.priceConsumption! }
+        
         
         self.charges = []
         if sortedCharges.count > 0 {

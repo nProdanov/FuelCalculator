@@ -286,7 +286,6 @@
 		78DA73171E8F74E400E1863A /* Recomended */ = {
 			isa = PBXGroup;
 			children = (
-				78F7E9031E7D2E8C0081E4B6 /* BaseFuelCalculatorBrain.swift */,
 				78CAD1A61E8E7DF2007F5633 /* RecomendedTableViewController.swift */,
 				78CAD1A81E8E8CCE007F5633 /* RecomendedTableViewCell.swift */,
 			);
@@ -316,6 +315,7 @@
 				78C1F6361E8AAFC80032AC2D /* Db */,
 				7850CD5C1E8975DC00FF44C5 /* Extensions */,
 				780C797F1E81560C00E3369A /* Charge.swift */,
+				78F7E9031E7D2E8C0081E4B6 /* BaseFuelCalculatorBrain.swift */,
 				78F6C6271E8B91750020CB3E /* CurrentCharge.swift */,
 				78CF6F341E8928440096DCB4 /* GasStation.swift */,
 			);
