@@ -46,7 +46,6 @@ class GraphViewController: UIViewController, ChargesDataDelegate
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "M"
         
-        
         var nextMonthDate = dateNow.addingTimeInterval(25*24*60*60)
         let currentMonth = Int(Calendar.current.component(.month, from: dateNow))
         var nextMonth = Int(Calendar.current.component(.month, from: nextMonthDate))
@@ -75,21 +74,33 @@ class GraphViewController: UIViewController, ChargesDataDelegate
     private func generateMonthStrings() -> [String] {
         var monthsStrings: [String] = []
         
-        var currentDate = Date.init()
+        let dateNow = Date.init()
+        
+        let monthDateFormatter = DateFormatter()
+        
         let dateFormater = DateFormatter()
         dateFormater.dateFormat = "MMMM"
         
-        let day = Calendar.current.component(.day, from: currentDate)
+        var month = Int(Calendar.current.component(.month, from: dateNow))
+        var nineMonthsAgoDate = dateNow
         
-        if day < 3 {
-            currentDate = currentDate.addingTimeInterval(2*24*60*60)
+        monthsStrings.insert(dateFormater.string(from: nineMonthsAgoDate), at: monthsStrings.startIndex)
+        
+        for _ in 0..<8 {
+            nineMonthsAgoDate = nineMonthsAgoDate.addingTimeInterval(-28*24*60*60)
+            var previousMonth = Int(Calendar.current.component(.month, from: nineMonthsAgoDate))
+            
+            while month == previousMonth {
+                nineMonthsAgoDate = nineMonthsAgoDate.addingTimeInterval(-28*24*60*60)
+                previousMonth = Int(Calendar.current.component(.month, from: nineMonthsAgoDate))
+            }
+            
+            dateFormater.dateFormat = "MMMM"
+            monthsStrings.insert(dateFormater.string(from: nineMonthsAgoDate), at: monthsStrings.startIndex)
+            monthDateFormatter.dateFormat = "M"
+            month = previousMonth
         }
-        
-        for _ in 1...9 {
-            monthsStrings.insert(dateFormater.string(from: currentDate), at: 0)
-            currentDate =  currentDate.addingTimeInterval(-31*24*60*60)
-        }
-        
+
         return monthsStrings
     }
 }
