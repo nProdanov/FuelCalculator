@@ -8,4 +8,5 @@ target 'Fuel economy smart calc.' do
   # Pods for Fuel economy smart calc.
   pod 'Firebase/Core'
   pod 'Firebase/Database'
+  pod 'Firebase/Auth'
 end

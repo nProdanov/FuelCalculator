@@ -16,7 +16,10 @@ class AccountViewController: UIViewController, UITextFieldDelegate
     @IBOutlet weak var emailLabel: UILabel!
     
     @IBAction func logout() {
-        
+        authData?.signOutUser()
+        emailLabel.text = ""
+        hideLogoutStuff()
+        showLoginStuff()
     }
     
     // Login
@@ -31,19 +34,31 @@ class AccountViewController: UIViewController, UITextFieldDelegate
     @IBOutlet weak var invaildLoginLabel: UILabel!
     
     @IBAction func login() {
+        invaildLoginLabel.isHidden = true
         dismissKeyboard()
+        if let email = emailTextField.text,
+            let password = passwordTextField.text {
+            self.authData?.signInUser(withEmail: email, andPassowrd: password)
+        }
     }
+    
+    var authData: BaseAuthData?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         addGestureForDismissingKeyboard()
         emailTextField.delegate = self
         passwordTextField.delegate = self
+        
+        authData = FirebaseAuthData()
+        authData?.setDelegate(delegate: self)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         invaildLoginLabel.isHidden = true
-        hideLogoutStuff()
+        
+        authData?.getCurrentUser()
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -58,30 +73,19 @@ class AccountViewController: UIViewController, UITextFieldDelegate
         return true
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    
-    
-    private func showLogoutStuff() {
+    fileprivate func showLogoutStuff() {
         accountLabel.isHidden = false
         logoutButton.isHidden = false
         emailLabel.isHidden = false
     }
     
-    private func hideLogoutStuff() {
+    fileprivate func hideLogoutStuff() {
         accountLabel.isHidden = true
         logoutButton.isHidden = true
         emailLabel.isHidden = true
     }
     
-    private func showLoginStuff() {
+    fileprivate func showLoginStuff() {
         loginFormLabel.isHidden = false
         emailTextField.isHidden = false
         passwordLabel.isHidden = false
@@ -90,12 +94,39 @@ class AccountViewController: UIViewController, UITextFieldDelegate
         noAccountButton.isHidden = false
     }
     
-    private func hideLoginStuff() {
+    fileprivate func hideLoginStuff() {
         loginFormLabel.isHidden = true
         emailTextField.isHidden = true
         passwordLabel.isHidden = true
         passwordTextField.isHidden = true
         loginButton.isHidden = true
         noAccountButton.isHidden = true
+    }
+}
+
+extension AccountViewController: AuthDataDelegate
+{
+    func didReceiveSignInUserError() {
+        invaildLoginLabel.isHidden = false
+    }
+    
+    func didReceiveSignInUser(withEmail email: String) {
+        emailTextField.text = ""
+        passwordTextField.text = ""
+        
+        hideLoginStuff()
+        showLogoutStuff()
+        emailLabel.text = email
+    }
+    
+    func didReceiveCurrentUser(withEmail email: String?) {
+        if email != nil {
+            hideLoginStuff()
+            showLogoutStuff()
+            emailLabel.text = email
+        } else {
+            hideLogoutStuff()
+            showLoginStuff()
+        }
     }
 }

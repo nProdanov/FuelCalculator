@@ -10,19 +10,36 @@ import UIKit
 
 class RegisterViewController: UIViewController, UITextFieldDelegate
 {
-    
-    
     @IBOutlet weak var repeatPasswordTextField: UITextField!
     @IBOutlet weak var passwodTextFIeld: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     
+    @IBOutlet weak var invalidRegisterLabel: UILabel!
     @IBOutlet weak var invalidMatchPassowrdsLabel: UILabel!
     @IBOutlet weak var invalidPasswordLabel: UILabel!
     @IBOutlet weak var invalidEmailLabel: UILabel!
     
     @IBAction func register() {
-        dismissKeyboard()
+        invalidRegisterLabel.isHidden = true
+        if let email = emailTextField.text,
+            let password = passwodTextFIeld.text,
+            let repeatPassword = repeatPasswordTextField.text {
+            
+            let isValidEmail = self.isValidEmail(email)
+            let isValidPassword = self.isValidPassword(password)
+            let isPasswordsMatching = self.isPasswordsMatching(password, repeatPassword)
+            
+            invalidEmailLabel.isHidden = isValidEmail
+            invalidPasswordLabel.isHidden = isValidPassword
+            invalidMatchPassowrdsLabel.isHidden = isPasswordsMatching
+            
+            if isValidEmail, isValidPassword, isPasswordsMatching {
+                    authData?.createUser(withEmail: email, andPassword: password)
+            }
+        }
     }
+    
+    var authData: BaseAuthData?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,12 +49,17 @@ class RegisterViewController: UIViewController, UITextFieldDelegate
         emailTextField.delegate = self
         passwodTextFIeld.delegate = self
         repeatPasswordTextField.delegate = self
+        
+        authData = FirebaseAuthData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         invalidEmailLabel.isHidden = true
         invalidPasswordLabel.isHidden = true
         invalidMatchPassowrdsLabel.isHidden = true
+        invalidRegisterLabel.isHidden = true
+        
+        authData?.setDelegate(delegate: self)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -55,15 +77,33 @@ class RegisterViewController: UIViewController, UITextFieldDelegate
         }
         return true
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    private func isValidEmail(_ testStr:String) -> Bool {
+        // print("validate calendar: \(testStr)")
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
+        
+        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailTest.evaluate(with: testStr)
     }
-    */
+    
+    private func isValidPassword(_ password: String) -> Bool {
+        return password.characters.count >= 6
+    }
+    
+    private func isPasswordsMatching(_ password: String, _ repeatPassword: String) -> Bool {
+        return password == repeatPassword
+    }
+    
+}
 
+extension RegisterViewController: AuthDataDelegate
+{
+    func didReceiveCreateUser(withEmail email: String) {
+        _ = navigationController?.popViewController(animated: true)
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func didReceiveCreateUserError() {
+        invalidRegisterLabel.isHidden = false
+    }
 }
