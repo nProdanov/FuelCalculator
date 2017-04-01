@@ -38,7 +38,7 @@ class DbModelCharge: NSManagedObject
         
         do {
             let matches = try context.fetch(request)
-            let charges = matches.map {Charge.fromDbModel($0)}
+
             if matches.count > 0 {
                 assert(matches.count == 1, "db model gas station -- inconsistency")
                 return matches[0]

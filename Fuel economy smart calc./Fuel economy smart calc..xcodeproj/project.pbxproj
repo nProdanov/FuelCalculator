@@ -43,6 +43,8 @@
 		78CF6F3A1E892F040096DCB4 /* BaseGasStationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CF6F391E892F040096DCB4 /* BaseGasStationData.swift */; };
 		78CF6F3D1E8930AB0096DCB4 /* GasStationDataDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CF6F3C1E8930AB0096DCB4 /* GasStationDataDelegate.swift */; };
 		78CF6F3F1E89313C0096DCB4 /* FireBaseGasStationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CF6F3E1E89313C0096DCB4 /* FireBaseGasStationData.swift */; };
+		78DA73191E8F7F7E00E1863A /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DA73181E8F7F7E00E1863A /* AccountViewController.swift */; };
+		78DA731B1E8FFF4700E1863A /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DA731A1E8FFF4700E1863A /* RegisterViewController.swift */; };
 		78E20A571E86549200001E58 /* VCDismissKeyboardExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E20A561E86549200001E58 /* VCDismissKeyboardExtension.swift */; };
 		78E20A591E86715000001E58 /* ChargingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E20A581E86715000001E58 /* ChargingViewController.swift */; };
 		78E6120A1E828ADE0098B35B /* GraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E612091E828ADE0098B35B /* GraphViewController.swift */; };
@@ -93,6 +95,8 @@
 		78CF6F391E892F040096DCB4 /* BaseGasStationData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseGasStationData.swift; sourceTree = "<group>"; };
 		78CF6F3C1E8930AB0096DCB4 /* GasStationDataDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GasStationDataDelegate.swift; sourceTree = "<group>"; };
 		78CF6F3E1E89313C0096DCB4 /* FireBaseGasStationData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FireBaseGasStationData.swift; sourceTree = "<group>"; };
+		78DA73181E8F7F7E00E1863A /* AccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
+		78DA731A1E8FFF4700E1863A /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		78E20A561E86549200001E58 /* VCDismissKeyboardExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCDismissKeyboardExtension.swift; sourceTree = "<group>"; };
 		78E20A581E86715000001E58 /* ChargingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChargingViewController.swift; sourceTree = "<group>"; };
 		78E612091E828ADE0098B35B /* GraphViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphViewController.swift; sourceTree = "<group>"; };
@@ -187,9 +191,9 @@
 		78537CCE1E7C38D1005BBC24 /* Fuel economy smart calc. */ = {
 			isa = PBXGroup;
 			children = (
-				78F7E9031E7D2E8C0081E4B6 /* BaseFuelCalculatorBrain.swift */,
-				78CAD1A61E8E7DF2007F5633 /* RecomendedTableViewController.swift */,
-				78CAD1A81E8E8CCE007F5633 /* RecomendedTableViewCell.swift */,
+				78DA73181E8F7F7E00E1863A /* AccountViewController.swift */,
+				78DA731A1E8FFF4700E1863A /* RegisterViewController.swift */,
+				78DA73171E8F74E400E1863A /* Recomended */,
 				78537CD31E7C38D1005BBC24 /* Main.storyboard */,
 				78C1F63B1E8AB08E0032AC2D /* DbModel.xcdatamodeld */,
 				78CF6F371E892ED60096DCB4 /* Data */,
@@ -269,6 +273,16 @@
 				784C7BB41E8C0E38000365BE /* RemoteChargesDataDelegate.swift */,
 			);
 			name = Delegates;
+			sourceTree = "<group>";
+		};
+		78DA73171E8F74E400E1863A /* Recomended */ = {
+			isa = PBXGroup;
+			children = (
+				78F7E9031E7D2E8C0081E4B6 /* BaseFuelCalculatorBrain.swift */,
+				78CAD1A61E8E7DF2007F5633 /* RecomendedTableViewController.swift */,
+				78CAD1A81E8E8CCE007F5633 /* RecomendedTableViewCell.swift */,
+			);
+			name = Recomended;
 			sourceTree = "<group>";
 		};
 		78E20A551E86545B00001E58 /* Extensions */ = {
@@ -443,6 +457,7 @@
 				781A85B31E87A4900024A5D6 /* GasStationLocationViewController.swift in Sources */,
 				784C7BAF1E8B9560000365BE /* ChargesDataDelegate.swift in Sources */,
 				78C1F6431E8AC4E70032AC2D /* RemoteGasStationDataDelegate.swift in Sources */,
+				78DA731B1E8FFF4700E1863A /* RegisterViewController.swift in Sources */,
 				78B4C1561E7D150700D17916 /* BaseFCViewController.swift in Sources */,
 				784C7BB51E8C0E38000365BE /* RemoteChargesDataDelegate.swift in Sources */,
 				7850CD5E1E8975F500FF44C5 /* GasStationFromDict.swift in Sources */,
@@ -471,6 +486,7 @@
 				780C797E1E8155EA00E3369A /* ChargesTableViewController.swift in Sources */,
 				78E20A591E86715000001E58 /* ChargingViewController.swift in Sources */,
 				78537CD01E7C38D1005BBC24 /* AppDelegate.swift in Sources */,
+				78DA73191E8F7F7E00E1863A /* AccountViewController.swift in Sources */,
 				78F6C6241E8B8FE90020CB3E /* DbModelCurrentCharge.swift in Sources */,
 				78E6120C1E828B3A0098B35B /* GraphView.swift in Sources */,
 				78CF6F3F1E89313C0096DCB4 /* FireBaseGasStationData.swift in Sources */,
