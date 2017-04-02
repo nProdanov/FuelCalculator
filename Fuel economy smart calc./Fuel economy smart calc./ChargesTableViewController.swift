@@ -25,12 +25,6 @@ class ChargesTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        //
-        //        charges = appDelegate.charges
-        
-        self.chargesData = ChargesData()
-        self.chargesData?.setDelegate(self)
         let attributes = [NSForegroundColorAttributeName: UIColor.white, NSFontAttributeName: UIFont.systemFont(ofSize: 18)]
         self.refreshControl?.attributedTitle = NSAttributedString(string: "Refreshing", attributes: attributes)
         
@@ -38,6 +32,7 @@ class ChargesTableViewController: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        self.chargesData?.setDelegate(self)
         self.chargesData?.getAllCharges()
     }
     

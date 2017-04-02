@@ -7,6 +7,7 @@
 //
 
 import Foundation
+
 import Firebase
 import FirebaseDatabase
 import FirebaseAuth
@@ -17,6 +18,10 @@ class FireBaseChargesData: BaseRemoteChargesData
     var delegate: RemoteChargesDataDelegate?
     
     init(){
+        if FIRApp.defaultApp() == nil {
+            FIRApp.configure()
+        }
+        
         dbReference = FIRDatabase.database().reference()
     }
     

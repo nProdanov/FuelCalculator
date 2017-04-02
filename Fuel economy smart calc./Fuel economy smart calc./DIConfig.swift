@@ -23,15 +23,40 @@ extension SwinjectStoryboard
         defaultContainer
             .register(BaseRemoteGasStationData.self) { _ in remoteGasStationsData }
         
+        let gasStationData = GasStationData(withRemoteData: defaultContainer.resolve(BaseRemoteGasStationData.self)!)
+        
         defaultContainer
-            .register(BaseGasStationData.self) {res in GasStationData(withRemoteData: res.resolve(BaseRemoteGasStationData.self)!)}
+            .register(BaseGasStationData.self) { _ in gasStationData }
             .inObjectScope(.container)
         
         // Location manager
         defaultContainer
             .register(CLLocationManager.self) { _ in CLLocationManager() }
         
+        // Calculator brain
+        defaultContainer
+            .register(BaseFuelCalculatorBrain.self) { _ in BaseFuelCalculatorBrain() }
+        
+        // Charges data
+        let remoteChargesData = FireBaseChargesData()
+        
+        defaultContainer
+            .register(BaseRemoteChargesData.self) { _ in remoteChargesData }
+        
+        let chargesData = ChargesData(
+            withRemoteChargesData: defaultContainer.resolve(BaseRemoteChargesData.self)!,
+            andCalculatorBrain: defaultContainer.resolve(BaseFuelCalculatorBrain.self)!)
+        
+        defaultContainer
+            .register(BaseChargesData.self) { _ in chargesData}
+            .inObjectScope(.container)
+        
         // VC
         ConfigChargingLocationVC.setup(container: defaultContainer)
+        ConfigCurrentChargeVC.setup(container: defaultContainer)
+        ConfigGraphVC.setup(container: defaultContainer)
+        ConfigChargesVC.setup(container: defaultContainer)
+        ConfigChargingVC.setup(container: defaultContainer)
+        ConfigRecomendedVC.setup(container: defaultContainer)
     }
 }

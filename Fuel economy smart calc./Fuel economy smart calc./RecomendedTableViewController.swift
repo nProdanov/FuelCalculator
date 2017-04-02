@@ -12,12 +12,10 @@ class RecomendedTableViewController: UITableViewController, ChargesDataDelegate
 {
     var charges: [Charge]?
     
-    var chargesData: ChargesData?
+    var chargesData: BaseChargesData?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.chargesData = ChargesData()
     }
     
     override func viewWillAppear(_ animated: Bool) {

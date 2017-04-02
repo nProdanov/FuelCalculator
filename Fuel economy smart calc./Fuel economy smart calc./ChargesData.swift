@@ -20,10 +20,11 @@ class ChargesData: BaseChargesData, RemoteChargesDataDelegate
     
     var calculatorBrain: BaseFuelCalculatorBrain?
     
-    init() {
-        self.remoteChargesData = FireBaseChargesData() // Swinject
+    init(withRemoteChargesData data: BaseRemoteChargesData, andCalculatorBrain brain: BaseFuelCalculatorBrain) {
+        self.remoteChargesData = data
         self.remoteChargesData?.setDelegate(self)
-        self.calculatorBrain = BaseFuelCalculatorBrain()
+        
+        self.calculatorBrain = brain
         
         self.sync()
     }

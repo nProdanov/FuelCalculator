@@ -49,11 +49,6 @@ class CurrentChargeViewController: UIViewController
         super.viewDidLoad()
         addGestureForDismissingKeyboard()
         addSaveButtonToNavBar()
-        
-        //        currentCharge = (UIApplication.shared.delegate as! AppDelegate).charges?[0]
-        
-        chargesData = ChargesData()
-        chargesData?.setDelegate(self)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -63,6 +58,8 @@ class CurrentChargeViewController: UIViewController
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        chargesData?.setDelegate(self)
+        
         if currentCharge == nil {
             self.chargesData?.getCurrentCharge()
         }

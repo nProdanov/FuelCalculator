@@ -64,10 +64,6 @@ class ChargingViewController: UIViewController
         
         addGestureForDismissingKeyboard()
         self.gasStationNameTextField.text = "-"
-        //        currentCharge = (UIApplication.shared.delegate as! AppDelegate).charges?[0]
-        
-        chargesData = ChargesData()
-        chargesData?.setDelegate(self)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -77,6 +73,7 @@ class ChargingViewController: UIViewController
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        chargesData?.setDelegate(self)
         self.chargesData?.getCurrentCharge()
     }
     
