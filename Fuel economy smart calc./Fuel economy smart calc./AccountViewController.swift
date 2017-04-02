@@ -28,7 +28,6 @@ class AccountViewController: UIViewController, UITextFieldDelegate
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
-    
     @IBOutlet weak var passwordLabel: UILabel!
     @IBOutlet weak var noAccountButton: UIButton!
     @IBOutlet weak var loginButton: UIButton!
@@ -52,14 +51,12 @@ class AccountViewController: UIViewController, UITextFieldDelegate
         addGestureForDismissingKeyboard()
         emailTextField.delegate = self
         passwordTextField.delegate = self
-        
-        authData = FirebaseAuthData()
-        authData?.setDelegate(delegate: self)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         invaildLoginLabel.isHidden = true
         
+        authData?.setDelegate(delegate: self)
         authData?.getCurrentUser()
         showLoadingScreen()
     }

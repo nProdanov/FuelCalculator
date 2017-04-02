@@ -50,8 +50,6 @@ class RegisterViewController: UIViewController, UITextFieldDelegate
         emailTextField.delegate = self
         passwodTextFIeld.delegate = self
         repeatPasswordTextField.delegate = self
-        
-        authData = FirebaseAuthData()
     }
     
     override func viewWillAppear(_ animated: Bool) {

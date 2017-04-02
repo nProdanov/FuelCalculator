@@ -51,6 +51,13 @@ extension SwinjectStoryboard
             .register(BaseChargesData.self) { _ in chargesData}
             .inObjectScope(.container)
         
+        // Auth data
+        let authData = FirebaseAuthData()
+        
+        defaultContainer
+            .register(BaseAuthData.self) { _ in authData }
+            .inObjectScope(.container)
+        
         // VC
         ConfigChargingLocationVC.setup(container: defaultContainer)
         ConfigCurrentChargeVC.setup(container: defaultContainer)
@@ -58,5 +65,7 @@ extension SwinjectStoryboard
         ConfigChargesVC.setup(container: defaultContainer)
         ConfigChargingVC.setup(container: defaultContainer)
         ConfigRecomendedVC.setup(container: defaultContainer)
+        ConfigAccountVC.setup(container: defaultContainer)
+        ConfigRegisterVC.setup(container: defaultContainer)
     }
 }

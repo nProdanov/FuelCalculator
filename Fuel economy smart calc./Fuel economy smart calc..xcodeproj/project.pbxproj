@@ -35,6 +35,8 @@
 		789A02751E90FA7900641B0F /* ConfigGraphVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789A02741E90FA7900641B0F /* ConfigGraphVC.swift */; };
 		789A02771E90FB7B00641B0F /* ConfigChargesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789A02761E90FB7B00641B0F /* ConfigChargesVC.swift */; };
 		789A02791E9114A100641B0F /* MoreTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789A02781E9114A100641B0F /* MoreTabViewController.swift */; };
+		789A027C1E9119B700641B0F /* ConfigAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789A027B1E9119B700641B0F /* ConfigAccountVC.swift */; };
+		789A027E1E911A3000641B0F /* ConfigRegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789A027D1E911A3000641B0F /* ConfigRegisterVC.swift */; };
 		789F70131E8917FD00F96B0A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 789F70121E8917FD00F96B0A /* GoogleService-Info.plist */; };
 		78B4C1561E7D150700D17916 /* BaseFCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B4C1551E7D150700D17916 /* BaseFCViewController.swift */; };
 		78C1F6381E8AB0110032AC2D /* DbModelCharge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C1F6371E8AB0110032AC2D /* DbModelCharge.swift */; };
@@ -99,6 +101,8 @@
 		789A02741E90FA7900641B0F /* ConfigGraphVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigGraphVC.swift; sourceTree = "<group>"; };
 		789A02761E90FB7B00641B0F /* ConfigChargesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigChargesVC.swift; sourceTree = "<group>"; };
 		789A02781E9114A100641B0F /* MoreTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreTabViewController.swift; sourceTree = "<group>"; };
+		789A027B1E9119B700641B0F /* ConfigAccountVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigAccountVC.swift; sourceTree = "<group>"; };
+		789A027D1E911A3000641B0F /* ConfigRegisterVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigRegisterVC.swift; sourceTree = "<group>"; };
 		789F70121E8917FD00F96B0A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		78B4C1551E7D150700D17916 /* BaseFCViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseFCViewController.swift; sourceTree = "<group>"; };
 		78C1F6371E8AB0110032AC2D /* DbModelCharge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DbModelCharge.swift; sourceTree = "<group>"; };
@@ -218,10 +222,12 @@
 				789A02681E90D6DC00641B0F /* DIConfig.swift */,
 				789A02761E90FB7B00641B0F /* ConfigChargesVC.swift */,
 				789A02701E90F77A00641B0F /* ConfigRecomendedVC.swift */,
+				789A027D1E911A3000641B0F /* ConfigRegisterVC.swift */,
 				789A026A1E90E0E200641B0F /* ConfigChargingLocationVC.swift */,
 				789A026E1E90F63F00641B0F /* ConfigChargingVC.swift */,
 				789A02721E90F92C00641B0F /* ConfigCurrentChargeVC.swift */,
 				789A02741E90FA7900641B0F /* ConfigGraphVC.swift */,
+				789A027B1E9119B700641B0F /* ConfigAccountVC.swift */,
 				78DA73221E901FE400E1863A /* Auth */,
 				78DA73171E8F74E400E1863A /* Recomended */,
 				78537CD31E7C38D1005BBC24 /* Main.storyboard */,
@@ -235,7 +241,7 @@
 				781A85B61E87ED270024A5D6 /* CurrentCharge */,
 				781A85B71E87ED3A0024A5D6 /* Charging */,
 				78E20A551E86545B00001E58 /* Extensions */,
-				789A02781E9114A100641B0F /* MoreTabViewController.swift */,
+				789A027A1E9118BD00641B0F /* MoreTab */,
 			);
 			path = "Fuel economy smart calc.";
 			sourceTree = "<group>";
@@ -250,6 +256,14 @@
 				789F70121E8917FD00F96B0A /* GoogleService-Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		789A027A1E9118BD00641B0F /* MoreTab */ = {
+			isa = PBXGroup;
+			children = (
+				789A02781E9114A100641B0F /* MoreTabViewController.swift */,
+			);
+			name = MoreTab;
 			sourceTree = "<group>";
 		};
 		78C1F6361E8AAFC80032AC2D /* Db */ = {
@@ -497,6 +511,7 @@
 				78DA73211E900B8300E1863A /* FirebaseAuthData.swift in Sources */,
 				78F7E9041E7D2E8C0081E4B6 /* BaseFuelCalculatorBrain.swift in Sources */,
 				78CDFB961E850E0F00A7D1C2 /* CurrentChargeViewController.swift in Sources */,
+				789A027E1E911A3000641B0F /* ConfigRegisterVC.swift in Sources */,
 				78C1F6411E8AC2B00032AC2D /* GasStationData.swift in Sources */,
 				78CF6F351E8928440096DCB4 /* GasStation.swift in Sources */,
 				789A02751E90FA7900641B0F /* ConfigGraphVC.swift in Sources */,
@@ -519,6 +534,7 @@
 				78C1F63D1E8AB08E0032AC2D /* DbModel.xcdatamodeld in Sources */,
 				78CAD1A91E8E8CCE007F5633 /* RecomendedTableViewCell.swift in Sources */,
 				784C7BB11E8B9AD7000365BE /* CurrentChargeFromDbModel.swift in Sources */,
+				789A027C1E9119B700641B0F /* ConfigAccountVC.swift in Sources */,
 				780C79801E81560C00E3369A /* Charge.swift in Sources */,
 				78CAD1A51E8D1670007F5633 /* ChargeFromDbModel.swift in Sources */,
 				78CAD1A71E8E7DF2007F5633 /* RecomendedTableViewController.swift in Sources */,
