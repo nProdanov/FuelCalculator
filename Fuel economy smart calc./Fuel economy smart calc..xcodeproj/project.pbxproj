@@ -34,6 +34,7 @@
 		789A02731E90F92C00641B0F /* ConfigCurrentChargeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789A02721E90F92C00641B0F /* ConfigCurrentChargeVC.swift */; };
 		789A02751E90FA7900641B0F /* ConfigGraphVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789A02741E90FA7900641B0F /* ConfigGraphVC.swift */; };
 		789A02771E90FB7B00641B0F /* ConfigChargesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789A02761E90FB7B00641B0F /* ConfigChargesVC.swift */; };
+		789A02791E9114A100641B0F /* MoreTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789A02781E9114A100641B0F /* MoreTabViewController.swift */; };
 		789F70131E8917FD00F96B0A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 789F70121E8917FD00F96B0A /* GoogleService-Info.plist */; };
 		78B4C1561E7D150700D17916 /* BaseFCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B4C1551E7D150700D17916 /* BaseFCViewController.swift */; };
 		78C1F6381E8AB0110032AC2D /* DbModelCharge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C1F6371E8AB0110032AC2D /* DbModelCharge.swift */; };
@@ -97,6 +98,7 @@
 		789A02721E90F92C00641B0F /* ConfigCurrentChargeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigCurrentChargeVC.swift; sourceTree = "<group>"; };
 		789A02741E90FA7900641B0F /* ConfigGraphVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigGraphVC.swift; sourceTree = "<group>"; };
 		789A02761E90FB7B00641B0F /* ConfigChargesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigChargesVC.swift; sourceTree = "<group>"; };
+		789A02781E9114A100641B0F /* MoreTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreTabViewController.swift; sourceTree = "<group>"; };
 		789F70121E8917FD00F96B0A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		78B4C1551E7D150700D17916 /* BaseFCViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseFCViewController.swift; sourceTree = "<group>"; };
 		78C1F6371E8AB0110032AC2D /* DbModelCharge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DbModelCharge.swift; sourceTree = "<group>"; };
@@ -233,6 +235,7 @@
 				781A85B61E87ED270024A5D6 /* CurrentCharge */,
 				781A85B71E87ED3A0024A5D6 /* Charging */,
 				78E20A551E86545B00001E58 /* Extensions */,
+				789A02781E9114A100641B0F /* MoreTabViewController.swift */,
 			);
 			path = "Fuel economy smart calc.";
 			sourceTree = "<group>";
@@ -512,6 +515,7 @@
 				78E20A571E86549200001E58 /* VCDismissKeyboardExtension.swift in Sources */,
 				789A026F1E90F63F00641B0F /* ConfigChargingVC.swift in Sources */,
 				78C1F63A1E8AB04F0032AC2D /* DbModelGasStation.swift in Sources */,
+				789A02791E9114A100641B0F /* MoreTabViewController.swift in Sources */,
 				78C1F63D1E8AB08E0032AC2D /* DbModel.xcdatamodeld in Sources */,
 				78CAD1A91E8E8CCE007F5633 /* RecomendedTableViewCell.swift in Sources */,
 				784C7BB11E8B9AD7000365BE /* CurrentChargeFromDbModel.swift in Sources */,

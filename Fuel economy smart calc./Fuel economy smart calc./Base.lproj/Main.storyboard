@@ -325,7 +325,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M7d-AD-1oC" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="Djk-1l-jaE"/>
             </objects>
-            <point key="canvasLocation" x="2284" y="-296"/>
+            <point key="canvasLocation" x="2494" y="-1285"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="NxF-0I-JbJ">
@@ -346,7 +346,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6UG-hv-ATZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1433" y="-295"/>
+            <point key="canvasLocation" x="1433" y="-1285"/>
         </scene>
         <!--Charges-->
         <scene sceneID="YbL-vS-UIP">
@@ -600,7 +600,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HAN-M0-xEa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2284" y="485"/>
+            <point key="canvasLocation" x="1433" y="1754"/>
         </scene>
         <!--Charge Location View Controller-->
         <scene sceneID="t0L-yc-D7f">
@@ -635,7 +635,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fct-hd-QhY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2988" y="482.60869565217394"/>
+            <point key="canvasLocation" x="2494" y="1754"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="8Tt-Mu-ZSd">
@@ -652,14 +652,71 @@
                         <segue destination="LtZ-vM-Pyf" kind="relationship" relationship="viewControllers" id="J4l-xj-xCp"/>
                         <segue destination="alh-Hv-NAJ" kind="relationship" relationship="viewControllers" id="Loe-uy-PBs"/>
                         <segue destination="5G3-yN-aWu" kind="relationship" relationship="viewControllers" id="Lb8-9G-g39"/>
-                        <segue destination="dwb-q9-Jgo" kind="relationship" relationship="viewControllers" id="UIX-jw-rhK"/>
-                        <segue destination="IoA-CZ-ZNI" kind="relationship" relationship="viewControllers" id="hn6-w3-FFt"/>
-                        <segue destination="rfO-32-wRu" kind="relationship" relationship="viewControllers" id="Xdp-Co-va3"/>
+                        <segue destination="iR3-BY-768" kind="relationship" relationship="viewControllers" id="GAk-wQ-wz0"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="84C-mn-d25" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="287" y="964"/>
+        </scene>
+        <!--More-->
+        <scene sceneID="RXW-IE-eHa">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BLJ-o4-7hd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="E1Q-ob-pOW" customClass="MoreTabViewController" customModule="Fuel_economy_smart_calc_" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ajw-qz-LNZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="Z9P-od-Meb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Mwp-Al-NY1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r7D-n6-bIV">
+                                <rect key="frame" x="16" y="132" width="343" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <state key="normal" title="Graph" image="graph">
+                                    <color key="titleColor" red="0.80169282210000004" green="0.86029914659999995" blue="0.9642163212" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="lIS-3i-uRo" kind="show" id="7kV-ln-saj"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PeK-Ag-O0L">
+                                <rect key="frame" x="16" y="91" width="343" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <state key="normal" title="Charges" image="charges">
+                                    <color key="titleColor" red="0.80169282210000004" green="0.86029914659999995" blue="0.9642163212" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="W5F-xQ-fao" kind="show" id="xJz-fk-pdF"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nqf-Je-4VT">
+                                <rect key="frame" x="16" y="173" width="343" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <state key="normal" title="Account" image="account">
+                                    <color key="titleColor" red="0.80169282210000004" green="0.86029914659999995" blue="0.9642163212" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="7CD-Mf-aPK" kind="show" id="bFA-CQ-wJj"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.16111665959999999" green="0.27463889120000001" blue="0.40607100730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="More" id="JNw-f1-UQy"/>
+                    <connections>
+                        <outlet property="accountButton" destination="nqf-Je-4VT" id="Zes-dg-VtA"/>
+                        <outlet property="chargesButton" destination="PeK-Ag-O0L" id="35y-1Q-cLW"/>
+                        <outlet property="graphButton" destination="r7D-n6-bIV" id="d5Z-hS-Bcj"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="285.60000000000002" y="2557.8710644677662"/>
         </scene>
         <!--Graph-->
         <scene sceneID="sZk-Ul-Xaz">
@@ -693,49 +750,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hbh-Wm-7cc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2284" y="1223"/>
-        </scene>
-        <!--Charges-->
-        <scene sceneID="yGR-aY-ehj">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dwb-q9-Jgo" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Charges" image="charges" id="Vct-dU-rm4">
-                        <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
-                    </tabBarItem>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="T6q-Hh-Ne6">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="W5F-xQ-fao" kind="relationship" relationship="rootViewController" id="b4b-vo-bdH"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="pjB-ce-6wY" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1433" y="486"/>
-        </scene>
-        <!--Graph-->
-        <scene sceneID="pD5-xV-t5R">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="IoA-CZ-ZNI" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Graph" image="graph" id="j1z-cF-T0R">
-                        <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
-                    </tabBarItem>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="yTn-26-LfS">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="lIS-3i-uRo" kind="relationship" relationship="rootViewController" id="pn7-zG-6wf"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zjv-ZY-S2U" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1433" y="1223"/>
+            <point key="canvasLocation" x="1425" y="2558"/>
         </scene>
         <!--Current charge-->
         <scene sceneID="avL-es-BuA">
@@ -952,7 +967,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Ta-At-nGe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2221.5999999999999" y="1984.8575712143929"/>
+            <point key="canvasLocation" x="2494" y="233"/>
         </scene>
         <!--Charging-->
         <scene sceneID="dfj-nz-gVg">
@@ -1139,7 +1154,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fiq-kh-Vqs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2221.5999999999999" y="2660.4197901049479"/>
+            <point key="canvasLocation" x="2494" y="-501"/>
         </scene>
         <!--Gas Station Location View Controller-->
         <scene sceneID="gw3-80-YH8">
@@ -1171,51 +1186,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v4H-9G-2ai" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2964" y="2661"/>
-        </scene>
-        <!--Location Search Table-->
-        <scene sceneID="urE-Wh-czN">
-            <objects>
-                <tableViewController storyboardIdentifier="LocationSearchTable" id="sFL-XZ-Qka" customClass="LocationSearchTable" customModule="Fuel_economy_smart_calc_" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="QNt-Dz-2Mf">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="XNj-JX-esD" detailTextLabel="Paz-vd-1nd" style="IBUITableViewCellStyleSubtitle" id="t0o-k8-WOn">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="t0o-k8-WOn" id="jiR-Gb-Gyd">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="XNj-JX-esD">
-                                            <rect key="frame" x="15" y="4" width="34" height="21"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Paz-vd-1nd">
-                                            <rect key="frame" x="15" y="25" width="44" height="15"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="sFL-XZ-Qka" id="lrp-13-EBV"/>
-                            <outlet property="delegate" destination="sFL-XZ-Qka" id="5Fu-Xk-IT3"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Mwe-Hy-fWi" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3649" y="2661"/>
+            <point key="canvasLocation" x="3398" y="-501"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ovo-fk-1PT">
@@ -1236,7 +1207,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eJZ-fD-L4w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1433" y="1985"/>
+            <point key="canvasLocation" x="1425" y="233"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="s9C-nu-TqH">
@@ -1257,7 +1228,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tEF-IV-Sa2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1432.8" y="2661.3193403298351"/>
+            <point key="canvasLocation" x="1433" y="-501"/>
         </scene>
         <!--rECOmended-->
         <scene sceneID="Qot-vE-c32">
@@ -1406,7 +1377,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FZs-tf-nzU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2221.5999999999999" y="3357.571214392804"/>
+            <point key="canvasLocation" x="2494" y="964"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Mip-i1-B1v">
@@ -1427,7 +1398,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sFJ-67-3xF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1424.8" y="3358.4707646176912"/>
+            <point key="canvasLocation" x="1425" y="964"/>
         </scene>
         <!--Account-->
         <scene sceneID="FQQ-Km-TEM">
@@ -1568,7 +1539,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z6q-7I-QES" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2221.5999999999999" y="4013.3433283358322"/>
+            <point key="canvasLocation" x="1433" y="3345"/>
         </scene>
         <!--Register View Controller-->
         <scene sceneID="iff-X4-Sa4">
@@ -1691,26 +1662,26 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PmG-wo-TlJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2964" y="4013.3433283358322"/>
+            <point key="canvasLocation" x="2494" y="3345"/>
         </scene>
-        <!--Account-->
-        <scene sceneID="KfA-KZ-t5S">
+        <!--Navigation Controller-->
+        <scene sceneID="eEX-RN-mea">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rfO-32-wRu" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Account" image="account" id="5HU-xF-daz"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uF9-a2-kXu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="iR3-BY-768" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" systemItem="more" id="zxH-4o-dj3"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="rUK-Vw-0fd">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ojw-ev-hXz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="7CD-Mf-aPK" kind="relationship" relationship="rootViewController" id="Pv4-bE-KdL"/>
+                        <segue destination="E1Q-ob-pOW" kind="relationship" relationship="rootViewController" id="1Th-l7-iui"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2z0-Fb-lr9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1439.2" y="4014.2428785607199"/>
+            <point key="canvasLocation" x="-529" y="2558"/>
         </scene>
     </scenes>
     <resources>
