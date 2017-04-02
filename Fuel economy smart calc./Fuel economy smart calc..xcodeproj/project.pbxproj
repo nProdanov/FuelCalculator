@@ -43,6 +43,7 @@
 		78CF6F3A1E892F040096DCB4 /* BaseGasStationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CF6F391E892F040096DCB4 /* BaseGasStationData.swift */; };
 		78CF6F3D1E8930AB0096DCB4 /* GasStationDataDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CF6F3C1E8930AB0096DCB4 /* GasStationDataDelegate.swift */; };
 		78CF6F3F1E89313C0096DCB4 /* FireBaseGasStationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CF6F3E1E89313C0096DCB4 /* FireBaseGasStationData.swift */; };
+		78CF9E511E90C354000925B9 /* VCLoadingExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CF9E501E90C354000925B9 /* VCLoadingExtension.swift */; };
 		78DA73191E8F7F7E00E1863A /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DA73181E8F7F7E00E1863A /* AccountViewController.swift */; };
 		78DA731B1E8FFF4700E1863A /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DA731A1E8FFF4700E1863A /* RegisterViewController.swift */; };
 		78DA731D1E90096B00E1863A /* BaseAuthData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DA731C1E90096B00E1863A /* BaseAuthData.swift */; };
@@ -98,6 +99,7 @@
 		78CF6F391E892F040096DCB4 /* BaseGasStationData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseGasStationData.swift; sourceTree = "<group>"; };
 		78CF6F3C1E8930AB0096DCB4 /* GasStationDataDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GasStationDataDelegate.swift; sourceTree = "<group>"; };
 		78CF6F3E1E89313C0096DCB4 /* FireBaseGasStationData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FireBaseGasStationData.swift; sourceTree = "<group>"; };
+		78CF9E501E90C354000925B9 /* VCLoadingExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCLoadingExtension.swift; sourceTree = "<group>"; };
 		78DA73181E8F7F7E00E1863A /* AccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		78DA731A1E8FFF4700E1863A /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		78DA731C1E90096B00E1863A /* BaseAuthData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseAuthData.swift; sourceTree = "<group>"; };
@@ -305,6 +307,7 @@
 			isa = PBXGroup;
 			children = (
 				78E20A561E86549200001E58 /* VCDismissKeyboardExtension.swift */,
+				78CF9E501E90C354000925B9 /* VCLoadingExtension.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -500,6 +503,7 @@
 				7850CD601E898A4200FF44C5 /* MKGasStation.swift in Sources */,
 				783D7A1F1E8AF78100B2A054 /* GasStationFromDbModel.swift in Sources */,
 				784C7BB91E8C1179000365BE /* ChargeDict.swift in Sources */,
+				78CF9E511E90C354000925B9 /* VCLoadingExtension.swift in Sources */,
 				784C7BAD1E8B9475000365BE /* ChargesData.swift in Sources */,
 				784C7BB71E8C0FF4000365BE /* FirebaseChargesData.swift in Sources */,
 				78F6C6261E8B91200020CB3E /* BaseChargesData.swift in Sources */,

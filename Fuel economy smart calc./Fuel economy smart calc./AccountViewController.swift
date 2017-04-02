@@ -18,6 +18,7 @@ class AccountViewController: UIViewController, UITextFieldDelegate
     @IBAction func logout() {
         authData?.signOutUser()
         emailLabel.text = ""
+        
         hideLogoutStuff()
         showLoginStuff()
     }
@@ -39,6 +40,7 @@ class AccountViewController: UIViewController, UITextFieldDelegate
         if let email = emailTextField.text,
             let password = passwordTextField.text {
             self.authData?.signInUser(withEmail: email, andPassowrd: password)
+            showLoadingScreen()
         }
     }
     
@@ -59,6 +61,7 @@ class AccountViewController: UIViewController, UITextFieldDelegate
         invaildLoginLabel.isHidden = true
         
         authData?.getCurrentUser()
+        showLoadingScreen()
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -108,9 +111,13 @@ extension AccountViewController: AuthDataDelegate
 {
     func didReceiveSignInUserError() {
         invaildLoginLabel.isHidden = false
+        
+        hideLoadingScreen()
     }
     
     func didReceiveSignInUser(withEmail email: String) {
+        hideLoadingScreen()
+        
         emailTextField.text = ""
         passwordTextField.text = ""
         
@@ -120,6 +127,8 @@ extension AccountViewController: AuthDataDelegate
     }
     
     func didReceiveCurrentUser(withEmail email: String?) {
+        hideLoadingScreen()
+        
         if email != nil {
             hideLoginStuff()
             showLogoutStuff()

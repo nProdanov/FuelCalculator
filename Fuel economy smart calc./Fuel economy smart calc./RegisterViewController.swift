@@ -35,6 +35,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate
             
             if isValidEmail, isValidPassword, isPasswordsMatching {
                     authData?.createUser(withEmail: email, andPassword: password)
+                    showLoadingScreen()
             }
         }
     }
@@ -99,11 +100,15 @@ class RegisterViewController: UIViewController, UITextFieldDelegate
 extension RegisterViewController: AuthDataDelegate
 {
     func didReceiveCreateUser(withEmail email: String) {
+        hideLoadingScreen()
+        
         _ = navigationController?.popViewController(animated: true)
         dismiss(animated: true, completion: nil)
     }
     
     func didReceiveCreateUserError() {
+        hideLoadingScreen()
+        
         invalidRegisterLabel.isHidden = false
     }
 }
