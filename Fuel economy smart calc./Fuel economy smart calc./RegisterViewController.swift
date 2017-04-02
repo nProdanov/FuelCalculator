@@ -63,7 +63,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
-        if textField == emailTextField { // Switch focus to
+        if textField == emailTextField {
             passwodTextFIeld.becomeFirstResponder()
         }
         
@@ -78,7 +78,6 @@ class RegisterViewController: UIViewController, UITextFieldDelegate
     }
     
     private func isValidEmail(_ testStr:String) -> Bool {
-        // print("validate calendar: \(testStr)")
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
         
         let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)

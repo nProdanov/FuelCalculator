@@ -19,6 +19,7 @@ class GasStationData: BaseGasStationData, RemoteGasStationDataDelegate
     private var delegate: GasStationDataDelegate?
     
     init(withRemoteData data: BaseRemoteGasStationData) {
+        remoteData = data
         remoteData?.setDelegate(self)
         
         self.sync()

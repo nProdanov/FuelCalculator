@@ -20,7 +20,10 @@ class ChargesData: BaseChargesData, RemoteChargesDataDelegate
     
     var calculatorBrain: BaseFuelCalculatorBrain?
     
-    init(withRemoteChargesData data: BaseRemoteChargesData, andCalculatorBrain brain: BaseFuelCalculatorBrain) {
+    init(
+        withRemoteChargesData data: BaseRemoteChargesData,
+        andCalculatorBrain brain: BaseFuelCalculatorBrain)
+    {
         self.remoteChargesData = data
         self.remoteChargesData?.setDelegate(self)
         

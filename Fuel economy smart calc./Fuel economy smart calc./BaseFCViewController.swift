@@ -15,14 +15,12 @@ class BaseFCViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let data = FireBaseGasStationData()
-        data.getAll()
+        
         addGestureForDismissingKeyboard()
     }
     
     @IBOutlet weak var fuelInputTextField: UITextField!
     @IBOutlet weak var fuelInputUnitControl: UISegmentedControl!
-    
     
     @IBOutlet weak var distanceInputTextField: UITextField!
     @IBOutlet weak var distanceInputUnitControl: UISegmentedControl!
@@ -31,10 +29,8 @@ class BaseFCViewController: UIViewController {
     @IBOutlet weak var priceInputCurrencyControl: UISegmentedControl!
     @IBOutlet weak var priceInputFuelUnitControl: UISegmentedControl!
     
-    
     @IBOutlet weak var fuelOutputTextField: UITextField!
     @IBOutlet weak var fuelOutputTypeControl: UISegmentedControl!
-    
     
     @IBOutlet weak var costOutputTextField: UITextField!
     @IBOutlet weak var costOutputCurrencyControl: UISegmentedControl!
@@ -49,6 +45,7 @@ class BaseFCViewController: UIViewController {
         self.dismissKeyboard()
         self.makeCalculation()
     }
+    
     @IBAction func clear(_ sender: Any) {
         self.dismissKeyboard()
         
@@ -127,17 +124,4 @@ class BaseFCViewController: UIViewController {
     private func convertSelectedSegmentToString(from segmentedControl: UISegmentedControl) -> String? {
         return segmentedControl.titleForSegment(at: segmentedControl.selectedSegmentIndex)
     }
-    
-    
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
 }
