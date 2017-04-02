@@ -11,7 +11,6 @@
 		780C79801E81560C00E3369A /* Charge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780C797F1E81560C00E3369A /* Charge.swift */; };
 		780C79821E815C6200E3369A /* ChargeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780C79811E815C6200E3369A /* ChargeTableViewCell.swift */; };
 		781A85B31E87A4900024A5D6 /* GasStationLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781A85B21E87A4900024A5D6 /* GasStationLocationViewController.swift */; };
-		781A85B51E87C3290024A5D6 /* LocationSearchTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781A85B41E87C3290024A5D6 /* LocationSearchTable.swift */; };
 		781A85B91E87EEA70024A5D6 /* ChargeLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781A85B81E87EEA70024A5D6 /* ChargeLocationViewController.swift */; };
 		783D7A1F1E8AF78100B2A054 /* GasStationFromDbModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783D7A1E1E8AF78100B2A054 /* GasStationFromDbModel.swift */; };
 		784C7BAD1E8B9475000365BE /* ChargesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784C7BAC1E8B9475000365BE /* ChargesData.swift */; };
@@ -76,7 +75,6 @@
 		780C797F1E81560C00E3369A /* Charge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Charge.swift; sourceTree = "<group>"; };
 		780C79811E815C6200E3369A /* ChargeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChargeTableViewCell.swift; sourceTree = "<group>"; };
 		781A85B21E87A4900024A5D6 /* GasStationLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GasStationLocationViewController.swift; sourceTree = "<group>"; };
-		781A85B41E87C3290024A5D6 /* LocationSearchTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSearchTable.swift; sourceTree = "<group>"; };
 		781A85B81E87EEA70024A5D6 /* ChargeLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChargeLocationViewController.swift; sourceTree = "<group>"; };
 		783D7A1E1E8AF78100B2A054 /* GasStationFromDbModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GasStationFromDbModel.swift; sourceTree = "<group>"; };
 		784C7BAC1E8B9475000365BE /* ChargesData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChargesData.swift; sourceTree = "<group>"; };
@@ -173,7 +171,6 @@
 			isa = PBXGroup;
 			children = (
 				781A85B21E87A4900024A5D6 /* GasStationLocationViewController.swift */,
-				781A85B41E87C3290024A5D6 /* LocationSearchTable.swift */,
 				78E20A581E86715000001E58 /* ChargingViewController.swift */,
 			);
 			name = Charging;
@@ -526,7 +523,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				784C7BB31E8C0C8E000365BE /* BaseRemoteChargesData.swift in Sources */,
-				781A85B51E87C3290024A5D6 /* LocationSearchTable.swift in Sources */,
 				78DA73211E900B8300E1863A /* FirebaseAuthData.swift in Sources */,
 				78F7E9041E7D2E8C0081E4B6 /* BaseFuelCalculatorBrain.swift in Sources */,
 				78CDFB961E850E0F00A7D1C2 /* CurrentChargeViewController.swift in Sources */,

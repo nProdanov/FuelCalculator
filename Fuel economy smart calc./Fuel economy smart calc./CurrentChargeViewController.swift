@@ -47,14 +47,9 @@ class CurrentChargeViewController: UIViewController
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         addGestureForDismissingKeyboard()
         addSaveButtonToNavBar()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        if currentCharge == nil {
-            self.tabBarController?.selectedIndex = 1
-        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

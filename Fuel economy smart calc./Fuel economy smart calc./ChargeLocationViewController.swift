@@ -12,7 +12,6 @@ import MapKit
 class ChargeLocationViewController: UIViewController, MKMapViewDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
-    var geoCoder: CLGeocoder?
     
     var gasStation: GasStation?
     

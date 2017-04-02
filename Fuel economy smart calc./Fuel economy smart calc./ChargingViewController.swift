@@ -66,12 +66,6 @@ class ChargingViewController: UIViewController
         self.gasStationNameTextField.text = "-"
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        if currentCharge != nil {
-            self.tabBarController?.selectedIndex = 2
-        }
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         chargesData?.setDelegate(self)
         self.chargesData?.getCurrentCharge()
