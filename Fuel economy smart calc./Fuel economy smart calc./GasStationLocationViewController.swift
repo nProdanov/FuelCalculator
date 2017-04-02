@@ -31,13 +31,7 @@ class GasStationLocationViewController: UIViewController, MKMapViewDelegate
         }
     }
     
-    var gasStationData: BaseGasStationData? {
-        didSet {
-            gasStationData?.setDelegate(self)
-            gasStationData?.getAll()
-            areAnotationsReady = true
-        }
-    }
+    var gasStationData: BaseGasStationData?
     
     @IBOutlet weak var mapView: MKMapView! {
         didSet {
@@ -48,9 +42,12 @@ class GasStationLocationViewController: UIViewController, MKMapViewDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        gasStationData = GasStationData() // Swinject
-        locationManager = CLLocationManager() // Swinject
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        gasStationData?.setDelegate(self)
+        gasStationData?.getAll()
+        areAnotationsReady = true
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
@@ -146,22 +143,6 @@ extension GasStationLocationViewController: CLLocationManagerDelegate
 extension GasStationLocationViewController: GasStationDataDelegate
 {
     func didReceiveGasStations(gasStations: [GasStation]) {
-//        //DB shit
-//        container?.performBackgroundTask { [weak self] context in
-//            for gasStationInfo in gasStations {
-//                _ = try? DbModelGasStation.findOrCreateGasStation(with: gasStationInfo, in: context)
-//            }
-//            
-//            try? context.save()
-//            
-//            if let cont = self?.container?.viewContext {
-//                cont.perform {
-//                    if let gasStationsCount = (try? cont.count(for: DbModelGasStation.fetchRequest())) {
-//                       print("count: \(gasStationsCount)")
-//                    }
-//                }
-//            }
-//        }
         self.clearGasStations()
         self.addGasStations(gasStations)
     }

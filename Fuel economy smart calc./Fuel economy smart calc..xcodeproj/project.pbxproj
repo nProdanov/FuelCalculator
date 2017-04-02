@@ -27,6 +27,8 @@
 		78537CD51E7C38D1005BBC24 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78537CD31E7C38D1005BBC24 /* Main.storyboard */; };
 		78537CD71E7C38D1005BBC24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78537CD61E7C38D1005BBC24 /* Assets.xcassets */; };
 		78537CDA1E7C38D1005BBC24 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78537CD81E7C38D1005BBC24 /* LaunchScreen.storyboard */; };
+		789A02691E90D6DC00641B0F /* DIConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789A02681E90D6DC00641B0F /* DIConfig.swift */; };
+		789A026B1E90E0E200641B0F /* ConfigChargingLocationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789A026A1E90E0E200641B0F /* ConfigChargingLocationVC.swift */; };
 		789F70131E8917FD00F96B0A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 789F70121E8917FD00F96B0A /* GoogleService-Info.plist */; };
 		78B4C1561E7D150700D17916 /* BaseFCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B4C1551E7D150700D17916 /* BaseFCViewController.swift */; };
 		78C1F6381E8AB0110032AC2D /* DbModelCharge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C1F6371E8AB0110032AC2D /* DbModelCharge.swift */; };
@@ -83,6 +85,8 @@
 		78537CD61E7C38D1005BBC24 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		78537CD91E7C38D1005BBC24 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		78537CDB1E7C38D1005BBC24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		789A02681E90D6DC00641B0F /* DIConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DIConfig.swift; sourceTree = "<group>"; };
+		789A026A1E90E0E200641B0F /* ConfigChargingLocationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigChargingLocationVC.swift; sourceTree = "<group>"; };
 		789F70121E8917FD00F96B0A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		78B4C1551E7D150700D17916 /* BaseFCViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseFCViewController.swift; sourceTree = "<group>"; };
 		78C1F6371E8AB0110032AC2D /* DbModelCharge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DbModelCharge.swift; sourceTree = "<group>"; };
@@ -199,6 +203,8 @@
 		78537CCE1E7C38D1005BBC24 /* Fuel economy smart calc. */ = {
 			isa = PBXGroup;
 			children = (
+				789A02681E90D6DC00641B0F /* DIConfig.swift */,
+				789A026A1E90E0E200641B0F /* ConfigChargingLocationVC.swift */,
 				78DA73221E901FE400E1863A /* Auth */,
 				78DA73171E8F74E400E1863A /* Recomended */,
 				78537CD31E7C38D1005BBC24 /* Main.storyboard */,
@@ -253,9 +259,9 @@
 				78CF6F3B1E892F7C0096DCB4 /* Delegates */,
 				78CF6F381E892EE70096DCB4 /* Base */,
 				78CF6F3E1E89313C0096DCB4 /* FireBaseGasStationData.swift */,
+				78DA73201E900B8300E1863A /* FirebaseAuthData.swift */,
 				78C1F6401E8AC2B00032AC2D /* GasStationData.swift */,
 				784C7BAC1E8B9475000365BE /* ChargesData.swift */,
-				78DA73201E900B8300E1863A /* FirebaseAuthData.swift */,
 				784C7BB61E8C0FF4000365BE /* FirebaseChargesData.swift */,
 			);
 			name = Data;
@@ -480,10 +486,12 @@
 				78C1F6431E8AC4E70032AC2D /* RemoteGasStationDataDelegate.swift in Sources */,
 				78DA731D1E90096B00E1863A /* BaseAuthData.swift in Sources */,
 				78DA731B1E8FFF4700E1863A /* RegisterViewController.swift in Sources */,
+				789A026B1E90E0E200641B0F /* ConfigChargingLocationVC.swift in Sources */,
 				78B4C1561E7D150700D17916 /* BaseFCViewController.swift in Sources */,
 				784C7BB51E8C0E38000365BE /* RemoteChargesDataDelegate.swift in Sources */,
 				7850CD5E1E8975F500FF44C5 /* GasStationFromDict.swift in Sources */,
 				78C1F6381E8AB0110032AC2D /* DbModelCharge.swift in Sources */,
+				789A02691E90D6DC00641B0F /* DIConfig.swift in Sources */,
 				78E6120A1E828ADE0098B35B /* GraphViewController.swift in Sources */,
 				78E20A571E86549200001E58 /* VCDismissKeyboardExtension.swift in Sources */,
 				78C1F63A1E8AB04F0032AC2D /* DbModelGasStation.swift in Sources */,

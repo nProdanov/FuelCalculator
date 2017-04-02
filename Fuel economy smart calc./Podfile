@@ -6,7 +6,12 @@ target 'Fuel economy smart calc.' do
   use_frameworks!
 
   # Pods for Fuel economy smart calc.
+  # Firebase
   pod 'Firebase/Core'
   pod 'Firebase/Database'
   pod 'Firebase/Auth'
+
+  # Swinject
+  pod 'Swinject', '~> 2.0.0'
+  pod 'SwinjectStoryboard', '~> 1.0.0'
 end

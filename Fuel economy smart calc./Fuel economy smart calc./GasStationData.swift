@@ -18,8 +18,7 @@ class GasStationData: BaseGasStationData, RemoteGasStationDataDelegate
     
     private var delegate: GasStationDataDelegate?
     
-    init() {
-        remoteData = FireBaseGasStationData() // Swinject
+    init(withRemoteData data: BaseRemoteGasStationData) {
         remoteData?.setDelegate(self)
         
         self.sync()

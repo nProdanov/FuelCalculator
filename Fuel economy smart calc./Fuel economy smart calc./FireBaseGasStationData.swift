@@ -17,6 +17,10 @@ class FireBaseGasStationData: BaseRemoteGasStationData
     private var dbReference: FIRDatabaseReference!
     
     init(){
+        if FIRApp.defaultApp() == nil {
+            FIRApp.configure()
+        }
+        
         dbReference = FIRDatabase.database().reference()
     }
     

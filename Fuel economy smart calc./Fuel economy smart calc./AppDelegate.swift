@@ -18,7 +18,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var charges: [Charge]?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        FIRApp.configure()
+        if FIRApp.defaultApp() == nil {
+            FIRApp.configure()
+        }
+        
         
         // Override point for customization after application launch.
         return true
