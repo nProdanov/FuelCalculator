@@ -63,4 +63,13 @@ class RecomendedTableViewController: UITableViewController, ChargesDataDelegate
         
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let charges = charges {
+            let chargeLocationVC = storyboard?.instantiateViewController(withIdentifier: "ChargeLocation") as! ChargeLocationViewController
+            chargeLocationVC.gasStation = charges[indexPath.row].gasStation
+            
+            navigationController?.show(chargeLocationVC, sender: self)
+        }
+    }
 }

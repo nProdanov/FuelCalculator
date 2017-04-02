@@ -82,7 +82,6 @@ extension ChargesTableViewController {
             if let charges = self.charges {
                 self.chargesData?.deleteCharge(byId: charges[indexPath.row].id)
                 self.charges?.remove(at: indexPath.row)
-                //                self.tableView.deleteRows(at: [indexPath], with: .fade)
             }
         }
     }
