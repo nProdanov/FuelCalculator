@@ -37,6 +37,7 @@
 		789A02791E9114A100641B0F /* MoreTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789A02781E9114A100641B0F /* MoreTabViewController.swift */; };
 		789A027C1E9119B700641B0F /* ConfigAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789A027B1E9119B700641B0F /* ConfigAccountVC.swift */; };
 		789A027E1E911A3000641B0F /* ConfigRegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789A027D1E911A3000641B0F /* ConfigRegisterVC.swift */; };
+		789A02821E912B6A00641B0F /* ConfigFuelCalcVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789A02811E912B6A00641B0F /* ConfigFuelCalcVC.swift */; };
 		789F70131E8917FD00F96B0A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 789F70121E8917FD00F96B0A /* GoogleService-Info.plist */; };
 		78B4C1561E7D150700D17916 /* BaseFCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B4C1551E7D150700D17916 /* BaseFCViewController.swift */; };
 		78C1F6381E8AB0110032AC2D /* DbModelCharge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C1F6371E8AB0110032AC2D /* DbModelCharge.swift */; };
@@ -103,6 +104,7 @@
 		789A02781E9114A100641B0F /* MoreTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreTabViewController.swift; sourceTree = "<group>"; };
 		789A027B1E9119B700641B0F /* ConfigAccountVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigAccountVC.swift; sourceTree = "<group>"; };
 		789A027D1E911A3000641B0F /* ConfigRegisterVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigRegisterVC.swift; sourceTree = "<group>"; };
+		789A02811E912B6A00641B0F /* ConfigFuelCalcVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigFuelCalcVC.swift; sourceTree = "<group>"; };
 		789F70121E8917FD00F96B0A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		78B4C1551E7D150700D17916 /* BaseFCViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseFCViewController.swift; sourceTree = "<group>"; };
 		78C1F6371E8AB0110032AC2D /* DbModelCharge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DbModelCharge.swift; sourceTree = "<group>"; };
@@ -278,6 +280,7 @@
 				789A02721E90F92C00641B0F /* ConfigCurrentChargeVC.swift */,
 				789A02741E90FA7900641B0F /* ConfigGraphVC.swift */,
 				789A027B1E9119B700641B0F /* ConfigAccountVC.swift */,
+				789A02811E912B6A00641B0F /* ConfigFuelCalcVC.swift */,
 			);
 			name = VCConfig;
 			sourceTree = "<group>";
@@ -527,6 +530,7 @@
 				78DA73211E900B8300E1863A /* FirebaseAuthData.swift in Sources */,
 				78F7E9041E7D2E8C0081E4B6 /* BaseFuelCalculatorBrain.swift in Sources */,
 				78CDFB961E850E0F00A7D1C2 /* CurrentChargeViewController.swift in Sources */,
+				789A02821E912B6A00641B0F /* ConfigFuelCalcVC.swift in Sources */,
 				789A027E1E911A3000641B0F /* ConfigRegisterVC.swift in Sources */,
 				78C1F6411E8AC2B00032AC2D /* GasStationData.swift in Sources */,
 				78CF6F351E8928440096DCB4 /* GasStation.swift in Sources */,

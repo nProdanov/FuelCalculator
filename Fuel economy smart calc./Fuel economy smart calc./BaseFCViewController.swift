@@ -12,6 +12,8 @@ class BaseFCViewController: UIViewController {
     
     private let defaultInputValue = ""
     private let defaultOutputValue = "-"
+
+    var brain: BaseFuelCalculatorBrain?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,7 +59,7 @@ class BaseFCViewController: UIViewController {
         costOutputTextField.text = self.defaultOutputValue
     }
     
-    private var brain = BaseFuelCalculatorBrain()
+    
     
     
     private func makeCalculation() {
@@ -76,7 +78,7 @@ class BaseFCViewController: UIViewController {
             let costDistanceQt = self.convertSelectedSegmentToString(from: costOutputUnitQuantityControl)!
             let costDistanceUnitType = self.convertSelectedSegmentToString(from: costOutputDistanceUnitControl)!
             
-            brain.performCalculation(
+            brain?.performCalculation(
                 fuelQuantity: fuel,
                 fuelUnit: fuelInputType,
                 distanceQuantity: distance,
@@ -89,10 +91,10 @@ class BaseFCViewController: UIViewController {
                 costDistanceQuantity: Double(costDistanceQt),
                 costDistanceUnit: costDistanceUnitType)
             
-            if let result = brain.fuelResult {
+            if let result = brain?.fuelResult {
                 self.setDoubleToTextField(valueForSet: result, textFieldToSet: fuelOutputTextField)
                 
-                if let costResult = brain.costResult {
+                if let costResult = brain?.costResult {
                     self.setDoubleToTextField(valueForSet: costResult, textFieldToSet: costOutputTextField)
                 }
                 else {

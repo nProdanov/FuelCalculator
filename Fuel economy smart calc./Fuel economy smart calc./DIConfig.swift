@@ -59,6 +59,7 @@ extension SwinjectStoryboard
             .inObjectScope(.container)
         
         // VC
+        ConfigFuelCalcVC.setup(container: defaultContainer)
         ConfigChargingLocationVC.setup(container: defaultContainer)
         ConfigCurrentChargeVC.setup(container: defaultContainer)
         ConfigGraphVC.setup(container: defaultContainer)
