@@ -34,12 +34,14 @@ class GasStationData: BaseGasStationData, RemoteGasStationDataDelegate
     }
     
     func didReceiveRemoteGasStations(_ gasStations: [GasStation]) {
-        container?.performBackgroundTask { context in
+        container?.performBackgroundTask { [weak self] context in
             for gasStationInfo in gasStations {
                 _ = try? DbModelGasStation.findOrCreateGasStation(with: gasStationInfo, in: context)
             }
             
             try? context.save()
+            
+            self?.getAllLocal()
         }
     }
     
