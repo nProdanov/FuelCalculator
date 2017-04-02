@@ -219,15 +219,7 @@
 		78537CCE1E7C38D1005BBC24 /* Fuel economy smart calc. */ = {
 			isa = PBXGroup;
 			children = (
-				789A02681E90D6DC00641B0F /* DIConfig.swift */,
-				789A02761E90FB7B00641B0F /* ConfigChargesVC.swift */,
-				789A02701E90F77A00641B0F /* ConfigRecomendedVC.swift */,
-				789A027D1E911A3000641B0F /* ConfigRegisterVC.swift */,
-				789A026A1E90E0E200641B0F /* ConfigChargingLocationVC.swift */,
-				789A026E1E90F63F00641B0F /* ConfigChargingVC.swift */,
-				789A02721E90F92C00641B0F /* ConfigCurrentChargeVC.swift */,
-				789A02741E90FA7900641B0F /* ConfigGraphVC.swift */,
-				789A027B1E9119B700641B0F /* ConfigAccountVC.swift */,
+				789A027F1E911B9A00641B0F /* DIConfig */,
 				78DA73221E901FE400E1863A /* Auth */,
 				78DA73171E8F74E400E1863A /* Recomended */,
 				78537CD31E7C38D1005BBC24 /* Main.storyboard */,
@@ -264,6 +256,30 @@
 				789A02781E9114A100641B0F /* MoreTabViewController.swift */,
 			);
 			name = MoreTab;
+			sourceTree = "<group>";
+		};
+		789A027F1E911B9A00641B0F /* DIConfig */ = {
+			isa = PBXGroup;
+			children = (
+				789A02801E911BB400641B0F /* VCConfig */,
+				789A02681E90D6DC00641B0F /* DIConfig.swift */,
+			);
+			name = DIConfig;
+			sourceTree = "<group>";
+		};
+		789A02801E911BB400641B0F /* VCConfig */ = {
+			isa = PBXGroup;
+			children = (
+				789A02761E90FB7B00641B0F /* ConfigChargesVC.swift */,
+				789A02701E90F77A00641B0F /* ConfigRecomendedVC.swift */,
+				789A027D1E911A3000641B0F /* ConfigRegisterVC.swift */,
+				789A026A1E90E0E200641B0F /* ConfigChargingLocationVC.swift */,
+				789A026E1E90F63F00641B0F /* ConfigChargingVC.swift */,
+				789A02721E90F92C00641B0F /* ConfigCurrentChargeVC.swift */,
+				789A02741E90FA7900641B0F /* ConfigGraphVC.swift */,
+				789A027B1E9119B700641B0F /* ConfigAccountVC.swift */,
+			);
+			name = VCConfig;
 			sourceTree = "<group>";
 		};
 		78C1F6361E8AAFC80032AC2D /* Db */ = {
