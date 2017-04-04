@@ -26,10 +26,10 @@ class CurrentChargeViewController: UIViewController
     @IBAction func addTripToJourney() {
         let trip = Double(tripQuantityTextField.text!)
         
-        if currentCharge != nil {
-            if let tripDistance = trip {
-                self.currentCharge?.journey += tripDistance
-            }
+        if let currentCharge = self.currentCharge,
+            let tripDistance = trip {
+            self.currentCharge?.journey += tripDistance
+            self.chargesData?.updadeCurrentCharge(with: currentCharge.journey)
         }
         
         tripQuantityTextField.text = ""
@@ -57,12 +57,6 @@ class CurrentChargeViewController: UIViewController
         
         if currentCharge == nil {
             self.chargesData?.getCurrentCharge()
-        }
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        if let currentCharge = self.currentCharge {
-            self.chargesData?.updadeCurrentCharge(with: currentCharge.journey)
         }
     }
     
